@@ -1,29 +1,14 @@
 /* 24CinL Blog - Ajax functions */
 
 
+// Ready function
 $(function(){
     $("#articles").fadeIn();
 
     var elements = $('#catEtag_container');
 
-    // Real-Time Search
-    $('#catEtag_search').keyup(function() {
-        if($("#liveSearch_error").is(':visible'))
-            $("#liveSearch_error").remove();
-
-        var val = '^(?=.*\\b' + $.trim($(this).val()).split(/\s+/).join('\\b)(?=.*\\b') + ').*$', reg = RegExp(val, 'i'), text;
-
-        elements.children().show().filter(function() {
-            text = $(this).text().replace(/\s+/g, ' ');
-            return !reg.test(text);
-        }).hide();
-
-        if(!elements.children().is(':visible')){
-            elements.prepend('<div id="liveSearch_error" class="col-lg-12"><span> "No element found"</span></div>');
-        }
-    });
-
 });
+
 
 
 /* ******************************* ARTICLES ******************************** */
@@ -270,6 +255,38 @@ function articles_by_tag(name){
             alert("ERROR: " + xhr.responseText + xhr.status);
         }
     });
+}
+
+
+// Real Time search for Category and Tag
+function real_time(){
+    setTimeout(function() {
+        var url = "controllers/script/realTimeSearch-script.php";
+        var text = $("#catEtag_search").val();
+        var section = window.location.href.toString().split("?")[1];
+        section = section.split("&")[0];
+
+        $.ajax(url, {
+            method: "POST",
+            data: {
+                "text" : text,
+                "section" : section
+            },
+            dataType: "html",
+            success: function(response) {
+                $('html, body').animate({}, 500, function(){
+                    $('#catEtag_container').fadeOut(400, function(){
+                        $('#catEtag_container').children().remove();
+                        $('#catEtag_container').append(response).delay(100);
+                        $('#catEtag_container').slideDown(800);
+                    });
+                });
+            },
+            error: function(xhr) {
+                alert("ERROR: " + xhr.responseText + xhr.status);
+            }
+        });
+    }, 800);
 }
 
 

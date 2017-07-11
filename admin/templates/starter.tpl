@@ -83,11 +83,11 @@
                                 <li>
                                     <a href="index.php"> <i class="fa fa-home"></i> Home </a>
                                 </li>
-                                <li>
+                                <li id="article_li">
                                     <a><i class="fa fa-edit"></i> Articles <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="articles.php?section=manage">Manage</a></li>
-                                        <li><a href="articles.php?section=draft">Draft</a></li>
+                                        <li id="liA1"><a href="articles.php?section=manage">Manage</a></li>
+                                        <li id="liA2"><a href="articles.php?section=draft">Draft</a></li>
                                     </ul>
                                 </li>
                                 <li>

@@ -61,14 +61,21 @@ function list_by_category($category, $page_number){
 
 /* *********************************  TAG  ******************************** */
 
-// Retrieve tag information by name
+// Get all tags
+function retrieve_all_tags(){
+    $tags = selectQuery("tag", "", "label ASC");
+    return $tags;
+}
+
+
+// Retrieve tag by label
 function tag_by_name($name){
     $result = selectRecord("tag", "label = '$name'");
     return $result;
 }
 
 
-// Retrieve all tags by label
+// Retrieve first 32 tags by page
 function retrieve_tags($page_number){
     $result = array();
 
@@ -80,7 +87,7 @@ function retrieve_tags($page_number){
         $DBtags = selectQuery("tag", "", "label ASC LIMIT $condition");
     }
 
-    foreach ($DBtags as $tag) {
+    foreach($DBtags as $tag) {
         $result[] = $tag;
     }
 

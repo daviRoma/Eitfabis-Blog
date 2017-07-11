@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-05-10 00:04:42
+/* Smarty version 3.1.30, created on 2017-07-11 13:09:35
   from "/Users/Davide/Desktop/Blog/templates/categories&tag.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59123cfa723d70_29596028',
+  'unifunc' => 'content_5964b1ef6205c0_41036201',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '170f71f9e3973f769bb90bffc89b467c9dd8e4cb' => 
     array (
       0 => '/Users/Davide/Desktop/Blog/templates/categories&tag.tpl',
-      1 => 1494367475,
+      1 => 1499771308,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59123cfa723d70_29596028 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5964b1ef6205c0_41036201 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main Content: List of categories or tags -->
@@ -97,7 +97,7 @@ echo $_smarty_tpl->tpl_vars['tagLink_style']->value;
                     <li class="navbar-search-elem">
                         <form class="mini-search-form" action="" method="post">
                             <div class="col-xs-10 ">
-                                <input class="mini-search" id="catEtag_search" name="search" type="text" placeholder="">
+                                <input class="mini-search" id="catEtag_search" name="search" type="text" onkeyup="real_time()" placeholder="">
                             </div>
                         </form>
                     </li>

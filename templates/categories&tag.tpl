@@ -56,7 +56,7 @@
                     <li class="navbar-search-elem">
                         <form class="mini-search-form" action="" method="post">
                             <div class="col-xs-10 ">
-                                <input class="mini-search" id="catEtag_search" name="search" type="text" placeholder="">
+                                <input class="mini-search" id="catEtag_search" name="search" type="text" onkeyup="real_time()" placeholder="">
                             </div>
                         </form>
                     </li>

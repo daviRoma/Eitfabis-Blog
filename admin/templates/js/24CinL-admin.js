@@ -1,6 +1,9 @@
 /* 24CinL Blog - JavaScript for Admins */
 
 
+var url = window.location.href.toString().split("?");
+
+
 // Ready function
 $(function(){
     //Blog-Setting - Background
@@ -113,4 +116,15 @@ $(function(){
         $("#send_user_info").attr("disabled", false);
     });
 
+    // Active article's dropdown of sidebar
+    if(url[1] == "section=manage"){
+        $("#article_li").addClass("active");
+        $("#liA1").addClass("current-page");
+        $("#liA1").parent("ul").css({"display":"block"});
+    }
+    if(url[1] == "section=draft"){
+        $("#article_li").addClass("active");
+        $("#liA2").addClass("current-page");
+        $("#liA2").parent("ul").css({"display":"block"});
+    }
 });

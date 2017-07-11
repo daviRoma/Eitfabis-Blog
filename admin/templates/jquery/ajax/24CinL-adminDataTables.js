@@ -27,12 +27,9 @@ $(function(){
 
     $("#undo").attr("disabled", "disabled");
     count_selected();
-    /*
-    window.history.click(function () {
-        alert("aa");
-    });*/
 
 });
+
 
 
 //Setting dataTable

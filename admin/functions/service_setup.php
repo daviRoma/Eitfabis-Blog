@@ -36,7 +36,7 @@ function check_service($page, $group, $level){
 function go_to_start($group){
     switch($group){
         case 1: redirect("../index.php", true); break;
-        case 2: redirect("../report.php", true); break;
+        case 2: redirect("../reports.php", true); break;
         case 3: redirect("../blog.php", true); break;
         case 4: redirect("../base.php", true); break;
         default: break;

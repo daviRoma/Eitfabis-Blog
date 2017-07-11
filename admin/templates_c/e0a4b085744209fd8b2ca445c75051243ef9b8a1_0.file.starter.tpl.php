@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-07 18:09:25
+/* Smarty version 3.1.30, created on 2017-07-11 12:10:38
   from "/Users/Davide/Desktop/Blog/admin/templates/starter.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_595fb235d8e219_17447181',
+  'unifunc' => 'content_5964a41eaa4200_99496286',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e0a4b085744209fd8b2ca445c75051243ef9b8a1' => 
     array (
       0 => '/Users/Davide/Desktop/Blog/admin/templates/starter.tpl',
-      1 => 1499443763,
+      1 => 1499767798,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_595fb235d8e219_17447181 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5964a41eaa4200_99496286 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,11 +109,11 @@ function content_595fb235d8e219_17447181 (Smarty_Internal_Template $_smarty_tpl)
                                 <li>
                                     <a href="index.php"> <i class="fa fa-home"></i> Home </a>
                                 </li>
-                                <li>
+                                <li id="article_li">
                                     <a><i class="fa fa-edit"></i> Articles <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="articles.php?section=manage">Manage</a></li>
-                                        <li><a href="articles.php?section=draft">Draft</a></li>
+                                        <li id="liA1"><a href="articles.php?section=manage">Manage</a></li>
+                                        <li id="liA2"><a href="articles.php?section=draft">Draft</a></li>
                                     </ul>
                                 </li>
                                 <li>
