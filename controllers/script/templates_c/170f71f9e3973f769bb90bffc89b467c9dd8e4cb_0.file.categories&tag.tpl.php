@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-11 15:06:54
+/* Smarty version 3.1.30, created on 2017-07-11 18:06:18
   from "/Users/Davide/Desktop/Blog/templates/categories&tag.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5964cd6ed1ab84_48335846',
+  'unifunc' => 'content_5964f77aeee553_93607542',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '170f71f9e3973f769bb90bffc89b467c9dd8e4cb' => 
     array (
       0 => '/Users/Davide/Desktop/Blog/templates/categories&tag.tpl',
-      1 => 1499771308,
+      1 => 1499788581,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5964cd6ed1ab84_48335846 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5964f77aeee553_93607542 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main Content: List of categories or tags -->

@@ -216,12 +216,13 @@
     margin-bottom: 10%;
     padding-top: 5px;
     padding-bottom: 20px;
-    background: -moz-linear-gradient(-90deg,  #ffffff 0%, #b3cce6 50%, #9fbfdf 51%, #9fbfdf 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#ffffff), color-stop(50%,#b3cce6), color-stop(51%,#9fbfdf), color-stop(100%,#9fbfdf)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(-90deg,  #ffffff 0%,#b3cce6 50%,#9fbfdf 51%,#9fbfdf 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(-90deg,  #ffffff 0%,#b3cce6 50%,#9fbfdf 51%,#9fbfdf 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(-90deg,  #ffffff 0%,#b3cce6 50%,#9fbfdf 51%,#9fbfdf 100%); /* IE10+ */
-    background: linear-gradient(360deg,  #ffffff 0%,#b3cce6 50%,#9fbfdf 51%,#9fbfdf 100%); /* W3C */
+    background-image: url("http://reencoded.s3.amazonaws.com/wp-content/uploads/2011/09/04-grey-wallpapers.jpg");
+    
+}
+
+.tag-header h1{
+    color: #000;
+    text-shadow: 1px 1px #dedede;
 }
 
 .tag-header span{
@@ -229,6 +230,8 @@
     font-size: 17px;
     padding-left: 5px;
     padding-right: 5px;
+    color: #fff;
+    text-shadow: 1px 1px #000;
 }
 
 .tag-container{
