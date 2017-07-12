@@ -46,7 +46,7 @@ if(isset($_POST['profileSubmit'])){
     $data_1['employment'] = $employment;
     $data_1['brief_description'] = $brief_description;
     $data_1['link'] = $links;
-    updateRecord("personal_info", $data_1, "userId = $id");
+    updateRecord("personal_info", $data_1, "user = $id");
 
 
     // Insert user email (if it was changed)

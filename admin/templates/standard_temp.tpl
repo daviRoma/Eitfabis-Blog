@@ -56,6 +56,33 @@
                     <!-- /.row -->
                 </section>
             </div>
+
+            <div class="x_content">
+                <div class="row">
+                    {foreach $admins as $admin}
+                    <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                        <div class="well profile_view">
+                            <div class="col-sm-12">
+                                <h4 class="brief"><i>Administrator</i></h4>
+                                <div class="left col-xs-7">
+                                    <h2>{$admin.username}</h2>
+                                    <p><strong class="fa fa-map-marker"></strong> {$admin.country} </p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fa fa-briefcase"></i> Employment: {$admin.employment}</li>
+                                        <li><i class="fa fa-envelope"></i> Email: {$admin.email}</li>
+                                    </ul>
+                                </div>
+                                <div class="right col-xs-5 text-center">
+                                    <img src="../{$admin.img_address}" alt="" class="img-circle img-responsive">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 bottom text-center">
+                            </div>
+                        </div>
+                    </div>
+                    {/foreach}
+                </div>
+            </div>
         </div>
     </div>
 </div>

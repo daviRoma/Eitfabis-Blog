@@ -38,7 +38,7 @@ function go_to_start($group){
         case 1: redirect("../index.php", true); break;
         case 2: redirect("../reports.php", true); break;
         case 3: redirect("../blog.php", true); break;
-        case 4: redirect("../base.php", true); break;
+        case 4: redirect("../standard.php", true); break;
         default: break;
     }
 }

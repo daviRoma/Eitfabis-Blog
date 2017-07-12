@@ -144,6 +144,13 @@ function insert_userGroup($data){
     $user_group['userId'] = $data['id'];
     $user_group['groupId'] = $data['group'];
     insertRecord("user_role", $user_group);
+    if($data['id'] == 1){
+        $data_info = array();
+        $data_info['employment'] = "-";
+        $data_info['img_address'] = "upload/user/user-default-bg.jpg";
+        $data_info['user'] = $data['id'];
+        insertRecord("personal_info", $user_group);
+    }
 }
 
 

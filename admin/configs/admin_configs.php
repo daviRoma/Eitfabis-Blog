@@ -18,7 +18,7 @@ define('REPORTS', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/reports.tpl');
 define('USERS_MANAGEMENT', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/allUsers.tpl');
 define('PROFILE', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/profile.tpl');
 define('UPLOADS', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/upload.tpl');
-define('BASE', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/base.tpl');
+define('STANDARD', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/standard_temp.tpl');
 
 
 
