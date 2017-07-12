@@ -26,8 +26,12 @@ $page_limit = get_page_limit(null);
 
 $articles = retrieve_recent($current_page, $page_limit);
 
+// Error checking
 if(is_string($articles))
-	redirect("error_page.php?error=$articles", true);
+	redirect("index.php?error=$articles", true);
+
+if(isset($_GET['error']))
+	$smarty->assign("error", $_GET['error']);
 
 
 $list = assign_articles($articles);

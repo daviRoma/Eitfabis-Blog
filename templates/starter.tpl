@@ -163,6 +163,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
                     </ul>
                     <p class="copyright text-muted">Copyright &copy; 24CinL Teamwork 2014</p>
+                    </br>
+                    {if isset($error)}
+                        <p class="copyright text-muted" style="color:#e60000">{$error}</p>
+                    {/if}
                 </div>
             </div>
         </div>

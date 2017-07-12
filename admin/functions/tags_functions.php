@@ -23,7 +23,7 @@ function get_tagByLabel($label){
 
 // Get tags by category
 function get_tagsByCategory($category){
-    $query = selectJoin("reference", "tag", "tag = id", "category = '$category'");
+    $query = selectJoin("tag_category", "tag", "tag = id", "category = '$category'");
     return $query;
 }
 
@@ -45,27 +45,26 @@ function set_tag($data, $oldId){
 //Delete one or more tags
 function delete_tag($idList, $number){
     if($number == 1){
-        $reference_records = selectQuery("reference", "tag = $idList", "tag ASC");
+        $reference_records = selectQuery("tag_category", "tag = $idList", "tag ASC");
         if(count($reference_records) > 0)
-            deleteRecord("reference", $idList);
+            deleteRecord("tag_category", $idList);
 
-        $has_records = selectQuery("has", "tag = $idList", "tag ASC");
+        $has_records = selectQuery("article_tag", "tag = $idList", "tag ASC");
         if(count($has_records) > 0){
-            //for($i = 0; $i < count($has_records); $i++)
-                deleteRecord("has", $idList);
+            deleteRecord("article_tag", $idList);
         }
         deleteRecord("tag", "id = $idList");
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
-            $reference_records = selectQuery("reference", "tag = $id", "tag ASC");
+            $reference_records = selectQuery("tag_category", "tag = $id", "tag ASC");
             if(count($reference_records) > 0)
-                deleteRecord("reference", $id);
+                deleteRecord("tag_category", $id);
 
-            $has_records = selectQuery("has", "tag = $id", "tag ASC");
+            $has_records = selectQuery("article_tag", "tag = $id", "tag ASC");
             if(count($has_records) > 0){
                 //for($i = 0; $i < count($has_records); $i++)
-                    deleteRecord("has", $id);
+                    deleteRecord("article_tag", $id);
             }
             deleteRecord("tag", "id = $id");
         }

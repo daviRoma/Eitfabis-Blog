@@ -33,7 +33,7 @@ if(isset($_POST['search'])){
 
 }else{
     $error = "Server Error";
-    redirect("/error_page.php", true);
+    redirect("/search.php?error=true&typeError=$error", true);
 }
 
 ?>

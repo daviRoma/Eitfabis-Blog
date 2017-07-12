@@ -35,8 +35,8 @@ function get_userArticles($username){
     $articles = selectQuery("articles", "author = '$username'", "date DESC LIMIT 10");
     foreach($articles as $article){
         $id = $article['id'];
-        $category = selectRecord("part_of", "article = $id");
-        $tags = selectJoin("has", "tag", "tag = id", "article = $id");
+        $category = selectRecord("article_category", "article = $id");
+        $tags = selectJoin("article_tag", "tag", "tag = id", "article = $id");
         $result[$i]['id'] = $article['id'];
         $result[$i]['title'] = substr($article['title'], 0, 30) . "..";
         $result[$i]['date'] = substr($article['date'], 0, 10);

@@ -86,11 +86,11 @@ function get_totalPage($row){
 // Return an array of all possible path to perform upload
 function get_path_array(){
     $path = array();
-    $path[0] = "img/Blog/background/";
-    $path[1] = "img/Blog/category/";
-    $path[2] = "img/post/background/";
-    $path[3] = "img/post/pictures/";
-    $path[4] = "img/user/";
+    $path[0] = "upload/blog/background/";
+    $path[1] = "upload/blog/category/";
+    $path[2] = "upload/post/background/";
+    $path[3] = "upload/post/pictures/";
+    $path[4] = "upload/user/";
     return $path;
 }
 ?>

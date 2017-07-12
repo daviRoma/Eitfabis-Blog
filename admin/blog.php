@@ -19,6 +19,8 @@ $smarty->assign('header_page', '24CinL Blog - Settings');
 $smarty->assign('tables', TABLES);
 $smarty->assign('page', BLOG_SETTING);
 
+if(isset($_GET['error']))
+    $smarty->assign("error", $_GET['error']);
 
 // Operation
 $infos = get_BlogTable();

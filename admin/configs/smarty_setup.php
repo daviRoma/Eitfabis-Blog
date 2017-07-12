@@ -1,6 +1,7 @@
 <?php
 
 define('SMARTY_DIR', $_SERVER['DOCUMENT_ROOT'] . '/admin/libs/');
+
 // load Smarty library
 require_once(SMARTY_DIR . 'Smarty.class.php');
 

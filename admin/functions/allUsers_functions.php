@@ -10,7 +10,7 @@ function get_usersTable(){
     $users = selectQuery("users", "", "id DESC");
     $user_groups = selectQuery("user_role", "", "userId DESC");
     $i = 0;
-    foreach ($users as $user) {
+    foreach($users as $user) {
         foreach ($user_groups as $us_group) {
             if($user['id'] == $us_group['userId']){
                 $result[$i]['id'] = $user['id'];
@@ -200,7 +200,7 @@ function check_userGroup($data){
     }
     $id = $data['id'];
 
-    if($data['group'] == 0 || $data['group'] > 4){
+    if($data['group'] < 1 || $data['group'] > 4){
         $error = "Invalid Group!";
         return $error;
     }

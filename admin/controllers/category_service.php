@@ -14,11 +14,15 @@ if(isset($_POST['addNewCategory'])){
     $error = "";
 
     // Check empty fields
-	if(empty($_POST['setCategoryName']) || empty($_POST['setCategoryDescription']))
-        redirect("../categories.php?error=All fields are mandatory!", true);
+	if(empty($_POST['setCategoryName']) || empty($_POST['setCategoryDescription'])){
+        $error = "All fields are mandatory!";
+        redirect("../categories.php?error=$error", true);
+    }
 
-    if (!isset($_FILES['bg_file']) || !is_uploaded_file($_FILES['bg_file']['tmp_name']))
-        redirect("../categories.php?error=You do not send any file.", true);
+    if (!isset($_FILES['bg_file']) || !is_uploaded_file($_FILES['bg_file']['tmp_name'])){
+        $error = "You do not send any file.";
+        redirect("../categories.php?error=$error", true);
+    }
 
     // Check existing category
     $name = ucfirst($_POST['setCategoryName']);
@@ -41,12 +45,12 @@ if(isset($_POST['addNewCategory'])){
             }else{
                 $fileName = strtolower(str_replace(' ', '_', $name. "." . $file_extension));
 
-                if(file_exists(_ROOT . "//img/Blog/category/" . $fileName)){
+                if(file_exists(_ROOT . "/uplaod/blog/category/" . $fileName)){
                     $error = $fileName . "Already exist!";
                     redirect("../categories.php?error=$error", true);
                 }else{
                     $sourcePath = $_FILES['bg_file']['tmp_name'];                   // Storing source path of the file in a variable
-                    $targetPath = _ROOT . "//img/Blog/category/" . $fileName;    // Target path where file is to be stored
+                    $targetPath = _ROOT . "/upload/blog/category/" . $fileName;    // Target path where file is to be stored
                     move_uploaded_file($sourcePath, $targetPath);                   // Moving Uploaded file
                 }
             }
@@ -60,7 +64,7 @@ if(isset($_POST['addNewCategory'])){
     $data = array();
     $data['name'] = $name;
     $data['description'] = $description;
-    $data['background'] = "img/Blog/category/" . $fileName;
+    $data['background'] = "upload/blog/category/" . $fileName;
 
     insert_category($data);
     redirect("../categories.php", true);

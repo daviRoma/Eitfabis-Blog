@@ -8,7 +8,8 @@ require_once _ROOT . '/admin/functions/profile_functions.php';
 
 
 if (!isset($_FILES['avatar_file']) || !is_uploaded_file($_FILES['avatar_file']['tmp_name'])) {
-    echo "You don't send any file";
+    $error = "You don't send any file";
+    redirect("../profile.php?error=$error", true);
     exit;
 }
 
@@ -27,11 +28,11 @@ if(isset($_FILES["avatar_file"]["type"])){
         }else{
             $fileName = strtolower("user-bg-". time() .'_' . basename($_FILES["avatar_file"]["name"]));
 
-            if(file_exists(_ROOT . "/img/user/" . $fileName)){
+            if(file_exists(_ROOT . "/upload/user/" . $fileName)){
                 $error = $fileName . "Already exist!";
                 redirect("../profile.php?error=$error", true);
             }else{
-                $filePath = "/img/user/" . $fileName;
+                $filePath = "/upload/user/" . $fileName;
                 $sourcePath = $_FILES['avatar_file']['tmp_name'];   // Storing source path of the file in a variable
                 $targetPath = _ROOT . $filePath;                    // Target path where file is to be stored
                 move_uploaded_file($sourcePath, $targetPath);       // Moving Uploaded file
@@ -45,7 +46,7 @@ if(isset($_FILES["avatar_file"]["type"])){
 
 // Update DB column about new avatar
 $data = array();
-$data['img_address'] = "img/user/" . $fileName;
+$data['img_address'] = "upload/user/" . $fileName;
 updateRecord("personal_info", $data, "userId = $userId");
 
 $_SESSION['userPicture'] = $filePath;   // update avatar

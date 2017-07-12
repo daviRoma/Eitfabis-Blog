@@ -54,7 +54,6 @@ function list_by_category($category, $page_number){
             }
         }
     }
-
     return $result;
 }
 
@@ -90,14 +89,13 @@ function retrieve_tags($page_number){
     foreach($DBtags as $tag) {
         $result[] = $tag;
     }
-
     return $result;
 }
 
 
 // Retrieve articles list by tag
 function list_by_tag($tag, $page_number){
-    $DBarticlesId = selectJoin("has", "tag", "tag = id", "label = '$tag'", "ORDER BY article DESC");
+    $DBarticlesId = selectJoin("article_tag", "tag", "tag = id", "label = '$tag'", "ORDER BY article DESC");
     $result = array();
 
     if($page_number == 1){
@@ -128,7 +126,6 @@ function list_by_tag($tag, $page_number){
             }
         }
     }
-
     return $result;
 }
 
@@ -147,13 +144,13 @@ function list_by_option($option, $name, $page){
 // Returns the total number of pages of the articles found by category or tag.
 function get_total_page($name, $section){
     if($section == "category"){
-        $row = countRecord("part_of", "category = '$name'");
+        $row = countRecord("article_category", "category = '$name'");
     }
 
     if($section == "tag"){
         $DBtag = selectRecord("tag", "label = '$name'");
         $tagId = $DBtag['id'];
-        $row = countRecord("has", "tag = '$tagId'");
+        $row = countRecord("article_tag", "tag = '$tagId'");
     }
 
     $page = $row / 4;

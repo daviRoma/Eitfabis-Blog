@@ -34,8 +34,6 @@ else
 
 
 $smarty->assign('page_navigation', PAGE_NAVIGATION);
-
-
 $smarty->display(GALLERY_PAGE);
 
 ?>

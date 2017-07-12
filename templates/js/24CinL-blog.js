@@ -1,6 +1,7 @@
 /* 24CinL Blog - JavaScript for visitors */
 
 
+// Ready function
 $(function(){
 
     category_tag_buttons();

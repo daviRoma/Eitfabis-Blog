@@ -25,7 +25,7 @@ switch ($_POST['position']) {
         $set_row = restructure_upload($_POST['row'], false);
 
         if($_POST['operation'] == "edit"){
-            $data = check_uploadFields($set_row);
+            $data = check_uploadFields($set_row, $_POST['oldId']);
             if(is_string($data)){
                 echo "Error: " . $data;
             }else{

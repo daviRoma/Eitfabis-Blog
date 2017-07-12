@@ -5,6 +5,7 @@
         <div class="x_panel">
             <div class="x_title">
                 <h2>Background Image</h2>
+                {if isset($error)}<h2 id="error_field" class="pull-right"><small class="error-field">{$error}</small></h2>{/if}
                 <div class="clearfix"></div>
             </div>
 
@@ -12,7 +13,7 @@
                 <form id="addPage-form" enctype="multipart/form-data" action="controllers/addBlogPage_service.php" method="POST">
                     <div class="row">
                         <div id="background_container" class="col-md-12" title="Upload image">
-                            <img id="bg_image" class="img-responsive" src="../img/Blog/background/admin-bg/blog-default-bg.jpg">
+                            <img id="bg_image" class="img-responsive" src="../upload/blog/background/admin-bg/blog-default-bg.jpg">
                             <img id="bg_fake" src="" style="display:none;">
                         </div>
                         <input id="bg_file" type="file" name="bg_file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="display: none;"/>

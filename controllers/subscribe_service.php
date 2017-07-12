@@ -10,12 +10,12 @@ if(isset($_POST['subscribe'])) {
 
     if(empty($_POST['email'])) {
 		$error = 'This field can not be empty';
-		redirect("/index.php", true);
+		redirect("/index.php?error=$error", true);
     }
 
 	if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 		$error = 'The email format is invalid';
-		redirect("/index.php", true);
+		redirect("/index.php?error=$error", true);
     }
 
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
@@ -24,7 +24,7 @@ if(isset($_POST['subscribe'])) {
 
 	if(count($query) > 0){
 		$error = 'You are already subscribed!';
-		redirect("/index.php", true);
+		redirect("/index.php?error=$error", true);
 	}
 
 	// insert new record
@@ -36,7 +36,7 @@ if(isset($_POST['subscribe'])) {
 
 } else {
 	$error = 'Offline service, please try later.';
-	redirect("/index.php");
+	redirect("/index.php?error=$error");
 }
 
 ?>

@@ -17,18 +17,18 @@ function get_category($name){
 
 // Delete one or more categories
 function delete_category($category){
-    $partOf_records = selectQuery("part_of", "category = '$category'", "article ASC");
+    $partOf_records = selectQuery("article_category", "category = '$category'", "article ASC");
     if(count($partOf_records) > 0){
         foreach ($partOf_records as $record) {
             $articleId = $record['article'];
-            deleteRecord("part_of", $articleId);
+            deleteRecord("article_category", $articleId);
         }
     }
-    $reference_records = selectQuery("reference", "category = '$category'", "tag ASC");
+    $reference_records = selectQuery("tag_category", "category = '$category'", "tag ASC");
     if(count($reference_records) > 0){
         foreach ($reference_records as $record) {
             $tagId = $record['tag'];
-            deleteRecord("reference", $tagId);
+            deleteRecord("tag_category", $tagId);
         }
     }
     $path = get_category($category)['background'];

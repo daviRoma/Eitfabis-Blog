@@ -12,7 +12,7 @@ switch ($_POST['position']) {
         $rowInfo_preview = get_BlogInfo($id);
         $smarty->assign("title", $rowInfo_preview['title']);
         $smarty->assign("subtitle", $rowInfo_preview['subtitle']);
-        $smarty->assign("background",$rowInfo_preview['background']);
+        $smarty->assign("background", $rowInfo_preview['background']);
         $smarty->assign("preview_content", "<p>Paragraph and contents depend on the section.</p>");
         break;
 

@@ -45,12 +45,12 @@ if(isset($_POST['public'])){
             }else{
                 $fileName = strtolower("post-bg-". time() .'_' . basename($_FILES["bg_file"]["name"]));
 
-                if(file_exists(_ROOT . "//img/Blog/post/background/" . $fileName)){
+                if(file_exists(_ROOT . "/upload/post/background/" . $fileName)){
                     $error = $fileName . "Already exist!";
                     redirect("../index.php?error=$error", true);
                 }else{
                     $sourcePath = $_FILES['bg_file']['tmp_name'];                   // Storing source path of the file in a variable
-                    $targetPath = _ROOT . "/img/post/background/" . $fileName;    // Target path where file is to be stored
+                    $targetPath = _ROOT . "/upload/post/background/" . $fileName;    // Target path where file is to be stored
                     move_uploaded_file($sourcePath, $targetPath);                   // Moving Uploaded file
                 }
             }
@@ -105,7 +105,7 @@ if(isset($_POST['public'])){
     $data_1['title'] = $title;
     $data_1['subtitle'] = $subtitle;
     $data_1['content'] = $content;
-    $data_1['background'] = "img/post/background/" . $fileName;
+    $data_1['background'] = "upload/post/background/" . $fileName;
     $data_1['draft'] = 0;
     $data_1['author'] = $_SESSION['username'];
     $id = insert_article($data_1, $is_draft, $draft_id);
@@ -137,14 +137,17 @@ if(isset($_POST['public'])){
         foreach($uploads as $upload) {
             $data_4['file_name'] = $upload;
             $data_4['folder'] = "post";
-            $data_4['file_address'] = "img/post/pictures/";
+            $data_4['file_address'] = "upload/post/pictures/";
             $ext = explode(".", $upload);
             $data_4['file_extension'] = $ext[count($ext)-1];
             $data_4['gallery'] = 0;
             $data_4['name'] = "No name";
             $data_4['description'] = "No description";
-            $data_4['article'] = $id;
-            insertRecord("upload", $data_4);
+            $uploadId = insertRecord("uploads", $data_4);
+            $data_plus = array();
+            $data_plus['article'] = $id;
+            $data_plus['upload'] = $uploadId;
+            insertRecord("article_upload", $data_plus);
         }
     }
 
@@ -152,7 +155,7 @@ if(isset($_POST['public'])){
     $data_5 = array();
     $data_5['article'] = $id;
     $data_5['userId'] = $_SESSION['userId'];
-    insertRecord("make", $data_5);
+    insertRecord("user_article", $data_5);
 
     if($is_draft){
         redirect("../articles.php?section=draft", true);
@@ -160,7 +163,8 @@ if(isset($_POST['public'])){
         redirect("../index.php", true);
     }
 }else{
-    redirect("../error_page.php?typeError=500&message=Cannot perform the requested operation. Data was not sent.");
+    $error = "Cannot perform the requested operation. Data was not sent.";
+    redirect("../error_page.php?typeError=500&message=$error");
 }
 
 ?>

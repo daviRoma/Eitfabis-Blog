@@ -20,14 +20,14 @@ if(isset($_FILES["upload_img_file"]["type"])){
         if ($_FILES["upload_img_file"]["error"] > 0){
             echo "Return Code: " . $_FILES["upload_img_file"]["error"];
         }else{
-            if(file_exists(_ROOT . "/" . "img/post/pictures/" . $_FILES["upload_img_file"]["name"])){
+            if(file_exists(_ROOT . "/" . "upload/post/pictures/" . $_FILES["upload_img_file"]["name"])){
                 echo $_FILES["upload_img_file"]["name"] . "Already exist!";
             }else{
                 $sourcePath = $_FILES['upload_img_file']['tmp_name'];           // Storing source path of the file in a variable
                 $fileName = 'post-' . time().'_'.basename($_FILES["upload_img_file"]["name"]);
-                $targetPath = _ROOT . "/" . "img/post/pictures/" . $fileName;   // Target path where file is to be stored
+                $targetPath = _ROOT . "/" . "upload/post/pictures/" . $fileName;   // Target path where file is to be stored
                 if(move_uploaded_file($sourcePath, $targetPath))         // Moving Uploaded file
-                    $path = "img/post/pictures/" . $fileName;
+                    $path = "upload/post/pictures/" . $fileName;
             }
         }
     }else{

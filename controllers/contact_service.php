@@ -11,12 +11,12 @@ if(isset($_POST['send'])) {
 
 	if(emptycheck($required)) {
     	$error = 'All fields are mandatory.';
-        redirect("/contact_us.php?error={$error}");
+        redirect("/contact_us.php?error={$error}", true);
     }
 
     if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 		$error = 'The email format is invalid';
-	 	redirect("/contact_us.php?error={$error}");
+	 	redirect("/contact_us.php?error={$error}", true);
      }
 
 	 $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -31,13 +31,13 @@ if(isset($_POST['send'])) {
 	 $data['date'] = date('Y-m-d  H:i:s');
 	 $data['flag'] = false;
 
-	 $query = insertRecord('report', $data);
+	 $query = insertRecord('reports', $data);
 
 	 redirect("/contact_us.php?success=true", true);
 
 } else {
 	$error = 'Offline service, please try later.';
-	redirect("/index.php");
+	redirect("/index.php", true);
 }
 
 ?>

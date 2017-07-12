@@ -6,14 +6,14 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get all service with the correspondent group
 function get_services(){
-    $services = selectJoin("offer", "services", "service = id", "");
+    $services = selectJoin("group_service", "services", "service = id", "");
     return $services;
 }
 
 
 // Get all services about one group
 function get_groupService($group){
-    $group_service = selectJoin("offer", "services", "service = id", "groupId = $group");
+    $group_service = selectJoin("group_service", "services", "service = id", "groupId = $group");
     return $group_service;
 }
 

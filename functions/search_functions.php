@@ -73,7 +73,7 @@ function retrieve_by_title_category($title, $category){
     $result = array();
 
     // checks the articles membership to the category
-    $DBarticles = selectJoin("articles", "part_of", "id = article", "category = '$category' ORDER BY date");
+    $DBarticles = selectJoin("articles", "article_category", "id = article", "category = '$category' ORDER BY date");
 
     if(count($DBarticles) > 0){
         foreach($DBarticles as $article){
@@ -186,7 +186,7 @@ function retrieve_by_category($category){
 
     $error = "";
     $result = array();
-    $DBarticles = selectQuery("part_of", "category = '$category'", "article DESC");
+    $DBarticles = selectQuery("article_category", "category = '$category'", "article DESC");
 
     if(count($DBarticles) > 0){
         foreach($DBarticles as $article)
@@ -220,7 +220,7 @@ function retrieve_by_tag($tag){
 
         case 2  :
             $tag_1 = $tagList[1];
-            $DBtags = selectJoin("has", "tag", "tag = id", "label = '$tag_1'", "ORDER BY article DESC");
+            $DBtags = selectJoin("article_tag", "tag", "tag = id", "label = '$tag_1'", "ORDER BY article DESC");
 
             if(count($DBtags) > 0){
                 foreach($DBtags as $DBtag)
@@ -235,10 +235,10 @@ function retrieve_by_tag($tag){
         case 3  :
             $tag_1 = $tagList[1];
             $tag_2 = $tagList[2];
-            $DBtags_1 = selectJoin("has", "tag", "tag = id", "label = '$tag_1'", "ORDER BY article DESC");
+            $DBtags_1 = selectJoin("article_tag", "tag", "tag = id", "label = '$tag_1'", "ORDER BY article DESC");
 
                     if(count($DBtags_1) > 0){
-                        $DBtags_2 = selectJoin("has", "tag", "tag = id", "label = '$tag_2'", "ORDER BY article DESC");
+                        $DBtags_2 = selectJoin("article_tag", "tag", "tag = id", "label = '$tag_2'", "ORDER BY article DESC");
 
                         if(count($DBtags_2) > 0){
                             $i = 0;
@@ -281,13 +281,13 @@ function retrieve_by_tag($tag){
             $tag_1 = $tagList[1];
             $tag_2 = $tagList[2];
             $tag_3 = $tagList[3];
-            $DBtags_1 = selectJoin("has", "tag", "tag = id", "label = '$tag_1'", "ORDER BY article DESC");
+            $DBtags_1 = selectJoin("article_tag", "tag", "tag = id", "label = '$tag_1'", "ORDER BY article DESC");
 
             if(count($DBtags_1) > 0){
-                $DBtags_2 = selectJoin("has", "tag", "tag = id", "label = '$tag_2'", "ORDER BY article DESC");
+                $DBtags_2 = selectJoin("article_tag", "tag", "tag = id", "label = '$tag_2'", "ORDER BY article DESC");
 
                 if(count($DBtags_2) > 0){
-                    $DBtags_3 = selectJoin("has", "tag", "tag = id", "label = '$tag_3'", "ORDER BY article DESC");
+                    $DBtags_3 = selectJoin("article_tag", "tag", "tag = id", "label = '$tag_3'", "ORDER BY article DESC");
 
                     if(count($DBtags_3) > 0){
                         $i = 0;

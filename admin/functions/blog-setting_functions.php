@@ -37,18 +37,18 @@ function get_emptyBlogInfo(){
 
 // Modify an existing BlogInfo row
 function set_blogInfo($data, $oldId){
-    $query = updateRecord("BlogInfo", $data, "id = $oldId");
+    $query = updateRecord("blogInfo", $data, "id = $oldId");
     return $query;
 }
 
 // Delete one or more BlogInfo
 function delete_blogInfo($idList, $number){
     if($number == 1){
-        deleteRecord("BlogInfo", "id = $idList");
+        deleteRecord("blogInfo", "id = $idList");
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
-            deleteRecord("BlogInfo", "id = $id");
+            deleteRecord("blogInfo", "id = $id");
         }
     }
 }

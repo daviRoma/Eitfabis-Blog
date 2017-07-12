@@ -21,6 +21,9 @@ $smarty->assign('page', DASHBOARD);
 
 $section = "none";
 
+if(isset($_GET['error']))
+    $smarty->assign("error", $_GET['error']);
+    
 // Operation
 $categories = get_categoryList();
 

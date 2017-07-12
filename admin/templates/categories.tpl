@@ -4,7 +4,7 @@
         <div class="x_panel">
             <div class="x_title">
                 <h2>Add new category<small>Set background, name and brief description</small></h2>
-                <h2 id="error_field" class="pull-right"><small class="error-field">{$error}</small></h2>
+                {if isset($error)}<h2 id="error_field" class="pull-right"><small class="error-field">{$error}</small></h2>{/if}
                 <div class="clearfix"></div>
             </div>
 

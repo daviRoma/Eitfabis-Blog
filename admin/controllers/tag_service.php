@@ -56,7 +56,7 @@ if(isset($_POST['addNewTags'])){
     foreach ($data_1 as $id) {
         $data_2['tag'] = $id;
         $data_2['category'] = $category;
-        insertRecord("reference", $data_2);
+        insertRecord("tag_category", $data_2);
     }
 
     redirect("../tags.php", true);

@@ -41,7 +41,7 @@ if(isset($_POST['login']) ){
 			$image = selectRecord("personal_info", "userId = '$id'");
 			$_SESSION['userPicture'] = $image['img_address'];
 		}else{
-			$_SESSION['userPicture'] = _ROOT . "/img/Blog/background/admin-bg/user-default.png";
+			$_SESSION['userPicture'] = _ROOT . "/upload/blog/background/admin-bg/user-default.png";
 		}
 		go_to_start($_SESSION['role']);
 	}else{

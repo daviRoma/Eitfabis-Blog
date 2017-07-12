@@ -7,14 +7,14 @@ require_once BLOG_ROOT . '/functions/articles_functions.php';
 function retrieve_pictures($page_number){
 
     if(is_null($page_number)){
-        $DBpictures = selectQuery("upload", "gallery = '1'", "article DESC");
+        $DBpictures = selectQuery("uploads", "gallery = '1'", "id DESC");
     }else{
         if($page_number == 1){
-            $DBpictures = selectQuery("upload", "gallery = '1'", "article DESC LIMIT 0, 16");
+            $DBpictures = selectQuery("uploads", "gallery = '1'", "id DESC LIMIT 0, 16");
         }else{
             $page_number = ($page_number - 1) * 16;
             $condition = $page_number . ", 16";
-            $DBpictures = selectQuery("upload", "gallery = '1'", "article DESC LIMIT $condition");
+            $DBpictures = selectQuery("uploads", "gallery = '1'", "id DESC LIMIT $condition");
         }
     }
 
@@ -45,7 +45,7 @@ function assign_pictures($pictures){
 
 // Return specific information about one picture
 function get_picture($id){
-    $DBpicture = selectRecord("upload", "id = '$id'");
+    $DBpicture = selectJoin("article_upload", "uploads", "upload = id", "id = '$id'")[0];
 
     $article_id = $DBpicture['article'];
     $article = retrieve_article_title($article_id);
@@ -62,7 +62,7 @@ function get_picture($id){
 
 // Count and get the total page number of Gallery section
 function get_total_page(){
-    $row = countRecord("upload", "gallery = '1'");
+    $row = countRecord("uploads", "gallery = '1'");
     $page = $row / 16;
 
     if($row % 16 == 0)

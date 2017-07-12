@@ -48,7 +48,7 @@ function retrieve_recent($page_number, $page_limit){
 function retrieve_category($article){
 
     $id = $article['id'];
-    $query = selectRecord("part_of", "article = '$id'");
+    $query = selectRecord("article_category", "article = '$id'");
     if(count($query) > 0)
         $category = $query['category'];
 
@@ -60,7 +60,7 @@ function retrieve_category($article){
 function retrieve_tag_list($id){
 
     $tags = array();
-    $DBtags = selectJoin("has", "tag", "tag = id", "article = '$id'");
+    $DBtags = selectJoin("article_tag", "tag", "tag = id", "article = '$id'");
 
     if(count($DBtags) > 0){
         $i = 0;
@@ -79,7 +79,7 @@ function retrieve_tag_list($id){
 function retrieve_article($id){
 
     $result = selectRecord("articles", "id = '$id'");
-    $category = selectRecord("part_of", "article = '$id'");
+    $category = selectRecord("article_category", "article = '$id'");
     $new_date = date_format_uni($result['date']);
 
     $result['date'] = $new_date;
@@ -93,7 +93,7 @@ function retrieve_article($id){
 
 // Retrieve pictures of a selected article
 function retrieve_article_pictures($id){
-    $query = selectQuery("upload", "article = $id AND folder = 'post'", "");
+    $query = selectJoin("article_upload", "uploads", "upload = id", "article = $id AND folder = 'post'");
     $pictures = array();
 
     $i = 0;
@@ -149,7 +149,6 @@ function split_in_page($list, $page_number){
 
 // Get an articles array by a given list of articles
 function assign_articles($articles){
-
     $list = array();
 
     foreach($articles as $article){

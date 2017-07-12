@@ -101,14 +101,17 @@ switch($_POST['operation']){
             foreach($uploads as $upload) {
                 $data_4['file_name'] = $upload;
                 $data_4['folder'] = "post";
-                $data_4['file_address'] = "img/post/pictures/";
+                $data_4['file_address'] = "upload/post/pictures/";
                 $ext = explode(".", $upload);
                 $data_4['file_extension'] = $ext[count($ext)-1];
                 $data_4['gallery'] = 0;
                 $data_4['name'] = "No name";
                 $data_4['description'] = "No description";
-                $data_4['article'] = $id;
-                insertRecord("upload", $data_4);
+                $uploadId = insertRecord("uploads", $data_4);
+                $data_plus = array();
+                $data_plus['article'] = $id;
+                $data_plus['upload'] = $uploadId;
+                insertRecord("article_upload", $data_plus);
             }
         }
         break;

@@ -18,13 +18,13 @@ if(isset($_FILES["file"]["type"])){
         if ($_FILES["file"]["error"] > 0){
             echo "Return Code: " . $_FILES["file"]["error"];
         }else{
-            if(file_exists(_ROOT . "/img/upload/" . $_FILES["file"]["name"])){
+            if(file_exists(_ROOT . "/upload/other/" . $_FILES["file"]["name"])){
                 echo $_FILES["file"]["name"] . "Already exist!";
             }else{
                 $fileName = $_SESSION['username'] . '_' . time().'_'.basename($_FILES["file"]["name"]);
-                $filePath = "img/upload/" . $fileName;
+                $filePath = "upload/other/" . $fileName;
                 $sourcePath = $_FILES['file']['tmp_name'];          // Storing source path of the file in a variable
-                $targetPath = _ROOT . "/img/upload/" . $fileName;    // Target path where file is to be stored
+                $targetPath = _ROOT . "/upload/other/" . $fileName;    // Target path where file is to be stored
                 if(move_uploaded_file($sourcePath, $targetPath))       // Moving Uploaded file
                     echo "Success";
             }

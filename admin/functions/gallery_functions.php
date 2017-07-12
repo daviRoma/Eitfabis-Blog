@@ -6,7 +6,7 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get all DB table elements
 function get_uploadList(){
-     $list = selectQuery("upload", "", "id DESC");
+     $list = selectQuery("uploads", "", "id DESC");
      $result = array();
      $i = 0;
      while($i < count($list)){
@@ -24,7 +24,7 @@ function get_uploadList(){
 
 // Returns a selected upload row
 function get_upload($id){
-    $query = selectRecord("upload", "id = $id");
+    $query = selectRecord("uploads", "id = $id");
     $result = array();
 
     $result['id'] = $query['id'];
@@ -40,44 +40,44 @@ function get_upload($id){
 // Modify an existing upload
 function set_upload($data, $oldId){
     $new_path = _ROOT . "/" . $data['file_address'] . $data['file_name'];
-    $oldData = selectRecord("upload", "id = $oldId");
+    $oldData = selectRecord("uploads", "id = $oldId");
     $old_path = _ROOT . "/" . $oldData['file_address'] . $oldData['file_name'];
 
     if($new_path == $old_path){
-        updateRecord("upload", $data, "id = $oldId");
+        updateRecord("uploads", $data, "id = $oldId");
     }else{
         $ext = explode(".", $data['file_name']);
         $data['file_extension'] = $ext[count($ext)-1];
         copy($old_path, $new_path);
         unlink($old_path);
-        updateRecord("upload", $data, "id = $oldId");
+        updateRecord("uploads", $data, "id = $oldId");
     }
 }
 
 // Delete one or more upload
 function delete_upload($idList, $number){
     if($number == 1){
-        $picture = selectRecord("upload", "id = $idList");
-        deleteRecord("upload", "id = $idList");
+        $picture = selectRecord("uploads", "id = $idList");
+        deleteRecord("uploads", "id = $idList");
         unlink(_ROOT . "/" . $picture['file_address'] . $picture['file_name']);
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
-            $picture = selectRecord("upload", "id = $id");
-            deleteRecord("upload", "id = $id");
+            $picture = selectRecord("uploads", "id = $id");
+            deleteRecord("uploads", "id = $id");
             unlink(_ROOT . "/" . $picture['file_address'] . $picture['file_name']);
         }
     }
 }
 
 // Checks the correctness of the fields to be inserted in the DB
-function check_uploadFields($data, $check){
+function check_uploadFields($data, $oldId){
     $error = "";
     $flag = false;
     $path_array = get_path_array();
 
-    if($data['id'] == 0){
-        $error = "Id cannot be 0!";
+    if($data['id'] == 0 || $oldId != $data['id']){
+        $error = "Id cannot be modified!";
         return $error;
     }
 
@@ -104,7 +104,7 @@ function check_uploadFields($data, $check){
     if($flag){
         $id = $data['id'];
         $file_name = $data['file_name'];
-        $check = selectQuery("upload", "id = $id OR file_name = $file_name", "");
+        $check = selectQuery("uploads", "id = $id OR file_name = $file_name", "");
         if(count($check) > 0){
             $error = "Row already exist!";
             return $error;
