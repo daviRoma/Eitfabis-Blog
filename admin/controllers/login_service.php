@@ -20,14 +20,12 @@ if(isset($_POST['login']) ){
     }
 
 	//user check
-	//$username = stripslashes($_POST['username']);
-	//$password = stripslashes(md5($_POST['password']));
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$username = stripslashes($_POST['username']);
+	$password = stripslashes(md5($_POST['password']));
 
 
 	$query = array();
-	$query = selectRecord("users", "username='$username' AND password='$password'");
+	$query = selectRecord("users", "username = '$username' AND password = '$password'");
 	$id = $query['id'];
 	$group = selectRecord("user_role", "userId = '$id'");
 
@@ -38,7 +36,7 @@ if(isset($_POST['login']) ){
 		$_SESSION['role'] = $group['groupId'];
 		//Get user image
 		if($_SESSION['role'] == 1){
-			$image = selectRecord("personal_info", "userId = '$id'");
+			$image = selectRecord("personal_info", "user = '$id'");
 			$_SESSION['userPicture'] = $image['img_address'];
 		}else{
 			$_SESSION['userPicture'] = _ROOT . "/upload/blog/background/admin-bg/user-default.png";

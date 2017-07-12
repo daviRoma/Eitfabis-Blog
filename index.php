@@ -28,7 +28,7 @@ $articles = retrieve_recent($current_page, $page_limit);
 
 // Error checking
 if(is_string($articles))
-	redirect("index.php?error=$articles", true);
+	$smarty->assign("error", $_GET['error']);
 
 if(isset($_GET['error']))
 	$smarty->assign("error", $_GET['error']);

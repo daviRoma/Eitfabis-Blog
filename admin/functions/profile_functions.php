@@ -6,7 +6,7 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get all information about logged user
 function get_userProfile($id){
-    $info = selectRecord("personal_info", "userId = $id");
+    $info = selectRecord("personal_info", "user = $id");
     $user = selectRecord("users", "id = $id");
 
     $result['id'] = $info['id'];

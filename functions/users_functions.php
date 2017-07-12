@@ -10,7 +10,7 @@ function retrieve_user_info(){
     $result = array();
 
     //recovery information users
-    $DBinfos = selectQuery("personal_info", "", "userId ASC");
+    $DBinfos = selectQuery("personal_info", "", "user ASC");
 
     if(count($DBinfos) < 0){
         $error = "Error! Out of service, please try later";
