@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-13 14:03:13
+  from "/Users/Davide/Desktop/Eitfabis-Blog/templates/starter.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59676181e12068_22084923',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '04fc47345b070d972014d7af813c9896c258a4da' => 
+    array (
+      0 => '/Users/Davide/Desktop/Eitfabis-Blog/templates/starter.tpl',
+      1 => 1499947391,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59676181e12068_22084923 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -39,7 +63,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <span class="sr-only">Toggle navigation</span>
                     Menu <i class="fa fa-bars"></i>
                 </button>
-                <a id="page_url" class="navbar-brand" href="{$reload_position}">{$position}</a>
+                <a id="page_url" class="navbar-brand" href="<?php echo $_smarty_tpl->tpl_vars['reload_position']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['position']->value;?>
+</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -71,24 +97,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </nav>
 
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('{$background}')">
+    <header class="intro-header" style="background-image: url('<?php echo $_smarty_tpl->tpl_vars['background']->value;?>
+')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    {if !stristr($page,'post.tpl')}
+                    <?php if (!stristr($_smarty_tpl->tpl_vars['page']->value,'post.tpl')) {?>
                         <div class="site-heading header-text">
-                            <h1>{$page_title}</h1>
+                            <h1><?php echo $_smarty_tpl->tpl_vars['page_title']->value;?>
+</h1>
                             <hr class="small">
-                            <span class="subheading">{$page_subtitle}</span>
+                            <span class="subheading"><?php echo $_smarty_tpl->tpl_vars['page_subtitle']->value;?>
+</span>
                         </div>
-                    {else}
+                    <?php } else { ?>
                         <div class="post-heading text-center header-text">
-                            <h1>{$title}</h1>
-                            <h2 class="subheading">{$subtitle}</h2>
-                            <span class="meta">Posted by <a href="about_us.php">{$author}</a> on {$date}</span>
+                            <h1><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</h1>
+                            <h2 class="subheading"><?php echo $_smarty_tpl->tpl_vars['subtitle']->value;?>
+</h2>
+                            <span class="meta">Posted by <a href="about_us.php"><?php echo $_smarty_tpl->tpl_vars['author']->value;?>
+</a> on <?php echo $_smarty_tpl->tpl_vars['date']->value;?>
+</span>
                         </div>
 
-                    {/if}
+                    <?php }?>
                 </div>
             </div>
         </div>
@@ -97,7 +130,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <div class="container" id="page_content">
 
-        {include file = "$page"}
+        <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['page']->value), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+
 
     </div>
 
@@ -164,32 +199,49 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </ul>
                     <p class="copyright text-muted">Copyright &copy; 24CinL Teamwork 2014</p>
                     </br>
-                    {if isset($error)}
-                        <p class="copyright text-muted" style="color:#e60000">{$error}</p>
-                    {/if}
+                    <?php if (isset($_smarty_tpl->tpl_vars['error']->value)) {?>
+                        <p class="copyright text-muted" style="color:#e60000"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+</p>
+                    <?php }?>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- jQuery -->
-    <script src="templates/jquery/jquery.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/jquery/jquery.min.js"><?php echo '</script'; ?>
+>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="templates/js/bootstrap.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
 
     <!-- Contact Form JavaScript -->
-    <script src="templates/js/jqBootstrapValidation.js"></script>
-    <script src="templates/js/contact_me.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/js/jqBootstrapValidation.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/js/contact_me.js"><?php echo '</script'; ?>
+>
 
     <!-- Theme JavaScript -->
-    <script src="templates/js/clean-blog.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/js/clean-blog.min.js"><?php echo '</script'; ?>
+>
 
     <!-- 24CinL ajax functions -->
-    <script src="templates/jquery/24CinL-ajax.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/jquery/24CinL-ajax.js"><?php echo '</script'; ?>
+>
     <!-- 24CinL javascript -->
-    <script src="templates/js/24CinL-blog.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/js/24CinL-blog.js"><?php echo '</script'; ?>
+>
 
 </body>
 
 </html>
+<?php }
+}

@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-13 17:14:27
+  from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59678e53b06924_04539452',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '92f90ba0c6b00d100d84f2fea943e02498a33ce0' => 
+    array (
+      0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl',
+      1 => 1499958866,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59678e53b06924_04539452 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 
 <!-- Blog's page setting -->
 <div class="row">
@@ -5,7 +29,8 @@
         <div class="x_panel">
             <div class="x_title">
                 <h2>Your Article<small>Set Title, subtitle, background image ...</small> </h2>
-                {if isset($error)}<h2 id="error_field" class="pull-right"><small class="error-field">{$error}</small></h2>{/if}
+                <?php if (isset($_smarty_tpl->tpl_vars['error']->value)) {?><h2 id="error_field" class="pull-right"><small class="error-field"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+</small></h2><?php }?>
                 <div class="clearfix"></div>
             </div>
 
@@ -18,7 +43,9 @@
                                 <div class="x_title">
                                     <h4><i class="fa fa-header"></i> - Title</h4>
                                 </div>
-                                <textarea id="set_article_title" name="setTitle" class="set-article-title" rows="2" maxlength="128" required="Mandatory field">{if isset($draft)}{$draft.title}{/if}</textarea>
+                                <textarea id="set_article_title" name="setTitle" class="set-article-title" rows="2" maxlength="128" required="Mandatory field"><?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {
+echo $_smarty_tpl->tpl_vars['draft']->value['title'];
+}?></textarea>
                             </div>
                         </div>
                         <!-- Subtitle -->
@@ -27,7 +54,9 @@
                                 <div class="x_title">
                                     <h4><i class="fa fa-h-square"></i> - Subtitle</h4>
                                 </div>
-                                <textarea id="set_article_subtitle" name="setSubtitle" class="set-article-subtitle" rows="4" maxlength="500" required="Mandatory field">{if isset($draft)}{$draft.subtitle}{/if}</textarea>
+                                <textarea id="set_article_subtitle" name="setSubtitle" class="set-article-subtitle" rows="4" maxlength="500" required="Mandatory field"><?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {
+echo $_smarty_tpl->tpl_vars['draft']->value['subtitle'];
+}?></textarea>
                             </div>
                         </div>
                     </div>
@@ -111,7 +140,9 @@
 
                         <div id="editor-one" class="editor-wrapper set-article-content"></div>
 
-                        <textarea name="descr" id="descr" style="display:none;">{if isset($draft)}{$draft.content}{/if}</textarea>
+                        <textarea name="descr" id="descr" style="display:none;"><?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {
+echo $_smarty_tpl->tpl_vars['draft']->value['content'];
+}?></textarea>
                         <input id="article_content" type="text" name="articleContent" style="display:none;"/>
                         </br>
 
@@ -143,13 +174,26 @@
                             <div class="select-category-menu">
                                 <i class="fa fa-th"></i>
                                 <select id="set_category" name="setCategory">
-                                    {if isset($draft)}
-                                        <option value="{$category.category}">{$category.category}</option>
-                                    {/if}
+                                    <?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['category']->value['category'];?>
+"><?php echo $_smarty_tpl->tpl_vars['category']->value['category'];?>
+</option>
+                                    <?php }?>
                                     <option value="Other"> - Other - </option>
-                                    {foreach $categories as $category}
-                                        <option value="{$category.name}">{$category.name}</option>
-                                    {/foreach}
+                                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'category');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
+?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
+"><?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
+</option>
+                                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
                                 </select>
                             </div>
                         </div>
@@ -162,25 +206,31 @@
                             </div>
                             <div class="select-menu-flat tags-menu" style="margin-left:5px;">
                                 <select id="tags_label_1" name="setTag_1">
-                                    {if isset($tags[0])}
-                                        <option value="{$tags[0]}">{$tags[0]}</option>
-                                    {/if}
+                                    <?php if (isset($_smarty_tpl->tpl_vars['tags']->value[0])) {?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['tags']->value[0];?>
+"><?php echo $_smarty_tpl->tpl_vars['tags']->value[0];?>
+</option>
+                                    <?php }?>
                                     <option value="default"> &nbsp - TAG - </option>
                                 </select>
                             </div>
                             <div class="select-menu-flat tags-menu">
                                 <select id="tags_label_2" name="setTag_2">
-                                    {if isset($tags[1])}
-                                        <option value="{$tags[0]}">{$tags[1]}</option>
-                                    {/if}
+                                    <?php if (isset($_smarty_tpl->tpl_vars['tags']->value[1])) {?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['tags']->value[0];?>
+"><?php echo $_smarty_tpl->tpl_vars['tags']->value[1];?>
+</option>
+                                    <?php }?>
                                     <option value="default"> &nbsp - TAG - </option>
                                 </select>
                             </div>
                             <div class="select-menu-flat tags-menu">
                                 <select id="tags_label_3" name="setTag_3">
-                                    {if isset($tags[2])}
-                                        <option value="{$tags[0]}">{$tags[2]}</option>
-                                    {/if}
+                                    <?php if (isset($_smarty_tpl->tpl_vars['tags']->value[2])) {?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['tags']->value[0];?>
+"><?php echo $_smarty_tpl->tpl_vars['tags']->value[2];?>
+</option>
+                                    <?php }?>
                                     <option value="default"> &nbsp - TAG - </option>
                                 </select>
                             </div>
@@ -188,17 +238,19 @@
                     </div>
                 </div>
                 <!-- Is draft? -->
-                <input id="is_draft" type="text" name="is_draft" value="{$is_draft}" style="display: none;"/>
-                {if isset($draft)}
-                    <input id="draft_id" type="text" name="draftId" value="{$draft.id}" style="display: none;"/>
-                {/if}
+                <input id="is_draft" type="text" name="is_draft" value="<?php echo $_smarty_tpl->tpl_vars['is_draft']->value;?>
+" style="display: none;"/>
+                <?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {?>
+                    <input id="draft_id" type="text" name="draftId" value="<?php echo $_smarty_tpl->tpl_vars['draft']->value['id'];?>
+" style="display: none;"/>
+                <?php }?>
 
                 <!-- Public or Reset -->
                 <div class="col-md-12">
                     <hr class="blog-footer-line">
                     <div class="panel-body">
                         <button id="reset" class="btn btn-sm btn-default" type="button" onClick="reset_all_fields()"><i class="fa fa-eraser"></i>&nbsp Reset</button>
-                        <button id="draft" class="btn btn-sm btn-warning" type="button" onClick="make_draft()" {if isset($draft)} disabled {/if}><i class="fa fa-edit"></i>&nbsp Draft</button>
+                        <button id="draft" class="btn btn-sm btn-warning" type="button" onClick="make_draft()" <?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {?> disabled <?php }?>><i class="fa fa-edit"></i>&nbsp Draft</button>
                         <button id="public" name="public" class="btn btn-sm btn-success pull-right" type="submit" onClick="return public_article(event);"><i class="fa fa-send"></i>&nbsp Public</button>
                     </div>
                 </div>
@@ -206,3 +258,5 @@
         </div>
     </div>
 </div>
+<?php }
+}

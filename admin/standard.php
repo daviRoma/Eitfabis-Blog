@@ -20,7 +20,7 @@ $smarty->assign('page', STANDARD);
 
 
 // Operation
-$admins = selectJoin("users", "personal_info", "id = user", "");
+$admins = get_admins_infos();
 
 $smarty->assign('admins', $admins);
 

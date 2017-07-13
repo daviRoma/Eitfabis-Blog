@@ -115,9 +115,7 @@
                                     <p id="description_0" class="user-profile-field-about-read">
                                         {$user.brief_description}
                                     </p>
-                                    <textarea id="description_1" name="setBriefDescription" rows="5" cols="100" class="user-profile-field-about-write" style="display:none;">
-                                        {$user.brief_description}
-                                    </textarea>
+                                    <textarea id="description_1" name="setBriefDescription" rows="5" cols="100" class="user-profile-field-about-write" style="display:none;">{$user.brief_description}</textarea>
                                 </div>
                             </div>
                         </div>

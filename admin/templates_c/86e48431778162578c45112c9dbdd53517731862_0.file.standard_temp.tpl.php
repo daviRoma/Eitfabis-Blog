@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-13 14:58:17
+  from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/standard_temp.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59676e69e63c87_42345153',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '86e48431778162578c45112c9dbdd53517731862' => 
+    array (
+      0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/standard_temp.tpl',
+      1 => 1499950696,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59676e69e63c87_42345153 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <div class="row">
     <div class="col-md-12">
         <div class="x_panel">
@@ -59,30 +83,46 @@
 
             <div class="x_content">
                 <div class="row">
-                    {foreach $admins as $admin}
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['admins']->value, 'admin');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['admin']->value) {
+?>
                     <div class="col-md-5 col-sm-5 col-xs-12 profile_details">
                         <div class="well profile_view">
                             <div class="col-sm-12">
                                 <h4 class="brief"><i>Administrator</i></h4>
                                 <div class="left col-xs-7">
-                                    <h2>{$admin.username}</h2>
-                                    <p><strong class="fa fa-map-marker"></strong> &nbsp {$admin.country} </p>
+                                    <h2><?php echo $_smarty_tpl->tpl_vars['admin']->value['username'];?>
+</h2>
+                                    <p><strong class="fa fa-map-marker"></strong> &nbsp <?php echo $_smarty_tpl->tpl_vars['admin']->value['country'];?>
+ </p>
                                     <ul class="list-unstyled">
-                                        <li><i class="fa fa-briefcase"></i>&nbsp {$admin.employment}</li>
-                                        <li><i class="fa fa-envelope"></i>&nbsp {$admin.email}</li>
+                                        <li><i class="fa fa-briefcase"></i>&nbsp <?php echo $_smarty_tpl->tpl_vars['admin']->value['employment'];?>
+</li>
+                                        <li><i class="fa fa-envelope"></i>&nbsp <?php echo $_smarty_tpl->tpl_vars['admin']->value['email'];?>
+</li>
                                     </ul>
                                 </div>
                                 <div class="right col-xs-5 text-center">
-                                    <img src="../{$admin.img_address}" alt="" class="img-circle img-responsive">
+                                    <img src="../<?php echo $_smarty_tpl->tpl_vars['admin']->value['img_address'];?>
+" alt="" class="img-circle img-responsive">
                                 </div>
                             </div>
                             <div class="col-xs-12 bottom text-center">
                             </div>
                         </div>
                     </div>
-                    {/foreach}
+                    <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<?php }
+}

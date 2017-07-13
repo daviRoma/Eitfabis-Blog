@@ -49,7 +49,7 @@ function previewBackground(e){
             $("#bg_fake").replaceWith(newImg);
             newImg.on('load', function() {
                 if(position == "Categories"){
-                    maxWidth = 520;
+                    maxWidth = 640;
                     maxHeight = 480;
                     if(newImg.outerWidth() > maxWidth || newImg.outerHeight() > maxHeight){
                         alert("Image dimension not allowed. It will be at most "+ maxWidth +" x "+ maxHeight +".");

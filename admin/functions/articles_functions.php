@@ -139,9 +139,11 @@ function set_article($data, $oldId){
 function delete_article($idList, $number){
     if($number == 1){
         $background = selectRecord("articles", "id = $idList")['background'];
+        deleteRecord("user_article", "article = $idList");
+        deleteRecord("article_upload", "article = $idList");
         deleteRecord("article_category", "article = $idList");
         deleteRecord("article_tag", "article = $idList");
-        deleteRecord("articles", "userId = $idList");
+        deleteRecord("articles", "id = $idList");
         // Delete all uploads linked to the article
         unlink(_ROOT . "/" . $background);
         $uploads = selectJoin("article_upload", "uploads", "upload = id", "article = $idList");
@@ -153,9 +155,11 @@ function delete_article($idList, $number){
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
             $background = selectRecord("articles", "id = $id")['background'];
+            deleteRecord("user_article", "article = $id");
+            deleteRecord("article_upload", "article = $id");
             deleteRecord("article_category", "article = $id");
             deleteRecord("article_tag", "article = $id");
-            deleteRecord("articles", "userId = $id");
+            deleteRecord("articles", "id = $id");
             // Delete all uploads linked to the article
             unlink(_ROOT . "/" . $background);
             $uploads = selectJoin("article_upload", "uploads", "upload = id", "article = $id");

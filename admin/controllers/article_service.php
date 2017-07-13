@@ -68,8 +68,9 @@ if(isset($_POST['public'])){
     $uploads = array();
 
     while($file_number > 0){
-        if(isset($_POST['set_img_file_'.$file_number-1]))
-            $uploads[] = $_POST['set_img_file_'.$file_number-1];
+        $count = $file_number - 1;
+        if(isset($_POST['set_img_file_'.$count]))
+            $uploads[] = $_POST['set_img_file_'.$count];
         $file_number--;
     }
 

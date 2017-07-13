@@ -43,4 +43,20 @@ function go_to_start($group){
     }
 }
 
+
+// Get infos about admins
+function get_admins_infos(){
+    $admins = selectQuery("personal_info", "", "user DESC");
+    foreach($admins as $admin) {
+        $id = $admin['user'];
+        $result[] = selectRecord("users", "id = $id");
+    }
+    for($i = 0; $i < count($admins); $i++){
+        $admins[$i]['username'] = $result[$i]['username'];
+        $admins[$i]['email'] = $result[$i]['email'];
+    }
+    return $admins;
+}
+
+
 ?>

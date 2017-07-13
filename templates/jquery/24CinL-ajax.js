@@ -295,22 +295,28 @@ function real_time(){
 // Search articles - Button search
 function start_search(e){
     e.preventDefault();
+    var errorMessage
     var method = "";
     var title = $('#s_title').val();
     var category = $('#s_category').val();
     var tag = $('#s_tag').val();
 
     if(title == "" && category == "" && tag == ""){
-        search_error();
+        var errorMessage = "Complete at least one field to start your search.";
+        search_error(errorMessage);
     }
 
     if(title != "")
         method += "title-";
     if(category != "")
         method += "category-";
-    if(tag != "")
+    if(tag != ""){
         method += "tag";
-    else
+        if(tag.charAt(0) != "@"){
+            var errorMessage = "Tags need to start with '@'";
+            search_error(errorMessage);
+        }
+    }else
         method = method.substring(0, method.length - 1);
 
     var url = "controllers/script/search-script.php";
@@ -349,15 +355,14 @@ function start_search(e){
 }
 
 // All search-fields are empty - Search
-function search_error(){
-    var errorMessage = "Complete at least one field to start your search.";
+function search_error(message){
     var url = "controllers/script/search-script.php";
 
     $.ajax(url, {
         method: "GET",
         data: {
             "error" : true,
-            "errorMessage" : errorMessage
+            "errorMessage" : message
         },
         dataType: "html",
         success: function(response) {

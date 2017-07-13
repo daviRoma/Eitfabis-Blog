@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-13 14:56:49
+  from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/starter.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_59676e11d22714_27210992',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'd11fe14a7cf79e8c7852e13e16baa336e403169a' => 
+    array (
+      0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/starter.tpl',
+      1 => 1499950608,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_59676e11d22714_27210992 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,14 +87,16 @@
 
                     <!-- Menu profile quick info -->
                     <div class="profile clearfix">
-                        {if !stristr($page,'standard_temp.tpl')}
+                        <?php if (!stristr($_smarty_tpl->tpl_vars['page']->value,'standard_temp.tpl')) {?>
                         <div class="profile_pic">
-                            <img id="user_picture" src="{$userPicture}" alt="" class="img-circle profile_img">
+                            <img id="user_picture" src="<?php echo $_smarty_tpl->tpl_vars['userPicture']->value;?>
+" alt="" class="img-circle profile_img">
                         </div>
-                        {/if}
+                        <?php }?>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2>{$username}</h2>
+                            <h2><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+</h2>
                         </div>
                     </div>
                     <!-- /menu profile quick info -->
@@ -159,7 +185,8 @@
 
                         <ul class="nav navbar-nav navbar-left">
                             <li>
-                                <a id="position" href="#">{$position}</a>
+                                <a id="position" href="#"><?php echo $_smarty_tpl->tpl_vars['position']->value;?>
+</a>
                             </li>
                         </ul>
                     </nav>
@@ -173,13 +200,16 @@
                 <div id="page_content" class="">
                     <div class="page-title">
                         <div class="title_left title-set">
-                            <h3>{$header_page}</h3>
+                            <h3><?php echo $_smarty_tpl->tpl_vars['header_page']->value;?>
+</h3>
                         </div>
                     </div>
 
                     <div class="clearfix"></div>
 
-                    {include file = "$page"}
+                    <?php $_smarty_tpl->_subTemplateRender(((string)$_smarty_tpl->tpl_vars['page']->value), $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+
 
                 </div>
             </div>
@@ -193,87 +223,201 @@
     </div>
 
     <!-- jQuery -->
-    <script src="templates/jquery/dist/jquery.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/jquery/dist/jquery.min.js"><?php echo '</script'; ?>
+>
     <!-- Bootstrap -->
-    <script src="templates/js/bootstrap.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
     <!-- FastClick -->
-    <script src="templates/plugins/fastclick/fastclick.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/fastclick/fastclick.js"><?php echo '</script'; ?>
+>
     <!-- NProgress -->
-    <script src="templates/plugins/nprogress/nprogress.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/nprogress/nprogress.js"><?php echo '</script'; ?>
+>
     <!-- bootstrap-progressbar -->
-    <script src="templates/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/bootstrap-progressbar/bootstrap-progressbar.min.js"><?php echo '</script'; ?>
+>
     <!-- Chart.js -->
-    <script src="templates/plugins/Chart.js/dist/Chart.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/Chart.js/dist/Chart.min.js"><?php echo '</script'; ?>
+>
     <!-- gauge.js -->
-    <script src="templates/plugins/gauge.js/dist/gauge.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/gauge.js/dist/gauge.min.js"><?php echo '</script'; ?>
+>
     <!-- iCheck -->
-    <script src="templates/plugins/iCheck/icheck.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/iCheck/icheck.min.js"><?php echo '</script'; ?>
+>
     <!-- Skycons -->
-    <script src="templates/plugins/skycons/skycons.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/skycons/skycons.js"><?php echo '</script'; ?>
+>
     <!-- Flot -->
-    <script src="templates/plugins/Flot/jquery.flot.js"></script>
-    <script src="templates/plugins/Flot/jquery.flot.pie.js"></script>
-    <script src="templates/plugins/Flot/jquery.flot.time.js"></script>
-    <script src="templates/plugins/Flot/jquery.flot.stack.js"></script>
-    <script src="templates/plugins/Flot/jquery.flot.resize.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/Flot/jquery.flot.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/Flot/jquery.flot.pie.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/Flot/jquery.flot.time.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/Flot/jquery.flot.stack.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/Flot/jquery.flot.resize.js"><?php echo '</script'; ?>
+>
     <!-- Flot plugins -->
-    <script src="templates/plugins/Flot/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="templates/plugins/Flot/flot-spline/js/jquery.flot.spline.min.js"></script>
-    <script src="templates/plugins/Flot/flot.curvedlines/curvedLines.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/Flot/flot.orderbars/js/jquery.flot.orderBars.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/Flot/flot-spline/js/jquery.flot.spline.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/Flot/flot.curvedlines/curvedLines.js"><?php echo '</script'; ?>
+>
     <!-- DateJS -->
-    <script src="templates/plugins/DateJS/build/date.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/DateJS/build/date.js"><?php echo '</script'; ?>
+>
     <!-- JQVMap -->
-    <script src="templates/plugins/jqvmap/dist/jquery.vmap.js"></script>
-    <script src="templates/plugins/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-    <script src="templates/plugins/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/jqvmap/dist/jquery.vmap.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/jqvmap/dist/maps/jquery.vmap.world.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/jqvmap/examples/js/jquery.vmap.sampledata.js"><?php echo '</script'; ?>
+>
     <!-- bootstrap-daterangepicker -->
-    <script src="templates/plugins/moment/min/moment.min.js"></script>
-    <script src="templates/plugins/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/moment/min/moment.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/bootstrap-daterangepicker/daterangepicker.js"><?php echo '</script'; ?>
+>
     <!-- Datatables -->
-    <script src="templates/plugins/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="templates/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="templates/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="templates/plugins/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="templates/plugins/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="templates/plugins/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="templates/plugins/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="templates/plugins/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="templates/plugins/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="templates/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="templates/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="templates/plugins/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="templates/plugins/jszip/dist/jszip.min.js"></script>
-    <script src="templates/plugins/pdfmake/build/pdfmake.min.js"></script>
-    <script src="templates/plugins/pdfmake/build/vfs_fonts.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net/js/jquery.dataTables.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-bs/js/dataTables.bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-buttons/js/dataTables.buttons.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-buttons/js/buttons.flash.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-buttons/js/buttons.html5.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-buttons/js/buttons.print.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-keytable/js/dataTables.keyTable.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-responsive/js/dataTables.responsive.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-responsive-bs/js/responsive.bootstrap.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/datatables.net-scroller/js/dataTables.scroller.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/jszip/dist/jszip.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/pdfmake/build/pdfmake.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/pdfmake/build/vfs_fonts.js"><?php echo '</script'; ?>
+>
     <!-- bootstrap-wysiwyg -->
-    <script src="templates/plugins/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
-    <script src="templates/plugins/jquery.hotkeys/jquery.hotkeys.js"></script>
-    <script src="templates/plugins/google-code-prettify/src/prettify.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/jquery.hotkeys/jquery.hotkeys.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/plugins/google-code-prettify/src/prettify.js"><?php echo '</script'; ?>
+>
     <!-- jQuery Tags Input -->
-    <script src="templates/plugins/jquery.tagsinput/src/jquery.tagsinput.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/jquery.tagsinput/src/jquery.tagsinput.js"><?php echo '</script'; ?>
+>
     <!-- Switchery -->
-    <script src="templates/plugins/switchery/dist/switchery.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/switchery/dist/switchery.min.js"><?php echo '</script'; ?>
+>
     <!-- Select2 -->
-    <script src="templates/plugins/select2/dist/js/select2.full.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/select2/dist/js/select2.full.min.js"><?php echo '</script'; ?>
+>
     <!-- Parsley -->
-    <script src="templates/plugins/parsleyjs/dist/parsley.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/parsleyjs/dist/parsley.min.js"><?php echo '</script'; ?>
+>
     <!-- Autosize -->
-    <script src="templates/plugins/autosize/dist/autosize.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/autosize/dist/autosize.min.js"><?php echo '</script'; ?>
+>
     <!-- jQuery autocomplete -->
-    <script src="templates/plugins/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/devbridge-autocomplete/dist/jquery.autocomplete.min.js"><?php echo '</script'; ?>
+>
     <!-- starrr -->
-    <script src="templates/plugins/starrr/dist/starrr.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/starrr/dist/starrr.js"><?php echo '</script'; ?>
+>
     <!-- Dropzone.js -->
-    <script src="templates/plugins/dropzone/dist/min/dropzone.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/dropzone/dist/min/dropzone.min.js"><?php echo '</script'; ?>
+>
     <!-- Custom Theme Scripts -->
-    <script src="templates/plugins/build/js/custom.min.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/plugins/build/js/custom.min.js"><?php echo '</script'; ?>
+>
     <!-- Team custom script -->
-    <script src="templates/js/24CinL-admin.js"></script>
-    <script src="templates/jquery/ajax/24CinL-adminDataTables.js"></script>
-    <script src="templates/jquery/ajax/24CinL-adminUploadBackground.js"></script>
-    <script src="templates/jquery/ajax/24CinL-adminReportAjax.js"></script>
-    <script src="templates/jquery/ajax/24CinL-adminNewsletter.js"></script>
-    <script src="templates/jquery/ajax/24CinL-adminArticle.js"></script>
+    <?php echo '<script'; ?>
+ src="templates/js/24CinL-admin.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/jquery/ajax/24CinL-adminDataTables.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/jquery/ajax/24CinL-adminUploadBackground.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/jquery/ajax/24CinL-adminReportAjax.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/jquery/ajax/24CinL-adminNewsletter.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/jquery/ajax/24CinL-adminArticle.js"><?php echo '</script'; ?>
+>
 
 </body>
 </html>
+<?php }
+}

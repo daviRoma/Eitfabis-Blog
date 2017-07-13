@@ -93,8 +93,7 @@ function upload_file(e){
                     alert("Image dimension not allowed. It will be at most "+ maxWidth +" x "+ maxHeight +".");
                     return false;
                 }else{
-                    var file_name = img[0] + "." + img[1];
-                    run_upload(imgFile, file_name);
+                    run_upload(imgFile);
                 }
             });
         };
@@ -107,7 +106,7 @@ function upload_file(e){
 
 
 // Perform file upload with an ajax call
-function run_upload(file, file_name){
+function run_upload(file){
     var url = "controllers/script/uploadImg-script.php";
     var file_data = file;
     var form_data = new FormData();
@@ -122,6 +121,7 @@ function run_upload(file, file_name){
         dataType: "html",  // what to expect back from the PHP script, if anything
         success: function(response){
             img_path = "../" + String(response);
+            var file_name = response.split("/");
 
             // File path linked to article
             var new_input = '<input id="set_img_file_'+img_counter+'" name="set_img_file_'+img_counter+'" class="set-img-file" maxlength="128" value=""/>';
@@ -133,18 +133,16 @@ function run_upload(file, file_name){
             if(backup_counter == 0){
                 $("#set_img_file_0").remove();
                 $("#img_upload").append(new_input, new_undo, new_path);
-                $("#set_img_file_" + img_counter).val(file_name);
+                $("#set_img_file_" + img_counter).val(file_name[file_name.length-1]);
                 $("#path_file_" + img_counter).val(String(response));
             }else{
                 $("#img_upload").append(new_input, new_undo, new_path);
-                $("#set_img_file_" + img_counter).val(file_name);
+                $("#set_img_file_" + img_counter).val(file_name[file_name.length-1]);
                 $("#path_file_" + img_counter).val(String(response));
             }
             // Set editor preview picture
             var img_tag = '<img id="tag_image_'+img_counter+'" name="tag_imane_'+img_counter+'" class="img-responsive article-img-preview" src="" style="text-align:center;">';
-            var img_caption = '<span class="img-caption"> Brief description .. </span></br>';
             $("#editor-one").append(img_tag);
-            $("#editor-one").append(img_caption);
             $("#tag_image_"+img_counter).attr("src", img_path);
             img_counter++;
             backup_counter++;

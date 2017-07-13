@@ -24,9 +24,11 @@ if(isset($_POST['search'])){
     if(!empty($category))
         $result .= "category-";
 
-    if(!empty($tag))
+    if(!empty($tag)){
         $result .= "tag";
-    else
+        if($tag[0] != '@')
+            redirect("/search.php?error=true&typeError=Tags need to start with '@'.", true);
+    }else
         $result = substr($result, 0, strlen($result) - 1);
 
     redirect("/search.php?method=$result&title=$title&category=$category&tag=$tag", true);

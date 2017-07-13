@@ -86,33 +86,21 @@ function check_uploadFields($data, $oldId){
         return $error;
     }
 
-    if($data['file_extension'] != "jpg" || $data['file_extension'] != "png" || $data['file_extension'] != "jpeg"){
-        $error = "Invalid file extension";
-        return $error;
-    }
-
     if($data['gallery'] != 0 && $data['gallery'] != 1){
         $error = "Invalid value for gallery column.";
         return $error;
     }
 
     for($i = 0; $i < count($path_array); $i++){
-        if($data['file_address'] == $path_array)
+        if($data['file_address'] == $path_array[$i])
             $flag = true;
     }
 
-    if($flag){
-        $id = $data['id'];
-        $file_name = $data['file_name'];
-        $check = selectQuery("uploads", "id = $id OR file_name = $file_name", "");
-        if(count($check) > 0){
-            $error = "Row already exist!";
-            return $error;
-        }
-    }else{
+    if(!$flag){
         $error = "Invalid file address attribute.";
         return $error;
     }
+    
     return $data;
 }
 
