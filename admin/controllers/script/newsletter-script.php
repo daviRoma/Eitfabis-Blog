@@ -4,6 +4,7 @@ require_once '../../configs/admin_configs.php';
 require_once _ROOT . '/admin/functions/newsletter_functions.php';
 
 
+// Insert Newsletter
 if($_POST['operation'] == "insert"){
     $operation = insert_newsletter($_POST['title'], $_POST['type'], $_POST['frequency'], $_POST['content']);
 
@@ -15,6 +16,7 @@ if($_POST['operation'] == "insert"){
 }
 
 
+// Send specific newsletter to all subscribers
 if($_POST['operation'] == "send"){
 
     $newsletter = get_newsletter($_POST['newsletter']);
@@ -30,7 +32,7 @@ if($_POST['operation'] == "send"){
         $email_subject = "24CinL Blog News";
         $email_body = $newsletter['content'];
         $headers = "From: noreply@24cinlstaff.org\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-        $headers .= "Reply-To: $email";
+        $headers .= "Reply-To: 24cinlteam@gmail.com";
         mail($to, $email_subject, $email_body, $headers);
     }
 }

@@ -549,7 +549,7 @@ function restoreEdited(){
 
 
 // Send newsletters to all subscribers
-function send_news(e){
+function sendNewsletter(e){
     var url = "controllers/script/newsletter-script.php";
     var to_send = 0;
     var total = 0;
@@ -561,7 +561,7 @@ function send_news(e){
         }
     }
 
-    if(total > 0){
+    if(total == 0 || total > 1){
         alert("Selected at most one row!");
         return false;
     }
@@ -574,7 +574,7 @@ function send_news(e){
         },
         dataType : "text",
         success: function(response){
-            alert("Newletters send success!");
+            alert("Newletters send with success!");
         },
         error: function(xhr) {
             alert("ERROR: " + xhr.responseText + xhr.status);
