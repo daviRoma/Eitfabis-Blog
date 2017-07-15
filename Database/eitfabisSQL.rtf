@@ -1,0 +1,199 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww17480\viewh12700\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+
+\f0\b\fs38 \cf0 EITFABIS-BLOG  DATABASE
+\fs36 \
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\qc\partightenfactor0
+
+\b0\fs28 \cf0 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+\cf0 \
+CREATE TABLE users (\
+	id				INT(11)  			NOT NULL,\
+	username		VARCHAR(24)  	NOT NULL,\
+	password		VARCHAR(128)  	NOT NULL,\
+	email			VARCHAR(64)  	NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+\
+\
+CREATE TABLE groups (\
+	id			INT(11)  			NOT NULL,\
+	role			VARCHAR(24)  	NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+\
+\
+CREATE TABLE services (\
+	id			INT(11)  			NOT NULL,\
+	name		VARCHAR (255)  	NOT NULL,\
+	available		BOOLEAN  		NOT NULL,\
+	page		BOOLEAN  		NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+\
+\
+CREATE TABLE user_role (\
+	userId			INT(11)  		NOT NULL,\
+	groupId			INT(11)  		NOT NULL,\
+	PRIMARY KEY (userId, groupId),\
+	FOREIGN KEY (userId) 	REFERENCES users (id),\
+	FOREIGN KEY (groupId) 	REFERENCES groups (id)\
+);\
+\
+\
+CREATE TABLE group_service (\
+	groupId		INT(11)  		NOT NULL,\
+	service		INT(11)  		NOT NULL,\
+	PRIMARY KEY (groupId, service),\
+	FOREIGN KEY (groupId) 	REFERENCES groups (id),\
+	FOREIGN KEY (service) 	REFERENCES services (id)\
+);\
+\
+\
+CREATE TABLE articles (\
+	id			INT(11)  			NOT NULL,\
+	title			VARCHAR(128)  	NOT NULL,\
+	subtitle		TEXT,\
+	content		LONGTEXT  		NOT NULL,\
+	background	VARCHAR(255)  	NOT NULL,\
+	date			TIMESTAMP  	NOT NULL,\
+	draft			BOOLEAN  		NOT NULL,\
+	author		VARCHAR(24)  	NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+\
+\
+CREATE TABLE user_article (\
+	article		INT(11)  		NOT NULL,\
+	userId		INT(11)  		NOT NULL,\
+	PRIMARY KEY (article, userId),\
+	FOREIGN KEY (article) 	REFERENCES articles (id),\
+	FOREIGN KEY (userId) 	REFERENCES users (id)\
+);\
+\
+\
+CREATE TABLE categories (\
+	name		VARCHAR(32)  	NOT NULL,\
+	description	VARCHAR(128)  	NOT NULL,\
+	background	VARCHAR(255)  	NOT NULL,\
+	PRIMARY KEY (name)\
+);\
+\
+\
+CREATE TABLE article_category (\
+	article		INT(11)  			NOT NULL,\
+	category		VARCHAR(32)  	NOT NULL,\
+	PRIMARY KEY (article, category),\
+	FOREIGN KEY (article) 	REFERENCES articles (id),\
+	FOREIGN KEY (category) 	REFERENCES categories (name)\
+);\
+\
+\
+CREATE TABLE tag (\
+	id				INT(11)  			NOT NULL,\
+	label			VARCHAR(24)  	NOT NULL,\
+	description		VARCHAR(255)  	NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+\
+\
+CREATE TABLE tag_category (\
+	tag			INT(11)  			NOT NULL,\
+	category		VARCHAR(32)  	NOT NULL,\
+	PRIMARY KEY (tag, category),\
+	FOREIGN KEY (tag) 		REFERENCES tag (id),\
+	FOREIGN KEY (category) 	REFERENCES categories (name)\
+);\
+\
+\
+\
+CREATE TABLE article_tag (\
+	article		INT(11)  		NOT NULL,\
+	tag			INT(11)  		NOT NULL,\
+	PRIMARY KEY (article, tag),\
+	FOREIGN KEY (article) 	REFERENCES articles (id),\
+	FOREIGN KEY (tag) 		REFERENCES tag (id)\
+);\
+\
+\
+\
+CREATE TABLE uploads (\
+	id				INT(11)  NOT NULL,\
+	file_name		VARCHAR(255)  NOT NULL,\
+	folder			VARCHAR(255)  NOT NULL,\
+	file_address		VARCHAR(255)  NOT NULL,\
+	file_extension       VARCHAR(8)  NOT NULL,\
+	gallery			BOOLEAN  NOT NULL,\
+	name			VARCHAR(128)  NOT NULL,\
+	description		VARCHAR(255)  NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+\
+\
+CREATE TABLE  article_upload (\
+	article		INT(11)  		NOT NULL,\
+	upload		INT(11)  		NOT NULL,\
+	PRIMARY KEY (article, upload),\
+	FOREIGN KEY (article) 	REFERENCES articles (id),\
+	FOREIGN KEY (upload) 	REFERENCES uploads (id)\
+);\
+\
+\
+CREATE TABLE personal_info (\
+	id					INT(11)  			NOT NULL,\
+	country				VARCHAR(48),\
+	employment			VARCHAR(48)  	NOT NULL,\
+	brief_description       	TEXT,\
+	link					TEXT,\
+	img_address			VARCHAR(255),\
+	user					INT(11)			NOT NULL,\
+	PRIMARY KEY (id),\
+	FOREIGN KEY (user) REFERENCES users (id)\
+);\
+\
+\
+CREATE TABLE reports (\
+	id				INT(11)  			NOT NULL,\
+	name			VARCHAR(32)  	NOT NULL,\
+	email			VARCHAR(255)  	NOT NULL,	\
+	message		TEXT  			NOT NULL,\
+	date				TIMESTAMP  	NOT NULL,\
+	flag				BOOLEAN  		NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+\
+\
+CREATE TABLE subscribers (\
+	id		INT(11)  			NOT NULL,\
+	email	VARCHAR(64)  	NOT NULL,\
+	date		TIMESTAMP 		NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+\
+\
+CREATE TABLE blogInfo (\
+	id			INT(11) 			NOT NULL,\
+	page		VARCHAR(24) 	NOT NULL,\
+	title			VARCHAR(24)  	NOT NULL,\
+	subtitle		VARCHAR(128) 	NOT NULL,\
+	background	VARCHAR(255) 	NOT NULL,\
+	backup		BOOLEAN  		NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+\
+\
+CREATE TABLE newsletters (\
+	id			INT(11) 			NOT NULL,\
+	title			VARCHAR(128)  	NOT NULL,\
+	content		TEXT  			NOT NULL,\
+	type			VARCHAR(24) 	NOT NULL,\
+	frequency	VARCHAR(24)  	NOT NULL,\
+	PRIMARY KEY (id)\
+);\
+}
