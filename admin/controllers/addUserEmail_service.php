@@ -11,8 +11,13 @@ check_service("addUserEmail_service.php", $_SESSION['role'], 1);
 if(isset($_POST['addNewUser'])){
     // Check for empty fields
     if(empty($_POST['set_email']) || empty($_POST['set_username']) || !filter_var($_POST['set_email'],FILTER_VALIDATE_EMAIL)){
-        echo "No arguments Provided!";
-        return false;
+        $error = "No arguments Provided!";
+        redirect("../allUsers.php?error=$error", true);
+    }
+
+    if(strlen($_POST['set_username']) < 8 || strlen($_POST['set_username']) > 24){
+        $error = "Username must be at least 8 characters length and up to 24.";
+        redirect("../allUsers.php?error=$error", true);
     }
 
     // Generate unique password
@@ -42,7 +47,7 @@ if(isset($_POST['addNewUser'])){
     $email_subject = "24CinL Blog: membership requested.";
     $email_body = "24CinL team has the pleasure to inform you that your requested to participate in the Blog has been accepted.\n\n"."Here are the login details:\n\n Username: $username\n\nPassword: $password\n\nTo access to the login page click the following link: $link";
     $headers = "From: noreply@24cinlstaff.org\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-    $headers .= "Reply-To: $email";
+    $headers .= "Reply-To: 24cinlteam@gmail.com";
     if(mail($to, $email_subject, $email_body, $headers))
         redirect("../allUsers.php", true);
     else

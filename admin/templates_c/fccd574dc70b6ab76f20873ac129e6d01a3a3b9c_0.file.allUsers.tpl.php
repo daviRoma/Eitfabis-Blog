@@ -1,3 +1,27 @@
+<?php
+/* Smarty version 3.1.30, created on 2017-07-14 11:04:44
+  from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl" */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.30',
+  'unifunc' => 'content_5968892c7b0810_34978005',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'fccd574dc70b6ab76f20873ac129e6d01a3a3b9c' => 
+    array (
+      0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl',
+      1 => 1496852185,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5968892c7b0810_34978005 (Smarty_Internal_Template $_smarty_tpl) {
+?>
 
 <!-- Blog's page setting -->
 <div class="row">
@@ -5,7 +29,6 @@
         <div class="x_panel">
             <div class="x_title">
                 <h2>Add new user</h2>
-                {if isset($error)}<h2 id="error_field" class="pull-right"><small class="error-field">{$error}</small></h2>{/if}
                 <div class="clearfix"></div>
             </div>
 
@@ -69,7 +92,9 @@
             </div>
             <div class="x_content" id="table_container">
                 <div class="table-responsive">
-                    {include $tables}
+                    <?php $_smarty_tpl->_subTemplateRender($_smarty_tpl->tpl_vars['tables']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+
                 </div>
             </div>
 
@@ -88,3 +113,5 @@
         </div>
     </div>
 </div>
+<?php }
+}

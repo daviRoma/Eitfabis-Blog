@@ -66,6 +66,14 @@ function set_userGroup($data, $oldId){
     deleteRecord("user_role", "userId = $oldId");
     updateRecord("users", $data_user, "id = $oldId");
     insertRecord("user_role", $data_group);
+    $data_info = array();
+    if($data['id'] == 1){
+        $data_info = array();
+        $data_info['employment'] = "-";
+        $data_info['img_address'] = "upload/user/user-default-bg.jpg";
+        $data_info['user'] = $data['id'];
+        insertRecord("personal_info", $user_group);
+    }
 }
 
 

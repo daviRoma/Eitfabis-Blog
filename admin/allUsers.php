@@ -21,6 +21,10 @@ $smarty->assign('tables', TABLES);
 $smarty->assign('page', USERS_MANAGEMENT);
 
 
+if (isset($_GET['error']))
+    $smarty->assign("error", "*" . $_GET['error']);
+
+
 // Operation
 $users = get_usersTable();
 $header = get_userTableHeader();

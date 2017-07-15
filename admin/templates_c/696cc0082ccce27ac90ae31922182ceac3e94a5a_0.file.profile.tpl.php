@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-13 14:01:10
+/* Smarty version 3.1.30, created on 2017-07-14 11:04:59
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/profile.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59676106a85c62_33567632',
+  'unifunc' => 'content_5968893baf0a80_52332803',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '696cc0082ccce27ac90ae31922182ceac3e94a5a' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/profile.tpl',
-      1 => 1499856923,
+      1 => 1499958888,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59676106a85c62_33567632 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5968893baf0a80_52332803 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Admin profile page -->
 <div class="row">
@@ -172,10 +172,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                                         <?php echo $_smarty_tpl->tpl_vars['user']->value['brief_description'];?>
 
                                     </p>
-                                    <textarea id="description_1" name="setBriefDescription" rows="5" cols="100" class="user-profile-field-about-write" style="display:none;">
-                                        <?php echo $_smarty_tpl->tpl_vars['user']->value['brief_description'];?>
-
-                                    </textarea>
+                                    <textarea id="description_1" name="setBriefDescription" rows="5" cols="100" class="user-profile-field-about-write" style="display:none;"><?php echo $_smarty_tpl->tpl_vars['user']->value['brief_description'];?>
+</textarea>
                                 </div>
                             </div>
                         </div>
