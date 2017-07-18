@@ -15,11 +15,11 @@ function retrieve_recent($page_number, $page_limit){
     if($page_number <= $page_limit){
 
         if($page_number == 1){
-            $DBarticles = selectQuery("articles", "draft = 0", "date DESC LIMIT 0, 4");
+            $DBarticles = selectQuery(TAB_ARTICLES, "draft = 0", "date DESC LIMIT 0, 4");
         }else{
             $page_number = ($page_number - 1) * 4;
             $condition = $page_number . ", 4";
-            $DBarticles = selectQuery("articles", "draft = 0", "date DESC LIMIT $condition");
+            $DBarticles = selectQuery(TAB_ARTICLES, "draft = 0", "date DESC LIMIT $condition");
         }
     }else {
         $error = "Page not found";
@@ -46,9 +46,8 @@ function retrieve_recent($page_number, $page_limit){
 
 // Retrieves information on an article's category
 function retrieve_category($article){
-
     $id = $article['id'];
-    $query = selectRecord("article_category", "article = '$id'");
+    $query = selectRecord(TAB_ART_CAT, "article = '$id'");
     if(count($query) > 0)
         $category = $query['category'];
 
@@ -58,9 +57,8 @@ function retrieve_category($article){
 
 // Retrieves article's tags
 function retrieve_tag_list($id){
-
     $tags = array();
-    $DBtags = selectJoin("article_tag", "tag", "tag = id", "article = '$id'");
+    $DBtags = selectJoin(TAB_ART_TAG, TAB_TAGS, "tag = id", "article = '$id'");
 
     if(count($DBtags) > 0){
         $i = 0;
@@ -77,9 +75,8 @@ function retrieve_tag_list($id){
 
 // Retrieve information of a selected article
 function retrieve_article($id){
-
-    $result = selectRecord("articles", "id = '$id'");
-    $category = selectRecord("article_category", "article = '$id'");
+    $result = selectRecord(TAB_ARTICLES, "id = '$id'");
+    $category = selectRecord(TAB_ART_CAT, "article = '$id'");
     $new_date = date_format_uni($result['date']);
 
     $result['date'] = $new_date;
@@ -87,13 +84,12 @@ function retrieve_article($id){
     $result['tags'] = retrieve_tag_list($id);
 
     return $result;
-
 }
 
 
 // Retrieve pictures of a selected article
 function retrieve_article_pictures($id){
-    $query = selectJoin("article_upload", "uploads", "upload = id", "article = $id AND folder = 'post'");
+    $query = selectJoin(TAB_ART_UPL, TAB_UPLOADS, "upload = id", "article = $id AND folder = 'post'");
     $pictures = array();
 
     $i = 0;
@@ -109,9 +105,8 @@ function retrieve_article_pictures($id){
 
 // Count and return the maximum page of Home-page
 function get_page_limit($list){
-
     if(is_null($list)){
-        $row = countRecord("articles", "draft = 0");
+        $row = countRecord(TAB_ARTICLES, "draft = 0");
         $page = $row / 4;
     }else
         $row = count($list);
@@ -173,11 +168,9 @@ function assign_articles($articles){
 // Retrieve titles of all articles
 function retrieve_article_title($id){
     $result = array();
-
-    $DBarticle = selectRecord("articles", "id = '$id' AND draft = 0");
+    $DBarticle = selectRecord(TAB_ARTICLES, "id = '$id' AND draft = 0");
     $result['id'] = $DBarticle['id'];
     $result['title'] = $DBarticle['title'];
-
     return $result;
 }
 

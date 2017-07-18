@@ -20,7 +20,7 @@ if(isset($_POST['subscribe'])) {
 
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 
-	$query = selectRecord('subscribers', "email='$email'");
+	$query = selectRecord('TAB_SUBSCRIBERS', "email='$email'");
 
 	if(count($query) > 0){
 		$error = 'You are already subscribed!';
@@ -30,7 +30,7 @@ if(isset($_POST['subscribe'])) {
 	// insert new record
 	$data = array();
 	$data['email'] = $email;
-	$query = insertRecord('subscribers', $data);
+	$query = insertRecord('TAB_SUBSCRIBERS', $data);
 
 	redirect("/index.php", true);
 

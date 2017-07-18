@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-13 14:02:12
+/* Smarty version 3.1.30, created on 2017-07-18 17:23:04
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/categories&tag.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5967614453f334_06370306',
+  'unifunc' => 'content_596e27d821cb23_42064944',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5967614453f334_06370306 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596e27d821cb23_42064944 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main Content: List of categories or tags -->

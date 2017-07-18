@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-14 11:04:59
+/* Smarty version 3.1.30, created on 2017-07-18 16:43:31
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/profile.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5968893baf0a80_52332803',
+  'unifunc' => 'content_596e1e93a57442_22626169',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5968893baf0a80_52332803 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596e1e93a57442_22626169 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Admin profile page -->
 <div class="row">

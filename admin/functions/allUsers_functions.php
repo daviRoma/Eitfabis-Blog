@@ -7,8 +7,8 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 // Returns the contents of the User-Group DB tables
 function get_usersTable(){
     $result = array();
-    $users = selectQuery("users", "", "id DESC");
-    $user_groups = selectQuery("user_role", "", "userId DESC");
+    $users = selectQuery(TAB_USERS, "", "id DESC");
+    $user_groups = selectQuery(TAB_USR_ROLE, "", "userId DESC");
     $i = 0;
     foreach($users as $user) {
         foreach ($user_groups as $us_group) {
@@ -30,8 +30,8 @@ function get_usersTable(){
 // Returns a selected User-Group row
 function get_userGroup($id){
     $result = array();
-    $user = selectRecord("users", "id = $id");
-    $user_role = selectRecord("user_role", "userId = $id");
+    $user = selectRecord(TAB_USERS, "id = $id");
+    $user_role = selectRecord(TAB_USR_ROLE, "userId = $id");
     $result['id'] = $user['id'];
     $result['username'] = $user['username'];
     $result['password'] = $user['password'];
@@ -63,16 +63,16 @@ function set_userGroup($data, $oldId){
     $data_user['email'] = $data['email'];
     $data_group['userId'] = $data['id'];
     $data_group['groupId'] = $data['group'];
-    deleteRecord("user_role", "userId = $oldId");
-    updateRecord("users", $data_user, "id = $oldId");
-    insertRecord("user_role", $data_group);
+    deleteRecord(TAB_USR_ROLE, "userId = $oldId");
+    updateRecord(TAB_USERS, $data_user, "id = $oldId");
+    insertRecord(TAB_USR_ROLE, $data_group);
     $data_info = array();
     if($data['id'] == 1){
         $data_info = array();
         $data_info['employment'] = "-";
         $data_info['img_address'] = "upload/user/user-default-bg.jpg";
         $data_info['user'] = $data['id'];
-        insertRecord("personal_info", $user_group);
+        insertRecord(TAB_PERSONALINFO, $user_group);
     }
 }
 
@@ -83,8 +83,8 @@ function delete_userGroup($idList, $number){
         if(is_admin($idList)){
             return 0;
         }else{
-            deleteRecord("user_role", "userId = $idList");
-            deleteRecord("users", "id = $idList");
+            deleteRecord(TAB_USR_ROLE, "userId = $idList");
+            deleteRecord(TAB_USERS, "id = $idList");
         }
     }else{
         $flag = false;
@@ -98,8 +98,8 @@ function delete_userGroup($idList, $number){
         if(!$flag){
             for($j = 0; $j < count($idList); $j++){
                 $id = $idList[$j];
-                deleteRecord("user_role", "userId = $id");
-                deleteRecord("users", "id = $id");
+                deleteRecord(TAB_USR_ROLE, "userId = $id");
+                deleteRecord(TAB_USERS, "id = $id");
             }
         }else{
             return 0;
@@ -120,8 +120,8 @@ function restore_userGroup($data, $number){
         $new_dataUser['email'] = $data[0]['email'];
         $new_dataRole['userId'] = $data[0]['id'];
         $new_dataRole['groupId'] = $data[0]['group'];
-        insertRecord("users", $new_dataUser);
-        insertRecord("user_role", $new_dataRole);
+        insertRecord(TAB_USERS, $new_dataUser);
+        insertRecord(TAB_USR_ROLE, $new_dataRole);
     }else{
         foreach($data as $data_element){
             $new_dataUser['id'] = $data_element['id'];
@@ -130,8 +130,8 @@ function restore_userGroup($data, $number){
             $new_dataUser['email'] = $data_element['email'];
             $new_dataRole['userId'] = $data_element['id'];
             $new_dataRole['groupId'] = $data_element['group'];
-            insertRecord("users", $new_dataUser);
-            insertRecord("user_role", $new_dataRole);
+            insertRecord(TAB_USERS, $new_dataUser);
+            insertRecord(TAB_USR_ROLE, $new_dataRole);
         }
     }
 }
@@ -147,17 +147,17 @@ function insert_userGroup($data){
     $user['username'] = $data['username'];
     $user['password'] = md5($data['password']);
     $user['email'] = $data['email'];
-    insertRecord("users", $user);
+    insertRecord(TAB_USERS, $user);
     // Insert user-role
     $user_group['userId'] = $data['id'];
     $user_group['groupId'] = $data['group'];
-    insertRecord("user_role", $user_group);
+    insertRecord(TAB_USR_ROLE, $user_group);
     if($data['id'] == 1){
         $data_info = array();
         $data_info['employment'] = "-";
         $data_info['img_address'] = "upload/user/user-default-bg.jpg";
         $data_info['user'] = $data['id'];
-        insertRecord("personal_info", $user_group);
+        insertRecord(TAB_PERSONALINFO, $user_group);
     }
 }
 
@@ -198,7 +198,7 @@ function get_userTableHeader(){
 
 // Check if a selected user is an admin
 function is_admin($userId){
-    $query = selectRecord("user_role", "userId = $userId");
+    $query = selectRecord(TAB_USR_ROLE, "userId = $userId");
     if($query['groupId'] == 1)
         return 1;
     else
@@ -231,7 +231,7 @@ function check_userGroup($data){
     }
     $username = $data['username'];
     $password = md5($data['password']);
-    $DB_check = selectQuery("users", "id = $id OR username = '$username' OR password = '$password' OR email = '$email'", "");
+    $DB_check = selectQuery(TAB_USERS, "id = $id OR username = '$username' OR password = '$password' OR email = '$email'", "");
     if(count($DB_check) > 0){
         $error = "User already exist!";
         return $error;

@@ -8,26 +8,26 @@ require_once _ROOT . '/admin/functions/tags_functions.php';
 
 // Get draft list of the logged user
 function get_draftList($username){
-    $draftList = selectQuery("articles", "author = '$username' AND draft = 1", "date DESC");
+    $draftList = selectQuery(TAB_ARTICLES, "author = '$username' AND draft = 1", "date DESC");
     return $draftList;
 }
 
 
 // Get a selected draft to complete
 function get_draft($id){
-    return selectRecord("articles", "id = $id");
+    return selectRecord(TAB_ARTICLES, "id = $id");
 }
 
 
 // Get category of the article (if is set)
 function get_articleCategory($id){
-    return selectRecord("article_category", "article = $id");
+    return selectRecord(TAB_ART_CAT, "article = $id");
 }
 
 
 // Get tags of the article (if is set any)
 function get_articleTags($id){
-    $tags = selectJoin("article_tag", "tag", "tag = id", "article = $id");
+    $tags = selectJoin(TAB_ART_TAG, TAB_TAGS, "tag = id", "article = $id");
     $data = array();
     foreach($tags as $tag){
         $data[] = $tag['label'];
@@ -40,10 +40,10 @@ function get_articleTags($id){
 function insert_article($data, $draft, $draft_id){
     if($draft){
         $data['draft'] = 0;
-        updateRecord("articles", $data, "id = $draft_id");
+        updateRecord(TAB_ARTICLES, $data, "id = $draft_id");
         $result = $draft_id;
     }else{
-        $result = insertRecord("articles", $data);
+        $result = insertRecord(TAB_ARTICLES, $data);
     }
     return $result;
 }
@@ -52,9 +52,9 @@ function insert_article($data, $draft, $draft_id){
 // Insert or update one reference between one article and one category
 function insert_articlesCategory($data, $draft, $draft_id){
     if($draft){
-        updateRecord("article_category", $data, "article = $draft_id");
+        updateRecord(TAB_ART_CAT, $data, "article = $draft_id");
     }else{
-        $result = insertRecord("article_category", $data);
+        $result = insertRecord(TAB_ART_CAT, $data);
     }
     return $result;
 }
@@ -63,9 +63,9 @@ function insert_articlesCategory($data, $draft, $draft_id){
 // Insert or update one reference between one article and one or more tags
 function insert_articlesTags($data, $draft, $draft_id){
     if($draft){
-        updateRecord("article_tag", $data, "article = $draft_id");
+        updateRecord(TAB_ART_TAG, $data, "article = $draft_id");
     }else{
-        $result = insertRecord("article_tag", $data);
+        $result = insertRecord(TAB_ART_TAG, $data);
     }
     return $result;
 }
@@ -73,10 +73,11 @@ function insert_articlesTags($data, $draft, $draft_id){
 
 // delete one draft
 function delete_draft($id){
-    deleteRecord("article_upload", "article = $id");
-    deleteRecord("article_category", "article = $id");
-    deleteRecord("article_tag", "article = $id");
-    deleteRecord("articles", "id = $id");
+    deleteRecord(TAB_USR_ART, "article = $id");
+    deleteRecord(TAB_ART_UPL, "article = $id");
+    deleteRecord(TAB_ART_CAT, "article = $id");
+    deleteRecord(TAB_ART_TAG, "article = $id");
+    deleteRecord(TAB_ARTICLES, "id = $id");
 }
 
 
@@ -85,8 +86,8 @@ function delete_draft($id){
 // Returns the contents of the articles-categories DB tables
 function get_articlesTable(){
     $result = array();
-    $articles = selectQuery("articles", "", "id DESC");
-    $categories = selectQuery("article_category", "", "category DESC");
+    $articles = selectQuery(TAB_ARTICLES, "", "id DESC");
+    $categories = selectQuery(TAB_ART_CAT, "", "category DESC");
     $i = 0;
     foreach ($articles as $article) {
         foreach ($categories as $category) {
@@ -108,8 +109,8 @@ function get_articlesTable(){
 // Returns a selected article-category row
 function get_articleRow($id){
     $result = array();
-    $article = selectRecord("articles", "id = $id");
-    $category = selectRecord("article_category", "article = $id");
+    $article = selectRecord(TAB_ARTICLES, "id = $id");
+    $category = selectRecord(TAB_ART_CAT, "article = $id");
     $result['id'] = $article['id'];
     $result['title'] = $article['title'];
     $result['author'] = $article['author'];
@@ -129,44 +130,42 @@ function set_article($data, $oldId){
     $data_article['background'] = $data['background'];
     $data_category['article'] = $data['id'];
     $data_category['category'] = $data['category'];
-    deleteRecord("article_category", "article = $oldId");
-    updateRecord("articles", $data_article, "id = $oldId");
-    insertRecord("article_category", $data_category);
+    deleteRecord(TAB_ART_CAT, "article = $oldId");
+    updateRecord(TAB_ARTICLES, $data_article, "id = $oldId");
+    insertRecord(TAB_ART_CAT, $data_category);
 }
 
 
 // Delete one or more articles
 function delete_article($idList, $number){
     if($number == 1){
-        $background = selectRecord("articles", "id = $idList")['background'];
-        deleteRecord("user_article", "article = $idList");
-        deleteRecord("article_upload", "article = $idList");
-        deleteRecord("article_category", "article = $idList");
-        deleteRecord("article_tag", "article = $idList");
-        deleteRecord("articles", "id = $idList");
+        $background = selectRecord(TAB_ARTICLES, "id = $idList")['background'];
         // Delete all uploads linked to the article
         unlink(_ROOT . "/" . $background);
-        $uploads = selectJoin("article_upload", "uploads", "upload = id", "article = $idList");
+        $uploads = selectJoin(TAB_ART_UPL, TAB_UPLOADS, "upload = id", "article = $idList");
         foreach($uploads as $upload){
             unlink(_ROOT . "/" . $upload['file_address'] . $upload['file_name']);
         }
-        deleteRecord("article_upload", "article = $idList");
+        deleteRecord(TAB_ART_UPL, "article = $idList");
+        deleteRecord(TAB_USR_ART, "article = $idList");
+        deleteRecord(TAB_ART_CAT, "article = $idList");
+        deleteRecord(TAB_ART_TAG, "article = $idList");
+        deleteRecord(TAB_ARTICLES, "id = $idList");
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
-            $background = selectRecord("articles", "id = $id")['background'];
-            deleteRecord("user_article", "article = $id");
-            deleteRecord("article_upload", "article = $id");
-            deleteRecord("article_category", "article = $id");
-            deleteRecord("article_tag", "article = $id");
-            deleteRecord("articles", "id = $id");
+            $background = selectRecord(TAB_ARTICLES, "id = $id")['background'];
             // Delete all uploads linked to the article
             unlink(_ROOT . "/" . $background);
-            $uploads = selectJoin("article_upload", "uploads", "upload = id", "article = $id");
+            $uploads = selectJoin(TAB_ART_UPL, TAB_UPLOADS, "upload = id", "article = $id");
             foreach($uploads as $upload){
                 unlink(_ROOT . "/" . $upload['file_address'] . $upload['file_name']);
             }
-            deleteRecord("article_upload", "article = $id");
+            deleteRecord(TAB_ART_UPL, "article = $id");
+            deleteRecord(TAB_USR_ART, "article = $id");
+            deleteRecord(TAB_ART_CAT, "article = $id");
+            deleteRecord(TAB_ART_TAG, "article = $id");
+            deleteRecord(TAB_ARTICLES, "id = $id");
         }
     }
 }
@@ -211,8 +210,8 @@ function check_articleRow($data){
     $error = "";
     $flag_1 = false;
     $flag_2 = false;
-    $categories = selectQuery("categories", "", "name ASC");
-    $users = selectQuery("users", "", "id ASC");
+    $categories = selectQuery(TAB_CATEGORIES, "", "name ASC");
+    $users = selectQuery(TAB_USERS, "", "id ASC");
 
     if($data['id'] == 0){
         $error = "Id cannot be 0!";

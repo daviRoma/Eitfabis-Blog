@@ -65,20 +65,20 @@ switch($_POST['operation']){
         if($tags[0] != "default"){
             if($tags[0] != "default" && $tags[1] != "default" && $tags[2] != "default"){
                 $temp = $tags[0];
-                $tags[0] = selectRecord("tag", "label = '$temp'");
+                $tags[0] = selectRecord(TAB_TAGS, "label = '$temp'");
                 $temp = $tags[1];
-                $tags[1] = selectRecord("tag", "label = '$temp'");
+                $tags[1] = selectRecord(TAB_TAGS, "label = '$temp'");
                 $temp = $tags[2];
-                $tags[2] = selectRecord("tag", "label = '$temp'");
+                $tags[2] = selectRecord(TAB_TAGS, "label = '$temp'");
             }else{
                 if($tags[0] != "default" && $tags[1] != "default"){
                     $temp = $tags[0];
-                    $tags[0] = selectRecord("tag", "label = '$temp'");
+                    $tags[0] = selectRecord(TAB_TAGS, "label = '$temp'");
                     $temp = $tags[1];
-                    $tags[1] = selectRecord("tag", "label = '$temp'");
+                    $tags[1] = selectRecord(TAB_TAGS, "label = '$temp'");
                 }else{
                     $temp = $tags[0];
-                    $tags[0] = selectRecord("tag", "label = '$temp'");
+                    $tags[0] = selectRecord(TAB_TAGS, "label = '$temp'");
                 }
             }
         }else{
@@ -107,11 +107,11 @@ switch($_POST['operation']){
                 $data_4['gallery'] = 0;
                 $data_4['name'] = "No name";
                 $data_4['description'] = "No description";
-                $uploadId = insertRecord("uploads", $data_4);
+                $uploadId = insertRecord(TAB_UPLOADS, $data_4);
                 $data_plus = array();
                 $data_plus['article'] = $id;
                 $data_plus['upload'] = $uploadId;
-                insertRecord("article_upload", $data_plus);
+                insertRecord(TAB_ART_UPL, $data_plus);
             }
         }
         break;

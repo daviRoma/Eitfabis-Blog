@@ -30,9 +30,6 @@ if(isset($_GET['error']) || isset($_GET['success'])){
 	$smarty->assign('notice_message', NOTICE_MESSAGE);
 }
 
-
 $smarty->display(STARTER);
-
-unset($_GET);
 
 ?>

@@ -10,7 +10,7 @@ function retrieve_user_info(){
     $result = array();
 
     //recovery information users
-    $DBinfos = selectQuery("personal_info", "", "user ASC");
+    $DBinfos = selectQuery(TAB_PERSONALINFO, "", "user ASC");
 
     if(count($DBinfos) < 0){
         $error = "Error! Out of service, please try later";
@@ -38,8 +38,7 @@ function retrieve_user_info(){
 
 // Retrieve username of any given id
 function retrieve_username($id){
-
-    $query = selectRecord("users", "id = '$id'");
+    $query = selectRecord(TAB_USERS, "id = '$id'");
     if(count($query) > 0)
         $username = $query['username'];
 
@@ -49,7 +48,6 @@ function retrieve_username($id){
 
 // Get user links
 function get_links($links){
-
     $string = substr($links, 0, strlen($links) - 2);
     $elements = explode("[]", $string);
 

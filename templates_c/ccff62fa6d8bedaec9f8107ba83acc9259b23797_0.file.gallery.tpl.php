@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-13 14:02:22
+/* Smarty version 3.1.30, created on 2017-07-18 17:22:52
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/gallery.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5967614e495799_41294244',
+  'unifunc' => 'content_596e27cc4e22b6_18239074',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5967614e495799_41294244 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596e27cc4e22b6_18239074 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main Content: Photo gallery -->

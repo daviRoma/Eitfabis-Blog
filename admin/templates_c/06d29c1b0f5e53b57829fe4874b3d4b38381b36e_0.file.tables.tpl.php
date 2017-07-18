@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-13 14:27:01
+/* Smarty version 3.1.30, created on 2017-07-18 16:40:54
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/tables.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5967671520fd71_39957264',
+  'unifunc' => 'content_596e1df600a684_10410601',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5967671520fd71_39957264 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596e1df600a684_10410601 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <table class="table table-striped jambo_table bulk_action">
@@ -70,7 +70,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['row']->value) {
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['row']->value, 'value');
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['value']->key => $_smarty_tpl->tpl_vars['value']->value) {
-$__foreach_value_3_saved = $_smarty_tpl->tpl_vars['value'];
+$__foreach_value_2_saved = $_smarty_tpl->tpl_vars['value'];
 ?>
                     <td id="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
 " class=" " name="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
@@ -80,7 +80,7 @@ $__foreach_value_3_saved = $_smarty_tpl->tpl_vars['value'];
 " readonly="readonly"/>
                     </td>
                 <?php
-$_smarty_tpl->tpl_vars['value'] = $__foreach_value_3_saved;
+$_smarty_tpl->tpl_vars['value'] = $__foreach_value_2_saved;
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);

@@ -7,7 +7,7 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get all newsletters
 function get_newsletterList(){
-     $newsletters = selectQuery("newsletters", "", "id DESC");
+     $newsletters = selectQuery(TAB_NEWSLETTERS, "", "id DESC");
      for($i = 0; $i < count($newsletters); $i++){
          $newsletters[$i]['content'] = substr($newsletters[$i]['content'], 0, 35) . "..";
      }
@@ -16,18 +16,18 @@ function get_newsletterList(){
 
 // Get a selected newsletter
 function get_newsletter($id){
-    $query = selectRecord("newsletters", "id = $id");
+    $query = selectRecord(TAB_NEWSLETTERS, "id = $id");
     return $query;
 }
 
 // Delete one or more newsletters
 function delete_newsletter($idList, $number){
     if($number == 1){
-        deleteRecord("newsletters", "id = $idList");
+        deleteRecord(TAB_NEWSLETTERS, "id = $idList");
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
-            deleteRecord("newsletters", "id = $id");
+            deleteRecord(TAB_NEWSLETTERS, "id = $id");
         }
     }
 }
@@ -41,7 +41,7 @@ function insert_newsletter($title, $type, $frequency, $content){
     $data['frequency'] = $frequency;
     $data['content'] = $content;
 
-    if(insertRecord("newsletters", $data))
+    if(insertRecord(TAB_NEWSLETTERS, $data))
         return true;
     else
         return false;

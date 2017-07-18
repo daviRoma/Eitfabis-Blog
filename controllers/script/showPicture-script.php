@@ -29,7 +29,6 @@ $smarty->assign('description', $picture['description']);
 $smarty->assign('article_id', $picture['article_id']);
 $smarty->assign('article_title', $picture['article_title']);
 
-
 $smarty->display(MODAL_WINDOW);
 
 ?>

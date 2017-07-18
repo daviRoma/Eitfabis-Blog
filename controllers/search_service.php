@@ -1,7 +1,6 @@
 <?php
 
 require_once '../configs/blog_configs.php';
-require_once BLOG_ROOT . '/functions/db_functions.php';
 require_once BLOG_ROOT . '/functions/utility_functions.php';
 
 

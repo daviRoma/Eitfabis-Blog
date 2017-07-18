@@ -56,7 +56,7 @@ switch ($_POST['position']) {
                 echo $data;
                 exit;
             }else{
-                insertRecord("subscribers", $data);
+                insertRecord(TAB_SUBSCRIBERS, $data);
                 echo "Success! One new row insered";
             }
         }
@@ -81,7 +81,7 @@ switch ($_POST['position']) {
                 echo $data;
                 exit;
             }else{
-                insertRecord("blogInfo", $data);
+                insertRecord(TAB_BLOGINFO, $data);
                 echo "Success! One new row insered";
             }
         }
@@ -139,6 +139,5 @@ switch ($_POST['position']) {
 
     default : break;
 }
-
 
 ?>

@@ -7,7 +7,7 @@ require_once _ROOT . '/admin/controllers/session.php';
 
 $path = "";
 if (!isset($_FILES['upload_img_file']) || !is_uploaded_file($_FILES['upload_img_file']['tmp_name'])) {
-    echo 'Non hai inviato nessun file...';
+    echo 'You do not send any file...';
     exit;
 }
 

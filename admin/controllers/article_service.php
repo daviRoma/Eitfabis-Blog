@@ -80,20 +80,20 @@ if(isset($_POST['public'])){
         $tags = array();
         if($_POST['setTag_1'] != "default" && $_POST['setTag_2'] != "default" && $_POST['setTag_3'] != "default"){
             $temp = $_POST['setTag_1'];
-            $tags[0] = selectRecord("tag", "label = '$temp'");
+            $tags[0] = selectRecord(TAB_TAGS, "label = '$temp'");
             $temp = $_POST['setTag_2'];
-            $tags[1] = selectRecord("tag", "label = '$temp'");
+            $tags[1] = selectRecord(TAB_TAGS, "label = '$temp'");
             $temp = $_POST['setTag_3'];
-            $tags[2] = selectRecord("tag", "label = '$temp'");
+            $tags[2] = selectRecord(TAB_TAGS, "label = '$temp'");
         }else{
             if($_POST['setTag_1'] != "default" && $_POST['setTag_2'] != "default"){
                 $temp = $_POST['setTag_1'];
-                $tags[0] = selectRecord("tag", "label = '$temp'");
+                $tags[0] = selectRecord(TAB_TAGS, "label = '$temp'");
                 $temp = $_POST['setTag_2'];
-                $tags[1] = selectRecord("tag", "label = '$temp'");
+                $tags[1] = selectRecord(TAB_TAGS, "label = '$temp'");
             }else{
                 $temp = $_POST['setTag_1'];
-                $tags[0] = selectRecord("tag", "label = '$temp'");
+                $tags[0] = selectRecord(TAB_TAGS, "label = '$temp'");
             }
         }
     }else{
@@ -144,11 +144,11 @@ if(isset($_POST['public'])){
             $data_4['gallery'] = 0;
             $data_4['name'] = "No name";
             $data_4['description'] = "No description";
-            $uploadId = insertRecord("uploads", $data_4);
+            $uploadId = insertRecord(TAB_UPLOADS, $data_4);
             $data_plus = array();
             $data_plus['article'] = $id;
             $data_plus['upload'] = $uploadId;
-            insertRecord("article_upload", $data_plus);
+            insertRecord(TAB_ART_UPL, $data_plus);
         }
     }
 
@@ -156,7 +156,7 @@ if(isset($_POST['public'])){
     $data_5 = array();
     $data_5['article'] = $id;
     $data_5['userId'] = $_SESSION['userId'];
-    insertRecord("user_article", $data_5);
+    insertRecord(TAB_USR_ART, $data_5);
 
     if($is_draft){
         redirect("../articles.php?section=draft", true);

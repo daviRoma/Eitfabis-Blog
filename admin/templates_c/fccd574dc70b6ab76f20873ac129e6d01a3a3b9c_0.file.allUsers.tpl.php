@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-14 11:04:44
+/* Smarty version 3.1.30, created on 2017-07-18 16:40:58
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5968892c7b0810_34978005',
+  'unifunc' => 'content_596e1dfa23b297_45804238',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fccd574dc70b6ab76f20873ac129e6d01a3a3b9c' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl',
-      1 => 1496852185,
+      1 => 1500131528,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5968892c7b0810_34978005 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596e1dfa23b297_45804238 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Blog's page setting -->
@@ -29,6 +29,8 @@ function content_5968892c7b0810_34978005 (Smarty_Internal_Template $_smarty_tpl)
         <div class="x_panel">
             <div class="x_title">
                 <h2>Add new user</h2>
+                <?php if (isset($_smarty_tpl->tpl_vars['error']->value)) {?><h2 id="error_field" class="pull-right"><small class="error-field"><?php echo $_smarty_tpl->tpl_vars['error']->value;?>
+</small></h2><?php }?>
                 <div class="clearfix"></div>
             </div>
 

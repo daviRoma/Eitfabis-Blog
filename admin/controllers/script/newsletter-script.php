@@ -20,7 +20,7 @@ if($_POST['operation'] == "insert"){
 if($_POST['operation'] == "send"){
 
     $newsletter = get_newsletter($_POST['newsletter']);
-    $subscribers = selectQuery("subscribers", "", "");
+    $subscribers = selectQuery(TAB_SUBSCRIBERS, "", "");
 
     foreach($subscribers as $subscriber) {
         // Sending email with login details

@@ -6,12 +6,12 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get all DB subscribers elements
 function get_subscriberList(){
-     return selectQuery("subscribers", "", "id DESC");
+     return selectQuery(TAB_SUBSCRIBERS, "", "id DESC");
 }
 
 // Returns a selected subscriber
 function get_subscriber($id){
-    $query = selectRecord("subscribers", "id = $id");
+    $query = selectRecord(TAB_SUBSCRIBERS, "id = $id");
     return $query;
 }
 
@@ -26,18 +26,18 @@ function get_emptySubscriber(){
 
 // Modify an existing subscriber
 function set_subscriber($data, $oldId){
-    $query = updateRecord("subscribers", $data, "id = $oldId");
+    $query = updateRecord(TAB_SUBSCRIBERS, $data, "id = $oldId");
     return $query;
 }
 
 // Delete one or more subscribers
 function delete_subscriber($idList, $number){
     if($number == 1){
-        deleteRecord("subscribers", "id = $idList");
+        deleteRecord(TAB_SUBSCRIBERS, "id = $idList");
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
-            deleteRecord("subscribers", "id = $id");
+            deleteRecord(TAB_SUBSCRIBERS, "id = $id");
         }
     }
 }
@@ -50,13 +50,13 @@ function insert_subscriber($data, $number){
         $new_data['id'] = $data[0]['id'];
         $new_data['email'] = $data[0]['email'];
         $new_data['date'] = $data[0]['date'];
-        insertRecord("subscribers", $new_data);
+        insertRecord(TAB_SUBSCRIBERS, $new_data);
     }else{
         foreach($data as $data_element){
             $new_data['id'] = $data_element['id'];
             $new_data['email'] = $data_element['email'];
             $new_data['date'] = $data_element['date'];
-            insertRecord("subscribers", $new_data);
+            insertRecord(TAB_SUBSCRIBERS, $new_data);
         }
     }
 }
@@ -71,8 +71,8 @@ function check_subFields($data){
     if($id == 0)
         return "Id can not be 0!";
 
-    $query_check1 = selectRecord("subscribers", "id = $id");
-    $query_check2 = selectRecord('subscribers', "email = '$email'");
+    $query_check1 = selectRecord(TAB_SUBSCRIBERS, "id = $id");
+    $query_check2 = selectRecord(TAB_SUBSCRIBERS, "email = '$email'");
     if(count($query_check1) > 0 || count($query_check2) > 0)
         return "Id or email already exist.";
 

@@ -6,7 +6,7 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get title, subtitle and background image of a selected page
 function get_pageInfo($page){
-    $DBpage = selectRecord("blogInfo", "page = '$page' AND backup = '0'");
+    $DBpage = selectRecord(TAB_BLOGINFO, "page = '$page' AND backup = '0'");
     $result = $DBpage;
 
     return $result;
@@ -14,12 +14,12 @@ function get_pageInfo($page){
 
 // Returns the contents of the Blog DB tables
 function get_BlogTable(){
-    return selectQuery("blogInfo", "", "id DESC");
+    return selectQuery(TAB_BLOGINFO, "", "id DESC");
 }
 
 // Returns a selected blogInfo row
 function get_BlogInfo($id){
-    $query = selectRecord("blogInfo", "id = $id");
+    $query = selectRecord(TAB_BLOGINFO, "id = $id");
     return $query;
 }
 
@@ -37,18 +37,18 @@ function get_emptyBlogInfo(){
 
 // Modify an existing BlogInfo row
 function set_blogInfo($data, $oldId){
-    $query = updateRecord("blogInfo", $data, "id = $oldId");
+    $query = updateRecord(TAB_BLOGINFO, $data, "id = $oldId");
     return $query;
 }
 
 // Delete one or more BlogInfo
 function delete_blogInfo($idList, $number){
     if($number == 1){
-        deleteRecord("blogInfo", "id = $idList");
+        deleteRecord(TAB_BLOGINFO, "id = $idList");
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
-            deleteRecord("blogInfo", "id = $id");
+            deleteRecord(TAB_BLOGINFO, "id = $id");
         }
     }
 }
@@ -64,7 +64,7 @@ function insert_blogInfo($data, $number){
         $new_data['subtitle'] = $data[0]['subtitle'];
         $new_data['background'] = $data[0]['background'];
         $new_data['backup'] = $data[0]['backup'];
-        insertRecord("blogInfo", $new_data);
+        insertRecord(TAB_BLOGINFO, $new_data);
     }else{
         foreach($data as $data_element){
             $new_data['id'] = $data_element['id'];
@@ -73,7 +73,7 @@ function insert_blogInfo($data, $number){
             $new_data['subtitle'] = $data_element['subtitle'];
             $new_data['background'] = $data_element['background'];
             $new_data['backup'] = $data_element['backup'];
-            insertRecord("blogInfo", $new_data);
+            insertRecord(TAB_BLOGINFO, $new_data);
         }
     }
 }
@@ -85,7 +85,7 @@ function check_blogFields($data){
     if($id == 0)
         return "Id 0 not allowed!";
 
-    $blog_row = selectRecord("blogInfo", "id = $id");
+    $blog_row = selectRecord(TAB_BLOGINFO, "id = $id");
     if(count($blog_row) > 0)
         return "Id already exist!";
 

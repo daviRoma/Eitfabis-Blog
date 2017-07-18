@@ -9,7 +9,7 @@ redirect("index.php", isset($_SESSION['username']));
 
 $login = new Admin_Item();
 
-$login ->assign('page_name', "Login");
+$login->assign('page_name', "Login");
 
 if(isset($_SESSION['error'])){
 	$login->assign('error', "*Error!");
@@ -17,6 +17,6 @@ if(isset($_SESSION['error'])){
 	session_destroy();
 }
 
-$login -> display('login.tpl');
+$login->display('login.tpl');
 
 ?>

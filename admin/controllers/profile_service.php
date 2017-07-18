@@ -37,7 +37,7 @@ if(isset($_POST['profileSubmit'])){
             $links .=  $_POST["setLink_".$i] . "[]";
     }
     $id = $_SESSION['userId'];
-    $user = selectRecord("users", "id = $id");
+    $user = get_user($id);
 
 
     // Insert personal info
@@ -46,14 +46,14 @@ if(isset($_POST['profileSubmit'])){
     $data_1['employment'] = $employment;
     $data_1['brief_description'] = $brief_description;
     $data_1['link'] = $links;
-    updateRecord("personal_info", $data_1, "user = $id");
+    updateRecord(TAB_PERSONALINFO, $data_1, "user = $id");
 
 
     // Insert user email (if it was changed)
     if($user['email'] != $email){
         $data_2 = array();
         $data_2['email'] = $email;
-        updateRecord("users", $data_2, "id = $id");
+        updateRecord(TAB_USERS, $data_2, "id = $id");
     }
 
     redirect("../profile.php", true);

@@ -30,11 +30,11 @@ if(isset($_POST['addNewUser'])){
     $data_1['username'] = mysqli_real_escape_string($connection, $_POST['set_username']);
     $data_1['password'] = mysqli_real_escape_string($connection, md5($password));
     $data_1['email'] = mysqli_real_escape_string($connection, $_POST['set_email']);
-    $id = insertRecord("users", $data_1);
+    $id = insertRecord(TAB_USERS, $data_1);
 
     $data_2['userId'] = $id;
     $data_2['groupId'] = 4;
-    insertRecord("user_role", $data_2);
+    insertRecord(TAB_USR_ROLE, $data_2);
 
 
     // Sending email with login details

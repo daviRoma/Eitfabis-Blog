@@ -6,24 +6,24 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get all DB table elements
 function get_tagList(){
-     return selectQuery("tag", "", "id DESC");
+     return selectQuery(TAB_TAGS, "", "id DESC");
 }
 
 // Get a selected tags by id
 function get_tagById($id){
-    $query = selectRecord("tag", "id = $id");
+    $query = selectRecord(TAB_TAGS, "id = $id");
     return $query;
 }
 
 // Get a selected tags by label
 function get_tagByLabel($label){
-    $query = selectRecord("tag", "label = '$label'");
+    $query = selectRecord(TAB_TAGS, "label = '$label'");
     return $query;
 }
 
 // Get tags by category
 function get_tagsByCategory($category){
-    $query = selectJoin("tag_category", "tag", "tag = id", "category = '$category'");
+    $query = selectJoin(TAB_TAG_CAT, TAB_TAGS, "tag = id", "category = '$category'");
     return $query;
 }
 
@@ -38,42 +38,41 @@ function get_emptyTag(){
 
 // Modify an existing tag
 function set_tag($data, $oldId){
-    $query = updateRecord("tag", $data, "id = $oldId");
+    $query = updateRecord(TAB_TAGS, $data, "id = $oldId");
     return $query;
 }
 
 //Delete one or more tags
 function delete_tag($idList, $number){
     if($number == 1){
-        $reference_records = selectQuery("tag_category", "tag = $idList", "tag ASC");
+        $reference_records = selectQuery(TAB_TAG_CAT, "tag = $idList", "tag ASC");
         if(count($reference_records) > 0)
-            deleteRecord("tag_category", $idList);
+            deleteRecord(TAB_TAG_CAT, $idList);
 
-        $has_records = selectQuery("article_tag", "tag = $idList", "tag ASC");
+        $has_records = selectQuery(TAB_ART_TAG, "tag = $idList", "tag ASC");
         if(count($has_records) > 0){
-            deleteRecord("article_tag", $idList);
+            deleteRecord(TAB_ART_TAG, $idList);
         }
-        deleteRecord("tag", "id = $idList");
+        deleteRecord(TAB_TAGS, "id = $idList");
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
-            $reference_records = selectQuery("tag_category", "tag = $id", "tag ASC");
+            $reference_records = selectQuery(TAB_TAG_CAT, "tag = $id", "tag ASC");
             if(count($reference_records) > 0)
-                deleteRecord("tag_category", $id);
+                deleteRecord(TAB_TAG_CAT, $id);
 
-            $has_records = selectQuery("article_tag", "tag = $id", "tag ASC");
+            $has_records = selectQuery(TAB_ART_TAG, "tag = $id", "tag ASC");
             if(count($has_records) > 0){
-                //for($i = 0; $i < count($has_records); $i++)
-                    deleteRecord("article_tag", $id);
+                deleteRecord(TAB_ART_TAG, $id);
             }
-            deleteRecord("tag", "id = $id");
+            deleteRecord(TAB_TAGS, "id = $id");
         }
     }
 }
 
 // Insert one row in the Tag table of the DB
 function insert_tag($data){
-    $tagId = insertRecord("tag", $data);
+    $tagId = insertRecord(TAB_TAGS, $data);
     return $tagId;
 }
 

@@ -6,14 +6,14 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get all service with the correspondent group
 function get_services(){
-    $services = selectJoin("group_service", "services", "service = id", "");
+    $services = selectJoin(TAB_GR_SERV, TAB_SERVICES, "service = id", "");
     return $services;
 }
 
 
 // Get all services about one group
 function get_groupService($group){
-    $group_service = selectJoin("group_service", "services", "service = id", "groupId = $group");
+    $group_service = selectJoin(TAB_GR_SERV, TAB_SERVICES, "service = id", "groupId = $group");
     return $group_service;
 }
 
@@ -46,10 +46,10 @@ function go_to_start($group){
 
 // Get infos about admins
 function get_admins_infos(){
-    $admins = selectQuery("personal_info", "", "user DESC");
+    $admins = selectQuery(TAB_PERSONALINFO, "", "user DESC");
     foreach($admins as $admin) {
         $id = $admin['user'];
-        $result[] = selectRecord("users", "id = $id");
+        $result[] = selectRecord(TAB_USERS, "id = $id");
     }
     for($i = 0; $i < count($admins); $i++){
         $admins[$i]['username'] = $result[$i]['username'];
@@ -57,6 +57,5 @@ function get_admins_infos(){
     }
     return $admins;
 }
-
 
 ?>

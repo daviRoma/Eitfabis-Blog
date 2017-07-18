@@ -60,7 +60,7 @@ if(isset($_POST['addNewPage'])){
     $data['background'] = "uplaod/blog/background/".$fileName;
     $data['backup'] = 1;
 
-    insertRecord("blogInfo", $data);
+    insertRecord(TAB_BLOGINFO, $data);
     redirect("../blog.php", true);
 }else{
     $error = "Cannot perform the requested operation. Data was not sent.";

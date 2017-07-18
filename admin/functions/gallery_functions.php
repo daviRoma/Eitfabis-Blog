@@ -6,7 +6,7 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get all DB table elements
 function get_uploadList(){
-     $list = selectQuery("uploads", "", "id DESC");
+     $list = selectQuery(TAB_UPLOADS, "", "id DESC");
      $result = array();
      $i = 0;
      while($i < count($list)){
@@ -24,7 +24,7 @@ function get_uploadList(){
 
 // Returns a selected upload row
 function get_upload($id){
-    $query = selectRecord("uploads", "id = $id");
+    $query = selectRecord(TAB_UPLOADS, "id = $id");
     $result = array();
 
     $result['id'] = $query['id'];
@@ -40,31 +40,31 @@ function get_upload($id){
 // Modify an existing upload
 function set_upload($data, $oldId){
     $new_path = _ROOT . "/" . $data['file_address'] . $data['file_name'];
-    $oldData = selectRecord("uploads", "id = $oldId");
+    $oldData = selectRecord(TAB_UPLOADS, "id = $oldId");
     $old_path = _ROOT . "/" . $oldData['file_address'] . $oldData['file_name'];
 
     if($new_path == $old_path){
-        updateRecord("uploads", $data, "id = $oldId");
+        updateRecord(TAB_UPLOADS, $data, "id = $oldId");
     }else{
         $ext = explode(".", $data['file_name']);
         $data['file_extension'] = $ext[count($ext)-1];
         copy($old_path, $new_path);
         unlink($old_path);
-        updateRecord("uploads", $data, "id = $oldId");
+        updateRecord(TAB_UPLOADS, $data, "id = $oldId");
     }
 }
 
 // Delete one or more upload
 function delete_upload($idList, $number){
     if($number == 1){
-        $picture = selectRecord("uploads", "id = $idList");
-        deleteRecord("uploads", "id = $idList");
+        $picture = selectRecord(TAB_UPLOADS, "id = $idList");
+        deleteRecord(TAB_UPLOADS, "id = $idList");
         unlink(_ROOT . "/" . $picture['file_address'] . $picture['file_name']);
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
-            $picture = selectRecord("uploads", "id = $id");
-            deleteRecord("uploads", "id = $id");
+            $picture = selectRecord(TAB_UPLOADS, "id = $id");
+            deleteRecord(TAB_UPLOADS, "id = $id");
             unlink(_ROOT . "/" . $picture['file_address'] . $picture['file_name']);
         }
     }
@@ -100,7 +100,7 @@ function check_uploadFields($data, $oldId){
         $error = "Invalid file address attribute.";
         return $error;
     }
-    
+
     return $data;
 }
 

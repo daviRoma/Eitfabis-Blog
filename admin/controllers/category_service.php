@@ -30,7 +30,7 @@ if(isset($_POST['addNewCategory']) || isset($_POST['deleteCategory'])){
         $name = ucfirst($_POST['setCategoryName']);
         $description = ucfirst($_POST['setCategoryDescription']);
 
-        $check_category = selectRecord("categories", "name = '$name'");
+        $check_category = selectRecord(TAB_CATEGORIES, "name = '$name'");
         if(count($check_category) > 0)
             redirect("../categories.php?error=Category already exist!", true);
 

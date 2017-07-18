@@ -25,9 +25,9 @@ if(isset($_POST['login']) ){
 
 
 	$query = array();
-	$query = selectRecord("users", "username = '$username' AND password = '$password'");
+	$query = selectRecord(TAB_USERS, "username = '$username' AND password = '$password'");
 	$id = $query['id'];
-	$group = selectRecord("user_role", "userId = '$id'");
+	$group = selectRecord(TAB_USR_ROLE, "userId = '$id'");
 
 
 	if(count($query) > 0) {
@@ -36,7 +36,7 @@ if(isset($_POST['login']) ){
 		$_SESSION['role'] = $group['groupId'];
 		//Get user image
 		if($_SESSION['role'] == 1){
-			$image = selectRecord("personal_info", "user = '$id'");
+			$image = selectRecord(TAB_PERSONALINFO, "user = '$id'");
 			$_SESSION['userPicture'] = $image['img_address'];
 		}else{
 			$_SESSION['userPicture'] = _ROOT . "/upload/blog/background/admin-bg/user-default.png";

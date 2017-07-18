@@ -37,5 +37,4 @@ if(isset($_FILES["file"]["type"])){
     redirect("../error_page.php?typeError=500&message=No file sent for upload.");
 }
 
-
 ?>
