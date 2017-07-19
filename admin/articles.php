@@ -43,11 +43,10 @@ if($section == "draft"){
         $smarty->assign('header_page', 'Complete draft');
         $smarty->assign("page", DASHBOARD);
 
-        $id = $_GET['id'];
-        $draft = get_draft($id);
-        $category = get_articleCategory($id);
-        $tags = get_articleTags($id);
 
+        $draft = get_draft($_GET['id']);
+        $category = get_articleCategory($_GET['id']);
+        $tags = get_articleTags($_GET['id']);
         $categories = get_categoryList();
 
         $smarty->assign('categories', $categories);

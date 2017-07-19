@@ -19,7 +19,7 @@ $(function(){
         $("#tags_label_2 , #tags_label_3").prop("disabled", "disabled");
         if(category != "Other"){
             $("#tags_label_1").prop("disabled", false);
-            get_tagsByCategory(category, 1);
+            get_tagsByCategory(category, 1, false);
         }else{
             $("#tags_label_1 , #tags_label_2 , #tags_label_3").prop("disabled", "disabled");
             $("#tags_label_1 , #tags_label_2 , #tags_label_3").val("default");
@@ -31,7 +31,7 @@ $(function(){
         var tag = $(this).val();
         if(tag != "default"){
             $("#tags_label_2").prop("disabled", false);
-            get_tagsByCategory($("#set_category").val(), 2);
+            get_tagsByCategory($("#set_category").val(), 2, false);
         }
     });
     // Enable tag select 3
@@ -39,7 +39,7 @@ $(function(){
         var tag = $(this).val();
         if(tag != "default"){
             $("#tags_label_3").prop("disabled", false);
-            get_tagsByCategory($("#set_category").val(), 3);
+            get_tagsByCategory($("#set_category").val(), 3, false);
         }
     });
 
@@ -47,7 +47,21 @@ $(function(){
     if($("#set_category").val() != "Other"){
         $("#tags_label_1").prop("disabled", false);
         var category = $("#set_category").val();
-        get_tagsByCategory(category, 1);
+        var tag_1 = $("#tags_label_1").val();
+        var tag_2 = $("#tags_label_2").val();
+        var tag_3 = $("#tags_label_3").val();
+
+        if($("#tags_label_1").val() != "default"){
+            $("#tags_label_2").prop("disabled", false);
+            get_tagsByCategory(category, 1, tag_1);
+        }
+        if($("#tags_label_2").val() != "default"){
+            $("#tags_label_3").prop("disabled", false);
+            get_tagsByCategory(category, 2, tag_2);
+        }
+        if($("#tags_label_3").val() != "default"){
+            get_tagsByCategory(category, 3, tag_3);
+        }
     }
     if($("#descr").html() != ""){
         $("#editor-one").append($("#descr").html());
@@ -141,7 +155,7 @@ function run_upload(file){
                 $("#path_file_" + img_counter).val(String(response));
             }
             // Set editor preview picture
-            var img_tag = '<img id="tag_image_'+img_counter+'" name="tag_imane_'+img_counter+'" class="img-responsive article-img-preview" src="" style="text-align:center;">';
+            var img_tag = '<img id="tag_image_'+img_counter+'" name="tag_image_'+img_counter+'" class="img-responsive article-img-preview" src="" style="text-align:center;">';
             $("#editor-one").append(img_tag);
             $("#tag_image_"+img_counter).attr("src", img_path);
             img_counter++;
@@ -191,7 +205,7 @@ function remove_upload(e, i){
 
 
 // Fill the tag select option
-function get_tagsByCategory(category, tag_list_number){
+function get_tagsByCategory(category, tag_list_number, value){
     var url = "controllers/script/article-script.php";
     var old_tag = new Array();
 
@@ -217,6 +231,10 @@ function get_tagsByCategory(category, tag_list_number){
                     $("#tags_label_3").children().remove();
                     $("#tags_label_3").append('<option value="default"> &nbsp - TAG - </option>');
                     $("#tags_label_3").append(response);
+                    if(value){
+                        remove_duplicated_tag(value, 1);
+                        $("#tags_label_1").prepend('<option value="'+value+'">'+value+'</option>');
+                    }
                     break;
                 case 2:
                     $("#tags_label_2").children().remove();
@@ -225,11 +243,19 @@ function get_tagsByCategory(category, tag_list_number){
                     $("#tags_label_3").children().remove();
                     $("#tags_label_3").append('<option value="default"> &nbsp - TAG - </option>');
                     $("#tags_label_3").append(response);
+                    if(value){
+                        remove_duplicated_tag(value, 2);
+                        $("#tags_label_2").prepend('<option value="'+value+'">'+value+'</option>');
+                    }
                     break;
                 case 3:
                     $("#tags_label_3").children().remove();
                     $("#tags_label_3").append('<option value="default"> &nbsp - TAG - </option>');
                     $("#tags_label_3").append(response);
+                    if(value){
+                        remove_duplicated_tag(value, 3);
+                        $("#tags_label_3").prepend('<option value="'+value+'">'+value+'</option>');
+                    }
                     break;
                 default: break;
             }
@@ -237,6 +263,23 @@ function get_tagsByCategory(category, tag_list_number){
         error: function(xhr) {
             alert("ERROR: " + xhr.responseText + xhr.status);
         }
+    });
+}
+
+
+// Remove duplicated tag for each tag list
+function remove_duplicated_tag(value){
+    $("#tags_label_1").children().each(function(){
+        if($(this).val() == value)
+            $(this).remove();
+    });
+    $("#tags_label_2").children().each(function(){
+        if($(this).val() == value)
+            $(this).remove();
+    });
+    $("#tags_label_3").children().each(function(){
+        if($(this).val() == value)
+            $(this).remove();
     });
 }
 
@@ -290,7 +333,7 @@ function make_draft(){
     var subtitle = $("#set_article_subtitle").val();
     var content = $("#editor-one").html();
     var category = $("#set_category").val();
-    var fileNumber = parseInt($("#fileNumber").val());
+    var fileNumber = img_counter;
     var uploads = new Array();
     var tags = new Array();
     tags[0] = $("#tags_label_1").val();
@@ -304,8 +347,9 @@ function make_draft(){
 
     var i = 0;
     while(fileNumber > 0){
-        if($("#set_img_file_"+(fileNumber-1)).val() != "" )
-            uploads[i] = $("#set_img_file_"+(fileNumber-1)).val();
+        var count = fileNumber - 1;
+        if($("#set_img_file_"+count).val() != "" )
+            uploads[i] = $("#set_img_file_"+count).val();
         fileNumber--;
         i++;
     }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-18 16:40:58
+/* Smarty version 3.1.30, created on 2017-07-19 11:17:00
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596e1dfa23b297_45804238',
+  'unifunc' => 'content_596f238cbb50c0_95345456',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fccd574dc70b6ab76f20873ac129e6d01a3a3b9c' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl',
-      1 => 1500131528,
+      1 => 1500455813,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596e1dfa23b297_45804238 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596f238cbb50c0_95345456 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Blog's page setting -->
@@ -46,7 +46,7 @@ function content_596e1dfa23b297_45804238 (Smarty_Internal_Template $_smarty_tpl)
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        <input id="set_email" name="set_email" class="change-input" maxlength="48"></input>
+                                        <input id="set_email" name="set_email" class="change-input" maxlength="48" required></input>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -60,7 +60,7 @@ function content_596e1dfa23b297_45804238 (Smarty_Internal_Template $_smarty_tpl)
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        <input id="set_username" name="set_username" class="change-input" maxlength="24"/>
+                                        <input id="set_username" name="set_username" class="change-input" maxlength="24" required/>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -72,7 +72,7 @@ function content_596e1dfa23b297_45804238 (Smarty_Internal_Template $_smarty_tpl)
                         <div class="col-md-12">
                             <hr class="blog-footer-line">
                             <div class="panel-body">
-                                <button id="add-newUser" name="addNewUser" class="btn btn-sm btn-success pull-right" type="submit" onClick="add_user(event)"><i class="fa fa-plus"></i> Add New</button>
+                                <button id="add-newUser" name="addNewUser" class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-plus"></i> Add New</button>
                             </div>
                         </div>
                     </div>

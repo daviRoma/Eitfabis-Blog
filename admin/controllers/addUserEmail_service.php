@@ -9,14 +9,25 @@ require_once _ROOT . '/admin/functions/service_setup.php';
 check_service("addUserEmail_service.php", $_SESSION['role'], 1);
 
 if(isset($_POST['addNewUser'])){
-    // Check for empty fields
-    if(empty($_POST['set_email']) || empty($_POST['set_username']) || !filter_var($_POST['set_email'],FILTER_VALIDATE_EMAIL)){
+
+    // Check for empty fields and arguments validation
+    if(empty($_POST['set_email']) || empty($_POST['set_username'])){
         $error = "No arguments Provided!";
         redirect("../allUsers.php?error=$error", true);
     }
 
-    if(strlen($_POST['set_username']) < 8 || strlen($_POST['set_username']) > 24){
-        $error = "Username must be at least 8 characters length and up to 24.";
+    if(!filter_var($_POST['set_email'],FILTER_VALIDATE_EMAIL)) {
+        $error = "Invalid email format";
+        redirect("../allUsers.php?error=$error", true);
+    }
+
+    if(strlen($_POST['set_username']) < 6 || strlen($_POST['set_username']) > 24){
+        $error = "Username must be at least 6 characters length and up to 24.";
+        redirect("../allUsers.php?error=$error", true);
+    }
+    
+    if(!field_validation($_POST['set_username'])){
+        $error = "Username can not contain special characters or blank spaces";
         redirect("../allUsers.php?error=$error", true);
     }
 

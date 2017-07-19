@@ -17,23 +17,23 @@ if(isset($_POST['send'])) {
     if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 		$error = 'The email format is invalid';
 	 	redirect("/contact_us.php?error={$error}", true);
-     }
+	}
 
-	 $name = mysqli_real_escape_string($conn, $_POST['name']);
-	 $email = mysqli_real_escape_string($conn, $_POST['email']);
-	 $message = mysqli_real_escape_string($conn, $_POST['message']);
+	$name = mysqli_real_escape_string($conn, $_POST['name']);
+	$email = mysqli_real_escape_string($conn, $_POST['email']);
+	$message = mysqli_real_escape_string($conn, $_POST['message']);
 
-     // insert new record in report
-	 $data = array();
-	 $data['name'] = $name;
-	 $data['email'] = $email;
-	 $data['message'] = $message;
-	 $data['date'] = date('Y-m-d  H:i:s');
-	 $data['flag'] = false;
+    // insert new record in report
+	$data = array();
+	$data['name'] = $name;
+	$data['email'] = $email;
+	$data['message'] = $message;
+	$data['date'] = date('Y-m-d  H:i:s');
+	$data['flag'] = false;
 
-	 $query = insertRecord('TAB_REPORTS', $data);
+ 	$query = insertRecord('TAB_REPORTS', $data);
 
-	 redirect("/contact_us.php?success=true", true);
+	redirect("/contact_us.php?success=true", true);
 
 } else {
 	$error = 'Offline service, please try later.';

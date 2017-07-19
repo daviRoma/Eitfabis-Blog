@@ -127,4 +127,9 @@ $(function(){
         $("#liA2").addClass("current-page");
         $("#liA2").parent("ul").css({"display":"block"});
     }
+    if(url[1].split('&')[1].split('=')[0] == "id"){
+        $("#article_li").addClass("active");
+        $("#liA2").addClass("current-page");
+        $("#liA2").parent("ul").css({"display":"block"});
+    }
 });

@@ -109,9 +109,9 @@
                             </div>
                         </div>
 
-                        <div id="editor-one" class="editor-wrapper set-article-content"></div>
+                        <div id="editor-one" class="editor-wrapper set-article-content">{if isset($draft)}{$draft.content}{/if}</div>
 
-                        <textarea name="descr" id="descr" style="display:none;">{if isset($draft)}{$draft.content}{/if}</textarea>
+                        <textarea name="descr" id="descr" style="display:none;"></textarea>
                         <input id="article_content" type="text" name="articleContent" style="display:none;"/>
                         </br>
 
@@ -171,7 +171,7 @@
                             <div class="select-menu-flat tags-menu">
                                 <select id="tags_label_2" name="setTag_2">
                                     {if isset($tags[1])}
-                                        <option value="{$tags[0]}">{$tags[1]}</option>
+                                        <option value="{$tags[1]}">{$tags[1]}</option>
                                     {/if}
                                     <option value="default"> &nbsp - TAG - </option>
                                 </select>
@@ -179,7 +179,7 @@
                             <div class="select-menu-flat tags-menu">
                                 <select id="tags_label_3" name="setTag_3">
                                     {if isset($tags[2])}
-                                        <option value="{$tags[0]}">{$tags[2]}</option>
+                                        <option value="{$tags[2]}">{$tags[2]}</option>
                                     {/if}
                                     <option value="default"> &nbsp - TAG - </option>
                                 </select>

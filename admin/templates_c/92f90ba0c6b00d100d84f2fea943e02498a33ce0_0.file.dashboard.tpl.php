@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-18 16:40:47
+/* Smarty version 3.1.30, created on 2017-07-19 16:12:32
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596e1def8b50d1_78697784',
+  'unifunc' => 'content_596f68d01f1cb3_55808529',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '92f90ba0c6b00d100d84f2fea943e02498a33ce0' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl',
-      1 => 1499958866,
+      1 => 1500473548,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596e1def8b50d1_78697784 (Smarty_Internal_Template $_smarty_tpl) {
+function content_596f68d01f1cb3_55808529 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Blog's page setting -->
@@ -138,11 +138,11 @@ echo $_smarty_tpl->tpl_vars['draft']->value['subtitle'];
                             </div>
                         </div>
 
-                        <div id="editor-one" class="editor-wrapper set-article-content"></div>
-
-                        <textarea name="descr" id="descr" style="display:none;"><?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {
+                        <div id="editor-one" class="editor-wrapper set-article-content"><?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {
 echo $_smarty_tpl->tpl_vars['draft']->value['content'];
-}?></textarea>
+}?></div>
+
+                        <textarea name="descr" id="descr" style="display:none;"></textarea>
                         <input id="article_content" type="text" name="articleContent" style="display:none;"/>
                         </br>
 
@@ -217,7 +217,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                             <div class="select-menu-flat tags-menu">
                                 <select id="tags_label_2" name="setTag_2">
                                     <?php if (isset($_smarty_tpl->tpl_vars['tags']->value[1])) {?>
-                                        <option value="<?php echo $_smarty_tpl->tpl_vars['tags']->value[0];?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['tags']->value[1];?>
 "><?php echo $_smarty_tpl->tpl_vars['tags']->value[1];?>
 </option>
                                     <?php }?>
@@ -227,7 +227,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                             <div class="select-menu-flat tags-menu">
                                 <select id="tags_label_3" name="setTag_3">
                                     <?php if (isset($_smarty_tpl->tpl_vars['tags']->value[2])) {?>
-                                        <option value="<?php echo $_smarty_tpl->tpl_vars['tags']->value[0];?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['tags']->value[2];?>
 "><?php echo $_smarty_tpl->tpl_vars['tags']->value[2];?>
 </option>
                                     <?php }?>

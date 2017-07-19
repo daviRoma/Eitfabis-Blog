@@ -219,10 +219,15 @@ function check_userGroup($data){
         $error = "Invalid Group!";
         return $error;
     }
-    if(strlen($data['username']) < 8 || strlen($data['username']) > 24 || strlen($data['password']) < 8 || strlen($data['password']) > 24){
+    if(strlen($data['username']) < 6 || strlen($data['username']) > 24 || strlen($data['password']) < 8 || strlen($data['password']) > 24){
         $error = "Username and password must be at least 8 characters length and up to 24.";
         return $error;
     }
+    if(!field_validation($data['username'])){
+        $error = "Username can not contain special characters or blank spaces";
+        return $error;
+    }
+
     if(filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
         $email = $data['email'];
     }else{

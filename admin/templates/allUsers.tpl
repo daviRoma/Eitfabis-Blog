@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        <input id="set_email" name="set_email" class="change-input" maxlength="48"></input>
+                                        <input id="set_email" name="set_email" class="change-input" maxlength="48" required></input>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-xs-4">
-                                        <input id="set_username" name="set_username" class="change-input" maxlength="24"/>
+                                        <input id="set_username" name="set_username" class="change-input" maxlength="24" required/>
                                     </div>
                                     <div class="clearfix"></div>
                                 </div>
@@ -47,7 +47,7 @@
                         <div class="col-md-12">
                             <hr class="blog-footer-line">
                             <div class="panel-body">
-                                <button id="add-newUser" name="addNewUser" class="btn btn-sm btn-success pull-right" type="submit" onClick="add_user(event)"><i class="fa fa-plus"></i> Add New</button>
+                                <button id="add-newUser" name="addNewUser" class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-plus"></i> Add New</button>
                             </div>
                         </div>
                     </div>

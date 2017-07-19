@@ -93,4 +93,15 @@ function get_path_array(){
     $path[4] = "upload/user/";
     return $path;
 }
+
+// Remove blank spaces and special characters
+function field_validation($string){
+    $finder = array(' ', 'à', 'è', 'é', 'ì', 'ò', 'ù', '*', '§', '#', '!', '?', '/', '%', ':', ';', ',', '&', '"', "'");
+    for($i = 0; $i < count($finder); $i++){
+        if(stristr($string, $finder[$i]))
+            return false;
+    }
+    return true;
+}
+
 ?>

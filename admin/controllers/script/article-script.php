@@ -45,10 +45,8 @@ switch($_POST['operation']){
         $data_1['draft'] = 1;
         $data_1['author'] = $_SESSION['username'];
         $id = insert_article($data_1, false, false);
-        if(!$id){
-            $error = "Impossible to insert article";
-            redirect("../index.php?error=$error", true);
-        }
+        $data_usr_art = array("article" => $id, "userId" => $_SESSION['userId']);
+        insertRecord(TAB_USR_ART, $data_usr_art);
 
         // Insert part_of (relation between article and category)
         $category = $_POST['category'];
@@ -108,10 +106,10 @@ switch($_POST['operation']){
                 $data_4['name'] = "No name";
                 $data_4['description'] = "No description";
                 $uploadId = insertRecord(TAB_UPLOADS, $data_4);
-                $data_plus = array();
-                $data_plus['article'] = $id;
-                $data_plus['upload'] = $uploadId;
-                insertRecord(TAB_ART_UPL, $data_plus);
+                $data_art_upl = array("article" => $id, "upload" => $uploadId);
+                $data_art_upl['article'] = $id;
+                $data_art_upl['upload'] = $uploadId;
+                insertRecord(TAB_ART_UPL, $data_art_upl);
             }
         }
         break;

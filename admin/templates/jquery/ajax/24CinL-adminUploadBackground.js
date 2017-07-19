@@ -1,10 +1,12 @@
 /* 24CinL Blog - JavaScript for Admins */
 
+
+// Global variables
 var position = $("#position").text();
 
 
+// Ready function
 $(function(){
-
     $("#bg_file").change(previewBackground);
     $("#upload_img_file").change(upload_file);
     $("#avatar_file").change(avatar_preview);
@@ -92,17 +94,6 @@ function add_blogPage(e){
     }
 }
 
-// Check the addUser form field
-function add_user(e){
-    var email = $("#set_email").val();
-    var username = $("#set_username").val();
-
-    if(email == "" || username == ""){
-        alert("All fields are mandatory!");
-        e.preventDefault();
-        return false;
-    }
-}
 
 // Check the addCategory form fields
 function add_newCategory(e){

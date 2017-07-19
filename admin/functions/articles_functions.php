@@ -89,7 +89,7 @@ function get_articlesTable(){
     $articles = selectQuery(TAB_ARTICLES, "", "id DESC");
     $categories = selectQuery(TAB_ART_CAT, "", "category DESC");
     $i = 0;
-    foreach ($articles as $article) {
+    foreach($articles as $article) {
         foreach ($categories as $category) {
             if($article['id'] == $category['article']){
                 $result[$i]['id'] = $article['id'];
