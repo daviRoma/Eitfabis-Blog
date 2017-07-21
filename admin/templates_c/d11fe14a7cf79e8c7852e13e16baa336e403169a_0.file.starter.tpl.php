@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-19 11:15:26
+/* Smarty version 3.1.30, created on 2017-07-21 23:16:24
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/starter.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596f232ee082d0_54162158',
+  'unifunc' => 'content_59726f286767d2_32855132',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd11fe14a7cf79e8c7852e13e16baa336e403169a' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/starter.tpl',
-      1 => 1499950608,
+      1 => 1500670975,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596f232ee082d0_54162158 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59726f286767d2_32855132 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -391,7 +391,7 @@ function content_596f232ee082d0_54162158 (Smarty_Internal_Template $_smarty_tpl)
 >
     <!-- Dropzone.js -->
     <?php echo '<script'; ?>
- src="templates/plugins/dropzone/dist/min/dropzone.min.js"><?php echo '</script'; ?>
+ src="templates/plugins/dropzone/dist/dropzone.js"><?php echo '</script'; ?>
 >
     <!-- Custom Theme Scripts -->
     <?php echo '<script'; ?>
@@ -405,7 +405,7 @@ function content_596f232ee082d0_54162158 (Smarty_Internal_Template $_smarty_tpl)
  src="templates/jquery/ajax/24CinL-adminDataTables.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
- src="templates/jquery/ajax/24CinL-adminUploadBackground.js"><?php echo '</script'; ?>
+ src="templates/jquery/ajax/24CinL-adminUploads.js"><?php echo '</script'; ?>
 >
     <?php echo '<script'; ?>
  src="templates/jquery/ajax/24CinL-adminReportAjax.js"><?php echo '</script'; ?>

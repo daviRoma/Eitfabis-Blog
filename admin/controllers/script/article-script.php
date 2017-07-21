@@ -32,7 +32,6 @@ switch($_POST['operation']){
             }
         }
         echo $option_object;
-        exit;
         break;
 
     case "make_draft" :

@@ -21,18 +21,26 @@ if(isset($_FILES["file"]["type"])){
             if(file_exists(_ROOT . "/upload/other/" . $_FILES["file"]["name"])){
                 echo $_FILES["file"]["name"] . "Already exist!";
             }else{
-                $fileName = $_SESSION['username'] . '_' . time().'_'.basename($_FILES["file"]["name"]);
+                $fileName = strtolower($_SESSION['username'] . '_' . time().'_'.basename($_FILES["file"]["name"]));
                 $filePath = "upload/other/" . $fileName;
-                $sourcePath = $_FILES['file']['tmp_name'];          // Storing source path of the file in a variable
-                $targetPath = _ROOT . "/upload/other/" . $fileName;    // Target path where file is to be stored
-                if(move_uploaded_file($sourcePath, $targetPath))       // Moving Uploaded file
-                    echo "Success";
+                $sourcePath = $_FILES['file']['tmp_name'];              // Storing source path of the file in a variable
+                $targetPath = _ROOT . "/upload/other/" . $fileName;     // Target path where file is to be stored
+                if(move_uploaded_file($sourcePath, $targetPath)){          // Moving Uploaded file
+                    $data = array();
+                    $data['file_name'] = $fileName;
+                    $data['folder'] = 'other';
+                    $data['file_address'] = 'upload/other/';
+                    $data['file_extension'] = $file_extension;
+                    $data['gallery'] = 0;
+                    $data['name'] = "";
+                    $data['description'] = "";
+                    insertRecord(TAB_UPLOADS, $data);
+                }
             }
         }
     }else{
         echo "Invalid file Size or Type";
     }
-    redirect("../uploads.php", true);
 }else{
     redirect("../error_page.php?typeError=500&message=No file sent for upload.");
 }

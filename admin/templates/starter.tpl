@@ -264,13 +264,13 @@
     <!-- starrr -->
     <script src="templates/plugins/starrr/dist/starrr.js"></script>
     <!-- Dropzone.js -->
-    <script src="templates/plugins/dropzone/dist/min/dropzone.min.js"></script>
+    <script src="templates/plugins/dropzone/dist/dropzone.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="templates/plugins/build/js/custom.min.js"></script>
     <!-- Team custom script -->
     <script src="templates/js/24CinL-admin.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminDataTables.js"></script>
-    <script src="templates/jquery/ajax/24CinL-adminUploadBackground.js"></script>
+    <script src="templates/jquery/ajax/24CinL-adminUploads.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminReportAjax.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminNewsletter.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminArticle.js"></script>

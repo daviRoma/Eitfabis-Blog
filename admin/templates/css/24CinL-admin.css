@@ -543,6 +543,18 @@ h2{
     padding-bottom: 5px;
 }
 
+.btn-upload-delete i{
+    position: relative;
+    top:5px;
+    font-size: 25px;
+    color: #dfdfdf;
+}
+
+.btn-upload-delete i:hover{
+    -webkit-transform:scale(1.2,1.2);
+    cursor: pointer;
+}
+
 .btn-upload{
     position: absolute;
     bottom: 20px;

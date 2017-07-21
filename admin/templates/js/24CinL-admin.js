@@ -2,7 +2,7 @@
 
 
 var url = window.location.href.toString().split("?");
-
+var url_temp = url[1];
 
 // Ready function
 $(function(){
@@ -117,19 +117,49 @@ $(function(){
     });
 
     // Active article's dropdown of sidebar
-    if(url[1] == "section=manage"){
+    if(url_temp == "section=manage"){
         $("#article_li").addClass("active");
         $("#liA1").addClass("current-page");
         $("#liA1").parent("ul").css({"display":"block"});
     }
-    if(url[1] == "section=draft"){
-        $("#article_li").addClass("active");
-        $("#liA2").addClass("current-page");
-        $("#liA2").parent("ul").css({"display":"block"});
-    }
-    if(url[1].split('&')[1].split('=')[0] == "id"){
-        $("#article_li").addClass("active");
-        $("#liA2").addClass("current-page");
-        $("#liA2").parent("ul").css({"display":"block"});
+    if(url_temp == "section=draft"){
+        if(url_temp.split('&')[0] == "section=draft"){
+            $("#article_li").addClass("active");
+            $("#liA2").addClass("current-page");
+            $("#liA2").parent("ul").css({"display":"block"});
+        }else{
+            $("#article_li").addClass("active");
+            $("#liA2").addClass("current-page");
+            $("#liA2").parent("ul").css({"display":"block"});
+        }
     }
 });
+
+
+// Check the AddPage form fields
+function add_blogPage(e){
+    var background = $("#bg_file").prop("src");
+    var title = $("#set_title").val();
+    var subtitle = $("#set_subtitle").val();
+    var page = $("#set_position").val();
+
+    if(title == "" || subtitle == "" || page == "" || background == "../img/Blog/background/admin-bg/blog-default-bg.jpg"){
+        alert("All fields are mandatory!");
+        e.preventDefault();
+        return false;
+    }
+}
+
+
+// Check the addCategory form fields
+function add_newCategory(e){
+    var background = $("#set_category_bg").val();
+    var name = $("#set_category_name").val();
+    var description = $("#set_category_description").val();
+
+    if(name == "" || description == "" || background == ""){
+        alert("All fields are mandatory!");
+        e.preventDefault();
+        return false;
+    }
+}

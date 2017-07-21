@@ -15,6 +15,8 @@ $(function(){
     $("#upload_file").click(function(){
         $("#upload_img_file").click();
     });
+
+
 });
 
 
@@ -77,59 +79,6 @@ function previewBackground(e){
         };
         reader.readAsDataURL(imgFile);
     }
-}
-
-
-// Check the AddPage form fields
-function add_blogPage(e){
-    var background = $("#bg_file").prop("src");
-    var title = $("#set_title").val();
-    var subtitle = $("#set_subtitle").val();
-    var page = $("#set_position").val();
-
-    if(title == "" || subtitle == "" || page == "" || background == "../img/Blog/background/admin-bg/blog-default-bg.jpg"){
-        alert("All fields are mandatory!");
-        e.preventDefault();
-        return false;
-    }
-}
-
-
-// Check the addCategory form fields
-function add_newCategory(e){
-    var background = $("#set_category_bg").val();
-    var name = $("#set_category_name").val();
-    var description = $("#set_category_description").val();
-
-    if(name == "" || description == "" || background == ""){
-        alert("All fields are mandatory!");
-        e.preventDefault();
-        return false;
-    }
-}
-
-// Delete selected category
-function delete_category(event){
-    var category = $(event.target).parent().parent().children("span").text();
-    var url = "controllers/category_service.php";
-
-    if(confirm("Delete '" + category + "'. Are you sure?")){
-        $.ajax(url, {
-            method : "POST",
-            data : {
-                "deleteCategory" : category
-            },
-            dataType : "html",
-            success: function(response){
-                alert("The operation has been succesfull." + " '"+category+"' cagtegory has been deleted.");
-                location.reload();
-            },
-            error: function(xhr) {
-                alert("ERROR: " + xhr.responseText + xhr.status);
-            }
-        });
-    }else
-        return false;
 }
 
 
@@ -205,4 +154,50 @@ function avatar_upload(file){
             alert("ERROR: " + xhr.responseText + xhr.status);
         }
      });
+}
+
+
+// Delete selected category
+function delete_category(event){
+    var category = $(event.target).parent().parent().children("span").text();
+    var url = "controllers/category_service.php";
+
+    if(confirm("Delete '" + category + "'. Are you sure?")){
+        $.ajax(url, {
+            method : "POST",
+            data : {
+                "deleteCategory" : category
+            },
+            dataType : "html",
+            success: function(response){
+                alert("The operation has been succesfull." + " '"+category+"' cagtegory has been deleted.");
+                location.reload();
+            },
+            error: function(xhr) {
+                alert("ERROR: " + xhr.responseText + xhr.status);
+            }
+        });
+    }else
+        return false;
+}
+
+
+// Delete uploaded file in dropzone
+function delete_dropfile(){
+    var url = "controllers/script/delete_dropFile-script.php";
+    var fileName = $(event.target).parent().parent().children("div[class=dz-filename]").children("span").text();
+    var div_to_remove = $(event.target).parent().parent().parent();
+    $.ajax(url, {
+        method : "POST",
+        data : {
+            "fileName" : fileName
+        },
+        dataType : "text",
+        success: function(){
+            div_to_remove.remove();
+        },
+        error: function(xhr) {
+            alert("ERROR: " + xhr.responseText + xhr.status);
+        }
+    });
 }
