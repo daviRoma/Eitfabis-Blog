@@ -99,7 +99,7 @@
                                     <a href="tags.php"><i class="fa fa-tags"></i> Tags</a>
                                 </li>
                                 <li>
-                                    <a href="gallery.php"><i class="fa fa-picture-o"></i> Gallery </a>
+                                    <a href="files_manager.php"><i class="fa fa-files-o"></i> Files Manager </a>
                                 </li>
                                 <li>
                                     <a href="reports.php"><i class="fa fa-paper-plane-o"></i>Reports</a>

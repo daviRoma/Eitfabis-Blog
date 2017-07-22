@@ -28,7 +28,7 @@ switch ($_POST['position']) {
         delete_tag($deleted, $_POST['number']);
         break;
 
-    case 'Gallery':
+    case 'Files Manager':
         delete_upload($deleted, $_POST['number']);
         break;
 

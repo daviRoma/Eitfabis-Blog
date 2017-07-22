@@ -15,7 +15,11 @@
         <div class="modal-footer">
             <span>
                 <strong>From:</strong>
-                 <a href="article.php?title={$article_title}&id={$article_id}" alt="">{$article_title}</a>
+                {if $article_id != ""}
+                    <a href="article.php?title={$article_title}&id={$article_id}" alt="">{$article_title}</a>
+                {else}
+                    <a href="index.php" alt="">{$article_title}</a>
+                {/if}
             </span>
         </div>
 

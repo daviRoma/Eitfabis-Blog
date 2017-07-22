@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-21 23:16:24
+/* Smarty version 3.1.30, created on 2017-07-22 09:54:56
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/starter.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59726f286767d2_32855132',
+  'unifunc' => 'content_597304d0592650_38627270',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd11fe14a7cf79e8c7852e13e16baa336e403169a' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/starter.tpl',
-      1 => 1500670975,
+      1 => 1500710093,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59726f286767d2_32855132 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597304d0592650_38627270 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,7 +125,7 @@ function content_59726f286767d2_32855132 (Smarty_Internal_Template $_smarty_tpl)
                                     <a href="tags.php"><i class="fa fa-tags"></i> Tags</a>
                                 </li>
                                 <li>
-                                    <a href="gallery.php"><i class="fa fa-picture-o"></i> Gallery </a>
+                                    <a href="files_manager.php"><i class="fa fa-files-o"></i> Files Manager </a>
                                 </li>
                                 <li>
                                     <a href="reports.php"><i class="fa fa-paper-plane-o"></i>Reports</a>

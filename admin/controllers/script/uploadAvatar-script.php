@@ -14,8 +14,12 @@ if (!isset($_FILES['avatar_file']) || !is_uploaded_file($_FILES['avatar_file']['
 }
 
 $userId = $_SESSION['userId'];
+$user_avatar = get_userAvatar($userId);
 
-unlink(get_userAvatar($userId));    // Remove old user avatar form server
+if($user_avatar){
+    unlink(get_userAvatar($userId));    // Remove old user avatar form server
+}
+
 if(isset($_FILES["avatar_file"]["type"])){
     $validextensions = array("jpeg", "jpg", "png");
     $temporary = explode(".", $_FILES["avatar_file"]["name"]);
@@ -47,7 +51,7 @@ if(isset($_FILES["avatar_file"]["type"])){
 // Update DB column about new avatar
 $data = array();
 $data['img_address'] = "upload/user/" . $fileName;
-updateRecord(TAB_PERSONALINFO, $data, "userId = $userId");
+updateRecord(TAB_PERSONALINFO, $data, "user = $userId");
 
 $_SESSION['userPicture'] = $filePath;   // update avatar
 

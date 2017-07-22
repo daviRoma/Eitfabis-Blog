@@ -96,7 +96,11 @@ function get_articlesTable(){
                 $result[$i]['title'] = $article['title'];
                 $result[$i]['author'] = $article['author'];
                 $result[$i]['background'] = $article['background'];
-                $result[$i]['category'] = $category['category'];
+                if(isset($category['category'])){
+                    $result[$i]['category'] = $category['category'];
+                }else{
+                    $result[$i]['category'] = "No category";
+                }
                 $i++;
                 break;
             }
@@ -115,7 +119,11 @@ function get_articleRow($id){
     $result['title'] = $article['title'];
     $result['author'] = $article['author'];
     $result['background'] = $article['background'];
-    $result['category'] = $category['category'];
+    if(isset($category['category'])){
+        $result['category'] = $category['category'];
+    }else{
+        $result['category'] = "No category";
+    }
     return $result;
 }
 

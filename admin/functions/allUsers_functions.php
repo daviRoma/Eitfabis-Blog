@@ -67,12 +67,12 @@ function set_userGroup($data, $oldId){
     updateRecord(TAB_USERS, $data_user, "id = $oldId");
     insertRecord(TAB_USR_ROLE, $data_group);
     $data_info = array();
-    if($data['id'] == 1){
+    if($data['group'] == 1){
         $data_info = array();
         $data_info['employment'] = "-";
-        $data_info['img_address'] = "upload/user/user-default-bg.jpg";
+        $data_info['img_address'] = "upload/user/user-default.png";
         $data_info['user'] = $data['id'];
-        insertRecord(TAB_PERSONALINFO, $user_group);
+        insertRecord(TAB_PERSONALINFO, $data_info);
     }
 }
 
@@ -152,12 +152,12 @@ function insert_userGroup($data){
     $user_group['userId'] = $data['id'];
     $user_group['groupId'] = $data['group'];
     insertRecord(TAB_USR_ROLE, $user_group);
-    if($data['id'] == 1){
+    if($data['group'] == 1){
         $data_info = array();
         $data_info['employment'] = "-";
-        $data_info['img_address'] = "upload/user/user-default-bg.jpg";
+        $data_info['img_address'] = "upload/user/user-default.png";
         $data_info['user'] = $data['id'];
-        insertRecord(TAB_PERSONALINFO, $user_group);
+        insertRecord(TAB_PERSONALINFO, $data_info);
     }
 }
 

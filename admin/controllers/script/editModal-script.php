@@ -16,9 +16,10 @@ switch ($_POST['position']) {
             $smarty->assign('row', $article);
             $smarty->assign('operation', "edit");
         }
+        // Add operation not allowed
         break;
 
-    case 'Gallery':
+    case 'Files Manager':
             if($_POST['operation'] == "edit"){
                 $edit = $_POST['row'];
                 $head = get_uploadTableHeader();
@@ -27,6 +28,7 @@ switch ($_POST['position']) {
                 $smarty->assign('row', $upload);
                 $smarty->assign('operation', "edit");
             }
+            // Add operation not allowed
             break;
 
     case 'Subscribers':

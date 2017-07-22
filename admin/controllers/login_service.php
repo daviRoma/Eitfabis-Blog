@@ -39,7 +39,7 @@ if(isset($_POST['login']) ){
 			$image = selectRecord(TAB_PERSONALINFO, "user = '$id'");
 			$_SESSION['userPicture'] = $image['img_address'];
 		}else{
-			$_SESSION['userPicture'] = _ROOT . "/upload/blog/background/admin-bg/user-default.png";
+			$_SESSION['userPicture'] = "upload/user/user-default.png";
 		}
 		go_to_start($_SESSION['role']);
 	}else{

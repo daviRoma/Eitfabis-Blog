@@ -21,7 +21,7 @@ switch ($_POST['position']) {
         // Add operation not allowed
         break;
 
-    case 'Gallery':
+    case 'Files Manager':
         $set_row = restructure_upload($_POST['row'], false);
 
         if($_POST['operation'] == "edit"){

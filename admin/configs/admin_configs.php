@@ -12,7 +12,7 @@ define('SUBSCRIBERS', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/subscribers.
 define('NEWSLETTER', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/newsletter.tpl');
 define('CATEGORIES', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/categories.tpl');
 define('TAGS', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/tags.tpl');
-define('GALLERY', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/gallery.tpl');
+define('FILES_MANAGER', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/files_manager.tpl');
 define('MANAGEARTICLE', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/manage_article.tpl');
 define('REPORTS', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/reports.tpl');
 define('USERS_MANAGEMENT', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/allUsers.tpl');

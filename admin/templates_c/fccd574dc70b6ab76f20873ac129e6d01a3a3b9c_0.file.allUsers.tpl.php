@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-19 11:17:00
+/* Smarty version 3.1.30, created on 2017-07-22 15:31:46
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596f238cbb50c0_95345456',
+  'unifunc' => 'content_597353c2be5898_82244173',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fccd574dc70b6ab76f20873ac129e6d01a3a3b9c' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl',
-      1 => 1500455813,
+      1 => 1500730305,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596f238cbb50c0_95345456 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597353c2be5898_82244173 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Blog's page setting -->
@@ -102,7 +102,21 @@ function content_596f238cbb50c0_95345456 (Smarty_Internal_Template $_smarty_tpl)
 
             <div class="row">
                 <div class="col-md-12">
-                    <span style="padding-left:5px; padding-bottom:5px;"><u>NOTE</u>: The undo button allows you to turn back and restore the original rows.</span>
+                    <span style="padding-left:5px; padding-bottom:5px;">
+                        <u>NOTE 1</u>: The undo button allows you to turn back and restore the original rows.</br>
+                    </span>
+                    <span style="padding-left:5px; padding-bottom:5px;">
+                        <u>NOTE 2</u>: Group 1 -> Administrator </br>
+                        <span style="margin-left:6%; padding-bottom:5px;">
+                            Group 2 -> Report Manager </br>
+                        </span>
+                        <span style="margin-left:6%; padding-bottom:5px;">
+                            Group 3 -> Blog Manager </br>
+                        </span>
+                        <span style="margin-left:6%; padding-bottom:5px;">
+                            Group 4 -> Base User </br>
+                        </span>
+                    </span>
                 </div>
                 <div class="col-md-12">
                     <hr class="subscribers-footer-line">

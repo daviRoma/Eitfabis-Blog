@@ -30,7 +30,11 @@ function get_userProfile($id){
 // Get own user avatar
 function get_userAvatar($id){
     $query = selectRecord(TAB_PERSONALINFO, "id = $id");
-    return _ROOT . "/" . $query['img_address'];
+    if($query['img_address'] == "upload/user/user-default.png"){
+        return _ROOT . "/" . $query['img_address'];
+    }else{
+        return false;
+    }
 }
 
 // Get own user articles

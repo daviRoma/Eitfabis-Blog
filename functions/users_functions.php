@@ -21,7 +21,7 @@ function retrieve_user_info(){
         $list_element = array();
 
         $list_element['id'] = $info['id'];
-        $list_element['username'] = retrieve_username($info['id']);
+        $list_element['username'] = retrieve_username($info['user']);
         $list_element['user_img'] = $info['img_address'];
         $list_element['employment'] = $info['employment'];
         $list_element['brief_description'] = $info['brief_description'];
@@ -38,7 +38,7 @@ function retrieve_user_info(){
 
 // Retrieve username of any given id
 function retrieve_username($id){
-    $query = selectRecord(TAB_USERS, "id = '$id'");
+    $query = selectRecord(TAB_USERS, "id = $id");
     if(count($query) > 0)
         $username = $query['username'];
 

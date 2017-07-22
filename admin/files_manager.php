@@ -3,21 +3,21 @@
 require_once 'controllers/session.php';
 require_once 'configs/smarty_setup.php';
 require_once 'configs/admin_configs.php';
-require_once 'functions/gallery_functions.php';
+require_once 'functions/files_manager_functions.php';
 require_once 'functions/service_setup.php';
 
 // Check the privilegies of the logged user before proceeding
-check_service("gallery.php", $_SESSION['role'], 0);
+check_service("files_manager.php", $_SESSION['role'], 0);
 
 $smarty = new Admin_Item();
 
 $smarty->assign('username', ucfirst($_SESSION['username']));
 $smarty->assign('userPicture', '../' . $_SESSION['userPicture']);
 
-$smarty->assign('position', 'Gallery');
-$smarty->assign('header_page', 'Gallery Management');
+$smarty->assign('position', 'Files Manager');
+$smarty->assign('header_page', 'Server Files Manager');
 $smarty->assign('tables', TABLES);
-$smarty->assign('page', GALLERY);
+$smarty->assign('page', FILES_MANAGER);
 
 
 //Operation

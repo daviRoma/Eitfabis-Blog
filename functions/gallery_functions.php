@@ -42,17 +42,25 @@ function assign_pictures($pictures){
 
 // Return specific information about one picture
 function get_picture($id){
-    $DBpicture = selectJoin(TAB_ART_UPL, TAB_UPLOADS, "upload = id", "id = '$id'")[0];
+    $DB_picture = selectRecord(TAB_UPLOADS, "id = $id");
+    $DB_art_pic = selectRecord(TAB_ART_UPL, "upload = $id");
 
-    $article_id = $DBpicture['article'];
-    $article = retrieve_article_title($article_id);
+    if(count($DB_art_pic) > 0){
+        $article_id = $DB_art_pic['article'];
+        $article = retrieve_article_title($article_id);
 
-    $result['image'] = $DBpicture['file_address'] . $DBpicture['file_name'];
-    $result['name'] = $DBpicture['name'];
-    $result['description'] = $DBpicture['description'];
-    $result['article_id'] = $article['id'];
-    $result['article_title'] = $article['title'];
-
+        $result['image'] = $DB_picture['file_address'] . $DB_picture['file_name'];
+        $result['name'] = $DB_picture['name'];
+        $result['description'] = $DB_picture['description'];
+        $result['article_id'] = $article['id'];
+        $result['article_title'] = $article['title'];
+    }else{
+        $result['image'] = $DB_picture['file_address'] . $DB_picture['file_name'];
+        $result['name'] = $DB_picture['name'];
+        $result['description'] = $DB_picture['description'];
+        $result['article_id'] = "";
+        $result['article_title'] = "Eitfabis";
+    }
     return $result;
 }
 
