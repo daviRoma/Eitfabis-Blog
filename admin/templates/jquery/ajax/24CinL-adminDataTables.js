@@ -363,7 +363,7 @@ function delete_selected(e){
                     }
                 }
                 var k = toDeleted_id.length - 1;
-                for(var i = dataRow.length-1; i > 0; i--){
+                for(var i = dataRow.length-1; i >= 0; i--){
                     if(dataRow[i]["id"] == toDeleted_id[k]){
                         dataRow.splice(i, 1);
                         k--;

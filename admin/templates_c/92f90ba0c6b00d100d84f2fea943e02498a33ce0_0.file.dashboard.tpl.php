@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-19 16:12:32
+/* Smarty version 3.1.30, created on 2017-07-23 23:13:35
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596f68d01f1cb3_55808529',
+  'unifunc' => 'content_5975117fd576f1_99649216',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '92f90ba0c6b00d100d84f2fea943e02498a33ce0' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl',
-      1 => 1500473548,
+      1 => 1500844402,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596f68d01f1cb3_55808529 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5975117fd576f1_99649216 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Blog's page setting -->
@@ -54,7 +54,7 @@ echo $_smarty_tpl->tpl_vars['draft']->value['title'];
                                 <div class="x_title">
                                     <h4><i class="fa fa-h-square"></i> - Subtitle</h4>
                                 </div>
-                                <textarea id="set_article_subtitle" name="setSubtitle" class="set-article-subtitle" rows="4" maxlength="500" required="Mandatory field"><?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {
+                                <textarea id="set_article_subtitle" name="setSubtitle" class="set-article-subtitle" rows="4" maxlength="500"><?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {
 echo $_smarty_tpl->tpl_vars['draft']->value['subtitle'];
 }?></textarea>
                             </div>
@@ -63,7 +63,7 @@ echo $_smarty_tpl->tpl_vars['draft']->value['subtitle'];
                     </br>
                     <div class="row">
                         <div id="background_container" class="col-md-12" title="Upload image">
-                            <img id="bg_image" class="img-responsive" src="../upload/blog/background/admin-bg/article-default-bg-2.jpg">
+                            <img id="bg_image" class="img-responsive" src="../upload/blog/background/admin-bg/article-default-bg-4.jpg">
                             <img id="bg_fake" src="" style="display:none;">
                         </div>
                         <input id="bg_file" type="file" name="bg_file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="display: none;"/>

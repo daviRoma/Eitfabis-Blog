@@ -27,14 +27,14 @@
                                 <div class="x_title">
                                     <h4><i class="fa fa-h-square"></i> - Subtitle</h4>
                                 </div>
-                                <textarea id="set_article_subtitle" name="setSubtitle" class="set-article-subtitle" rows="4" maxlength="500" required="Mandatory field">{if isset($draft)}{$draft.subtitle}{/if}</textarea>
+                                <textarea id="set_article_subtitle" name="setSubtitle" class="set-article-subtitle" rows="4" maxlength="500">{if isset($draft)}{$draft.subtitle}{/if}</textarea>
                             </div>
                         </div>
                     </div>
                     </br>
                     <div class="row">
                         <div id="background_container" class="col-md-12" title="Upload image">
-                            <img id="bg_image" class="img-responsive" src="../upload/blog/background/admin-bg/article-default-bg-2.jpg">
+                            <img id="bg_image" class="img-responsive" src="../upload/blog/background/admin-bg/article-default-bg-4.jpg">
                             <img id="bg_fake" src="" style="display:none;">
                         </div>
                         <input id="bg_file" type="file" name="bg_file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="display: none;"/>

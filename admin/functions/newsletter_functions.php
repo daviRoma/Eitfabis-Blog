@@ -47,6 +47,49 @@ function insert_newsletter($title, $type, $frequency, $content){
         return false;
 }
 
+// Insert one or more rows in the Newsletters table of the DB.
+function restore_newsletter($data, $number){
+    $new_data = array();
+
+    if($number == 1){
+        $new_data['id'] = $data[0]['id'];
+        $new_data['title'] = $data[0]['title'];
+        $new_data['content'] = $data[0]['content'];
+        $new_data['type'] = $data[0]['type'];
+        $new_data['frequency'] = $data[0]['frequency'];
+        insertRecord(TAB_NEWSLETTERS, $new_data);
+    }else{
+        foreach($data as $data_element){
+            $new_data['id'] = $data_element['id'];
+            $new_data['title'] = $data_element['title'];
+            $new_data['content'] = $data_element['content'];
+            $new_data['type'] = $data_element['type'];
+            $new_data['frequency'] = $data_element['frequency'];
+            insertRecord(TAB_NEWSLETTERS, $new_data);
+        }
+    }
+}
+
+// Redefine an array sent by javascript
+function restructure_newsletter($list, $more){
+    $result = array();
+    if($more){
+        for($i = 0; $i < count($list); $i++){
+            $result[$i]['id'] = $list[$i][0];
+            $result[$i]['title'] = $list[$i][1];
+            $result[$i]['content'] = $list[$i][2];
+            $result[$i]['type'] = $list[$i][3];
+            $result[$i]['frequency'] = $list[$i][4];
+        }
+    }else{
+        $result['id'] = $list[0];
+        $result['title'] = $list[1];
+        $result['content'] = $list[2];
+        $result['type'] = $list[3];
+        $result['frequency'] = $list[4];
+    }
+    return $result;
+}
 
 // Returns the header of the DB table Newsletters
 function get_newsletterTableHeader(){
@@ -58,4 +101,5 @@ function get_newsletterTableHeader(){
     $table_head[4] = "Frequency";
     return $table_head;
 }
+
 ?>

@@ -31,7 +31,7 @@ if(isset($_POST['send'])) {
 	$data['date'] = date('Y-m-d  H:i:s');
 	$data['flag'] = false;
 
- 	$query = insertRecord('TAB_REPORTS', $data);
+ 	$query = insertRecord(TAB_REPORTS, $data);
 
 	redirect("/contact_us.php?success=true", true);
 

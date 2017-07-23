@@ -32,6 +32,10 @@ switch ($_POST['position']) {
         delete_upload($deleted, $_POST['number']);
         break;
 
+    case 'Newsletter':
+        delete_newsletter($deleted, $_POST['number']);
+        break;
+
     default : break;
 }
 

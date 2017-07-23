@@ -57,6 +57,13 @@ switch ($_POST['position']) {
         }
         break;
 
+    case 'Newsletter':
+        if($_POST["operation"] == "delete"){
+            $restore = restructure_newsletter($_POST['row'], true);
+            restore_newsletter($restore, $_POST['number']);
+        }
+        break;
+
     default : break;
 }
 

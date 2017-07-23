@@ -53,8 +53,8 @@ function previewBackground(e){
             $("#bg_fake").replaceWith(newImg);
             newImg.on('load', function() {
                 if(position == "Categories"){
-                    maxWidth = 640;
-                    maxHeight = 480;
+                    maxWidth = 1024;
+                    maxHeight = 768;
                     if(newImg.outerWidth() > maxWidth || newImg.outerHeight() > maxHeight){
                         alert("Image dimension not allowed. It will be at most "+ maxWidth +" x "+ maxHeight +".");
                         return false;
@@ -86,6 +86,7 @@ function previewBackground(e){
 function avatar_preview(e){
     var maxWidth = 0;
     var maxHeight = 0;
+    var size_gap = 0;
     var img = $("#avatar_file").val().toString().split("\\");
     img = img[img.length - 1].split(".");
 
@@ -114,10 +115,11 @@ function avatar_preview(e){
 
             $("#avatar_fake").replaceWith(newImg);
             newImg.on('load', function() {
-                maxWidth = 800;
-                maxHeight = 800;
-                if(newImg.outerWidth() > maxWidth || newImg.outerHeight() > maxHeight){
-                    alert("Image dimension not allowed. It will be at most "+ maxWidth +" x "+ maxHeight +".");
+                maxWidth = 1280;
+                maxHeight = 1280;
+                size_gap = newImg.outerWidth() - newImg.outerHeight();
+                if(newImg.outerWidth() > maxWidth || newImg.outerHeight() > maxHeight || size_gap < 0 || size_gap > 100){
+                    alert("Image dimension not allowed. The image must be as square as possible.");
                     return false;
                 }else{
                     avatar_upload(imgFile);

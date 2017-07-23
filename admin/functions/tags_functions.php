@@ -84,13 +84,13 @@ function restore_tag($data, $number){
         $new_data['id'] = $data[0]['id'];
         $new_data['label'] = $data[0]['label'];
         $new_data['description'] = $data[0]['description'];
-        insertRecord("tag", $new_data);
+        insertRecord(TAB_TAGS, $new_data);
     }else{
         foreach($data as $data_element){
             $new_data['id'] = $data_element['id'];
             $new_data['label'] = $data_element['label'];
             $new_data['description'] = $data_element['description'];
-            insertRecord("tag", $new_data);
+            insertRecord(TAB_TAGS, $new_data);
         }
     }
 }
