@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-23 23:13:35
+/* Smarty version 3.1.30, created on 2017-07-27 17:32:26
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975117fd576f1_99649216',
+  'unifunc' => 'content_597a078a258be2_26107507',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '92f90ba0c6b00d100d84f2fea943e02498a33ce0' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl',
-      1 => 1500844402,
+      1 => 1501169544,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5975117fd576f1_99649216 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597a078a258be2_26107507 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Blog's page setting -->
@@ -175,7 +175,7 @@ echo $_smarty_tpl->tpl_vars['draft']->value['content'];
                                 <i class="fa fa-th"></i>
                                 <select id="set_category" name="setCategory">
                                     <?php if (isset($_smarty_tpl->tpl_vars['draft']->value)) {?>
-                                        <option value="<?php echo $_smarty_tpl->tpl_vars['category']->value['category'];?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['category']->value['category'];?>
 </option>
                                     <?php }?>
@@ -185,7 +185,7 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
 ?>
-                                        <option value="<?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
+                                        <option value="<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
 </option>
                                     <?php
@@ -199,7 +199,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                         </div>
                     </div>
                     <!-- Tags -->
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <div class="panel-body">
                             <div class="x_title">
                                 <h4>Tags</h4>
@@ -211,7 +211,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 "><?php echo $_smarty_tpl->tpl_vars['tags']->value[0];?>
 </option>
                                     <?php }?>
-                                    <option value="default"> &nbsp - TAG - </option>
+                                    <option value="default"> TAG - 1 </option>
                                 </select>
                             </div>
                             <div class="select-menu-flat tags-menu">
@@ -221,7 +221,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 "><?php echo $_smarty_tpl->tpl_vars['tags']->value[1];?>
 </option>
                                     <?php }?>
-                                    <option value="default"> &nbsp - TAG - </option>
+                                    <option value="default"> TAG - 2 </option>
                                 </select>
                             </div>
                             <div class="select-menu-flat tags-menu">
@@ -231,7 +231,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 "><?php echo $_smarty_tpl->tpl_vars['tags']->value[2];?>
 </option>
                                     <?php }?>
-                                    <option value="default"> &nbsp - TAG - </option>
+                                    <option value="default"> TAG - 3 </option>
                                 </select>
                             </div>
                         </div>

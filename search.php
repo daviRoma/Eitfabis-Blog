@@ -25,7 +25,6 @@ if(isset($_GET['method'])){
 	$articles_found = select_search_method($_GET['method'], $_GET['title'], $_GET['category'], $_GET['tag']);
 
 	if(!is_string($articles_found)){
-
 		// articles founded
 		$list = assign_articles($articles_found);
 

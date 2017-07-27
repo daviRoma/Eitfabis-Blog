@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-19 11:48:50
+/* Smarty version 3.1.30, created on 2017-07-27 15:06:26
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/manage_article.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596f2b02eb6482_15671594',
+  'unifunc' => 'content_5979e55234f3c0_77268897',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '97255eac238396e5a73cd79cafbbeb708078b416' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/manage_article.tpl',
-      1 => 1498753681,
+      1 => 1501160784,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596f2b02eb6482_15671594 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5979e55234f3c0_77268897 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Article management -->
 <div class="row">
@@ -54,7 +54,7 @@ function content_596f2b02eb6482_15671594 (Smarty_Internal_Template $_smarty_tpl)
                     <hr class="subscribers-footer-line">
                     <button id="undo" class="btn btn-sm btn-default" type="button" onClick="restore_row(event)" disabled><i class="fa fa-undo"></i> Undo</button>
                     <button id="delete_selected" class="btn btn-sm btn-default" type="button" onClick="delete_selected(event)"><i class="fa fa-trash"></i> Delete</button>
-                    <button id="add" class="btn btn-sm btn-success" type="button" onClick="addModal(event)" disabled><i class="fa fa-plus"></i> Add</button>
+                    <button id="view_comments" class="btn btn-sm btn-primary" type="button" onClick="" disabled><i class="fa fa-comments-o"></i> View Comments</button>
                     <button id="save" class="btn btn-sm btn-success pull-right" type="button" onClick="save_changes(event)"><i class="fa fa-save"></i> Save</button>
                 </div>
             </div>

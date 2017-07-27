@@ -10,7 +10,7 @@ require_once _ROOT . '/admin/functions/service_setup.php';
 check_service("category_service.php", $_SESSION['role'], 1);
 
 
-if(isset($_POST['addNewCategory']) || isset($_POST['deleteCategory'])){
+if(isset($_POST['addNewCategory'])){
     // Add new category
     if(isset($_POST['addNewCategory'])){
         $error = "";
@@ -70,12 +70,6 @@ if(isset($_POST['addNewCategory']) || isset($_POST['deleteCategory'])){
 
         insert_category($data);
         redirect("../categories.php", true);
-    }
-
-    // Delete existing category
-    if(isset($_POST['deleteCategory'])){
-        $category = $_POST['deleteCategory'];
-        delete_category($category);
     }
 }else{
     redirect("../error_page.php?typeError=500&message=Cannot perform the requested operation. Data was not sent.", true);

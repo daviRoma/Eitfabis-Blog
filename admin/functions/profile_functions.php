@@ -45,12 +45,12 @@ function get_userArticles($username){
     $articles = selectQuery(TAB_ARTICLES, "author = '$username'", "date DESC LIMIT 10");
     foreach($articles as $article){
         $id = $article['id'];
-        $category = selectRecord(TAB_ART_CAT, "article = $id");
+        $category = selectJoin(TAB_ART_CAT, TAB_CATEGORIES, "category = id", "article = $id")[0];
         $tags = selectJoin(TAB_ART_TAG, TAB_TAGS, "tag = id", "article = $id");
         $result[$i]['id'] = $article['id'];
         $result[$i]['title'] = substr($article['title'], 0, 30) . "..";
         $result[$i]['date'] = substr($article['date'], 0, 10);
-        $result[$i]['category'] = $category['category'];
+        $result[$i]['category'] = $category['name'];
         foreach($tags as $tag) {
             $result[$i]['tags'] .= "|" . $tag['label'] ."|";
         }

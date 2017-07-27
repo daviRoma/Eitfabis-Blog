@@ -223,13 +223,13 @@ function get_tagsByCategory(category, tag_list_number, value){
             switch(tag_list_number){
                 case 1:
                     $("#tags_label_1").children().remove();
-                    $("#tags_label_1").append('<option value="default"> &nbsp - TAG - </option>');
+                    $("#tags_label_1").append('<option value="default"> TAG - 1 </option>');
                     $("#tags_label_1").append(response);
                     $("#tags_label_2").children().remove();
-                    $("#tags_label_2").append('<option value="default"> &nbsp - TAG - </option>');
+                    $("#tags_label_2").append('<option value="default"> TAG - 2 </option>');
                     $("#tags_label_2").append(response);
                     $("#tags_label_3").children().remove();
-                    $("#tags_label_3").append('<option value="default"> &nbsp - TAG - </option>');
+                    $("#tags_label_3").append('<option value="default"> TAG - 3 </option>');
                     $("#tags_label_3").append(response);
                     if(value){
                         remove_duplicated_tag(value, 1);
@@ -238,10 +238,10 @@ function get_tagsByCategory(category, tag_list_number, value){
                     break;
                 case 2:
                     $("#tags_label_2").children().remove();
-                    $("#tags_label_2").append('<option value="default"> &nbsp - TAG - </option>');
+                    $("#tags_label_2").append('<option value="default"> TAG - 1 </option>');
                     $("#tags_label_2").append(response);
                     $("#tags_label_3").children().remove();
-                    $("#tags_label_3").append('<option value="default"> &nbsp - TAG - </option>');
+                    $("#tags_label_3").append('<option value="default"> TAG - 2 </option>');
                     $("#tags_label_3").append(response);
                     if(value){
                         remove_duplicated_tag(value, 2);
@@ -250,7 +250,7 @@ function get_tagsByCategory(category, tag_list_number, value){
                     break;
                 case 3:
                     $("#tags_label_3").children().remove();
-                    $("#tags_label_3").append('<option value="default"> &nbsp - TAG - </option>');
+                    $("#tags_label_3").append('<option value="default"> TAG - 3 </option>');
                     $("#tags_label_3").append(response);
                     if(value){
                         remove_duplicated_tag(value, 3);

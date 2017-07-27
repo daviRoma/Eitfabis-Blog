@@ -21,7 +21,8 @@ function get_draft($id){
 
 // Get category of the article (if is set)
 function get_articleCategory($id){
-    return selectRecord(TAB_ART_CAT, "article = $id");
+    $category = selectJoin(TAB_ART_CAT, TAB_CATEGORIES, "category = id", "article = $id");
+    return $category[0];
 }
 
 
@@ -86,25 +87,21 @@ function delete_draft($id){
 // Returns the contents of the articles-categories DB tables
 function get_articlesTable(){
     $result = array();
-    $articles = selectQuery(TAB_ARTICLES, "", "id DESC");
-    $categories = selectQuery(TAB_ART_CAT, "", "category DESC");
+    $articles = selectQuery(TAB_ARTICLES, "draft = 0", "id DESC");
+
     $i = 0;
-    foreach($articles as $article) {
-        foreach ($categories as $category) {
-            if($article['id'] == $category['article']){
-                $result[$i]['id'] = $article['id'];
-                $result[$i]['title'] = $article['title'];
-                $result[$i]['author'] = $article['author'];
-                $result[$i]['background'] = $article['background'];
-                if(isset($category['category'])){
-                    $result[$i]['category'] = $category['category'];
-                }else{
-                    $result[$i]['category'] = "No category";
-                }
-                $i++;
-                break;
-            }
-        }
+    foreach($articles as $article){
+        $id = $article['id'];
+        $result[$i]['id'] = $article['id'];
+        $result[$i]['title'] = $article['title'];
+        $result[$i]['author'] = $article['author'];
+        $result[$i]['background'] = $article['background'];
+        $category = selectJoin(TAB_ART_CAT, TAB_CATEGORIES, "category = id", "article = $id")[0];
+        if($category['name'] != "")
+            $result[$i]['category'] = $category['name'];
+        else
+            $result[$i]['category'] = "No category";
+        $i++;
     }
     return $result;
 }
@@ -114,16 +111,28 @@ function get_articlesTable(){
 function get_articleRow($id){
     $result = array();
     $article = selectRecord(TAB_ARTICLES, "id = $id");
-    $category = selectRecord(TAB_ART_CAT, "article = $id");
+    $article_category = selectJoin(TAB_ART_CAT, TAB_CATEGORIES, "category = id", "article = $id")[0];
     $result['id'] = $article['id'];
     $result['title'] = $article['title'];
     $result['author'] = $article['author'];
     $result['background'] = $article['background'];
-    if(isset($category['category'])){
-        $result['category'] = $category['category'];
+
+    if(isset($article_category['name'])){
+        $category_name = $article_category['name'];
+        $categories = selectQuery(TAB_CATEGORIES, "name <> '$category_name'", "name ASC");
+        foreach($categories as $category) {
+            $cat_elem[] = $category['name'];
+        }
+        array_unshift($cat_elem, $category_name);
     }else{
-        $result['category'] = "No category";
+        $categories = selectQuery(TAB_CATEGORIES, "", "name ASC");
+        foreach($categories as $category) {
+            $cat_elem[] = $category['name'];
+        }
+        array_unshift($cat_elem, "No category");
     }
+    $result['category'] = $cat_elem;
+
     return $result;
 }
 
@@ -132,15 +141,50 @@ function get_articleRow($id){
 function set_article($data, $oldId){
     $data_article = array();
     $data_category = array();
+    $category = $data['category'];
+
     $data_article['id'] = $data['id'];
     $data_article['title'] = $data['title'];
     $data_article['author'] = $data['author'];
     $data_article['background'] = $data['background'];
+
     $data_category['article'] = $data['id'];
-    $data_category['category'] = $data['category'];
-    deleteRecord(TAB_ART_CAT, "article = $oldId");
-    updateRecord(TAB_ARTICLES, $data_article, "id = $oldId");
-    insertRecord(TAB_ART_CAT, $data_category);
+    $data_category['category'] = selectRecord(TAB_CATEGORIES, "name = '$category'")['id'];
+
+    if($data['id'] == $oldId){
+        updateRecord(TAB_ART_CAT, $data_category, "article = $oldId");
+        updateRecord(TAB_ARTICLES, $data_article, "id = $oldId");
+    }else{
+        set_articles_relationship($oldId, $data['id'], $data_article, $data_category);
+    }
+}
+
+
+// Restore articles relationship of a modified article
+function set_articles_relationship($old_article_id, $new_article_id, $new_data, $new_category){
+    $author = selectRecord(TAB_USR_ART, "article = $old_article_id")['userId'];
+    $uploads = selectQuery(TAB_ART_UPL, "article = $old_article_id");
+    $tags = selectQuery(TAB_ART_TAG, "article = $old_article_id");
+
+    // Delete relationship
+    deleteRecord(TAB_USR_ART, "article = $old_article_id");
+    deleteRecord(TAB_ART_CAT, "article = $old_article_id");
+    deleteRecord(TAB_ART_UPL, "article = $old_article_id");
+    deleteRecord(TAB_ART_TAG, "article = $old_article_id");
+
+    // Update Record
+    updateRecord(TAB_ARTICLES, $new_data, "id = $old_article_id");
+
+    // Set relationship
+    insertRecord(TAB_USR_ART, array("article" => $new_article_id, "userId" => $author));
+    insertRecord(TAB_ART_CAT, $new_category);
+
+    foreach($uploads as $upload){
+        insertRecord(TAB_ART_UPL, array("article" => $new_article_id, "upload" => $upload['upload']));
+    }
+    foreach($tags as $tag){
+        insertRecord(TAB_ART_TAG, array("article" => $new_article_id, "tag" => $tag['tag']));
+    }
 }
 
 
@@ -214,16 +258,25 @@ function get_articleTableHeader(){
 
 
 // Check the correctness of the data that we want to insered
-function check_articleRow($data){
+function check_articleRow($data, $oldId){
     $error = "";
     $flag_1 = false;
     $flag_2 = false;
     $categories = selectQuery(TAB_CATEGORIES, "", "name ASC");
     $users = selectQuery(TAB_USERS, "", "id ASC");
 
-    if($data['id'] == 0){
-        $error = "Id cannot be 0!";
-        return $error;
+    if($data['id'] != $oldId){
+        if($data['id'] == 0){
+            $error = "Id cannot be 0!";
+            return $error;
+        }else{
+            $id = $data['id'];
+            $articles = selectRecord(TAB_ARTICLES, "id = $id");
+            if(count($articles) > 0){
+                $error = "Id already exist!";
+                return $error;
+            }
+        }
     }
 
     foreach($users as $user){
@@ -246,7 +299,6 @@ function check_articleRow($data){
         $error = "Invalid author or category.";
         return $error;
     }
-
 }
 
 

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-19 11:46:25
+/* Smarty version 3.1.30, created on 2017-07-24 10:25:09
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/draft_list.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596f2a71319d08_39669518',
+  'unifunc' => 'content_5975aee5a09f06_96476852',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596f2a71319d08_39669518 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5975aee5a09f06_96476852 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Draft List -->
 <div id="draft_list" class="row">

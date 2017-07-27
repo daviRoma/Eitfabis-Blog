@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 22:27:15
+/* Smarty version 3.1.30, created on 2017-07-24 10:20:49
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/contact_us.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59711223715ec3_50154604',
+  'unifunc' => 'content_5975ade1f0cd94_72884203',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59711223715ec3_50154604 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5975ade1f0cd94_72884203 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main Content: Form to contact the staff -->

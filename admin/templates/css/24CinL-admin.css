@@ -131,6 +131,37 @@
     cursor: pointer;
 }
 
+.select-category-menu-modal {
+    color: #000;
+    font-size: 13px;
+    padding: 0;
+    margin: 0 0 0 5px;
+    width: 160px;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.select-category-menu-modal select {
+    padding: 5px 8px;
+    width: 87%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-category-menu-modal select:focus{
+    outline: none;
+    cursor: pointer;
+}
+
+.select-category-menu-modal select:hover{
+    cursor: pointer;
+}
+
 .file-upload-field{
     margin-left: 15px;
 }
@@ -419,17 +450,30 @@ hr.small{
 }
 
 .box-category{
-    margin-left: 0px;
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #efefef;
+    font-family: verdana;
+    margin: 10px 5px 5px 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
 }
 
-.box-category span{
-    font-family: verdana;
+.box-category-name{
     font-size: 17px;
     color: #2d5986;
-    margin: 0 5px 5px 5px;
+    margin: 5px 0px;
+    border: none;
+    margin-right: 0px;
+    padding-right: 0px;
+    border-bottom: none;
+}
+
+.box-category-description{
+    font-size: 11px;
+    color: #132639;
+    margin-top: 14px;
+    margin-left: 5px;
+    border: none;
+    width: 520px;
+    border-bottom: none;
 }
 
 
@@ -440,7 +484,7 @@ hr.small{
     padding: 0;
     margin: 0 10px 0 25px;
     border: 1px solid #ccc;
-    width: 80px;
+    width: 105px;
     border-radius: 0px;
     overflow: hidden;
     background-color: #fff;

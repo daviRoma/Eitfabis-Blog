@@ -25,7 +25,7 @@
                             <select id="categories" name="category">
                                 <option value="Category">Category</option>
                                 {foreach $categories as $category}
-                                    <option value="{$category.name}">{$category.name}</option>
+                                    <option value="{$category.id}">{$category.name}</option>
                                 {/foreach}
                             </select>
                         </div>

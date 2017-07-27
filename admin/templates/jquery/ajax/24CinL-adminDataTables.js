@@ -193,6 +193,10 @@ function edit_one(){
         toEdit[i] = $(this).val();
         i++;
     });
+    
+    if(position == "Article Management"){
+        toEdit[i] = $("#set_category").val();
+    }
 
     $.ajax(url, {
         method : "POST",

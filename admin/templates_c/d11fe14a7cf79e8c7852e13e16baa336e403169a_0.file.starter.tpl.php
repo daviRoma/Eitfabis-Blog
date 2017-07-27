@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-22 09:54:56
+/* Smarty version 3.1.30, created on 2017-07-27 16:45:11
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/starter.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597304d0592650_38627270',
+  'unifunc' => 'content_5979fc778886e9_29870794',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd11fe14a7cf79e8c7852e13e16baa336e403169a' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/starter.tpl',
-      1 => 1500710093,
+      1 => 1501166704,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597304d0592650_38627270 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5979fc778886e9_29870794 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -415,6 +415,9 @@ function content_597304d0592650_38627270 (Smarty_Internal_Template $_smarty_tpl)
 >
     <?php echo '<script'; ?>
  src="templates/jquery/ajax/24CinL-adminArticle.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/jquery/ajax/24CinL-adminCategories.js"><?php echo '</script'; ?>
 >
 
 </body>

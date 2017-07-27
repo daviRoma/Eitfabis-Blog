@@ -9,7 +9,7 @@ switch ($_POST['position']) {
         $set_row = restructure_articleRow($_POST['row'], false);
 
         if($_POST['operation'] == "edit"){
-            $data = check_articleRow($set_row);
+            $data = check_articleRow($set_row, $_POST['oldId']);
             if(is_string($data)){
                 echo "Error: " . $data;
             }else{

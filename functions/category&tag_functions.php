@@ -143,7 +143,9 @@ function list_by_option($option, $name, $page){
 // Returns the total number of pages of the articles found by category or tag.
 function get_total_page($name, $section){
     if($section == "category"){
-        $row = countRecord(TAB_ART_CAT, "category = '$name'");
+        $DBcategory = selectRecord(TAB_CATEGORIES, "name = '$name'");
+        $catId = $DBcategory['id'];
+        $row = countRecord(TAB_ART_CAT, "category = '$catId'");
     }
 
     if($section == "tag"){

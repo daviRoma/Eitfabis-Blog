@@ -10,28 +10,23 @@ function get_categoryList(){
 }
 
 // Get a selected category
-function get_category($name){
+function get_category_by_name($name){
     $query = selectRecord(TAB_CATEGORIES, "name = '$name'");
     return $query;
 }
 
+// Get a selected category
+function get_category_by_id($id){
+    $query = selectRecord(TAB_CATEGORIES, "id = $id");
+    return $query;
+}
+
 // Delete one or more categories
-function delete_category($category){
-    $partOf_records = selectQuery(TAB_ART_CAT, "category = '$category'", "article ASC");
-    if(count($partOf_records) > 0){
-        foreach ($partOf_records as $record) {
-            $articleId = $record['article'];
-            deleteRecord(TAB_ART_CAT, $articleId);
-        }
-    }
-    $reference_records = selectQuery("TAB_TAG_CAT", "category = '$category'", "tag ASC");
-    if(count($reference_records) > 0){
-        foreach ($reference_records as $record) {
-            $tagId = $record['tag'];
-            deleteRecord(TAB_TAG_CAT, $tagId);
-        }
-    }
-    $path = get_category($category)['background'];
+function delete_category($category_id){
+    $path = get_category_by_id($category_id)['background'];
+
+    deleteRecord(TAB_ART_CAT, "category = $id");
+    deleteRecord(TAB_TAG_CAT, "category = $id");
     deleteRecord(TAB_CATEGORIES, "name = '$category'");
     delete_categoryBg($path);
 }

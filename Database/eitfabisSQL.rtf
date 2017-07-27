@@ -69,6 +69,16 @@ CREATE TABLE articles (\
 );\
 \
 \
+CREATE TABLE comments (\
+	id			INT(11)			NOT NULL,\
+	name		VARCHAR(255)	NOT NULL,\
+	content		TEXT			NOT NULL,\
+	article		INT(11)			NOT NULL,\
+	PRIMARY KEY (id),\
+	FOREIGN KEY (article) 	REFERENCES articles (id)\
+);\
+\
+\
 CREATE TABLE user_article (\
 	article		INT(11)  		NOT NULL,\
 	userId		INT(11)  		NOT NULL,\

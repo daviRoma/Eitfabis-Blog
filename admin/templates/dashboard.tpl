@@ -144,18 +144,18 @@
                                 <i class="fa fa-th"></i>
                                 <select id="set_category" name="setCategory">
                                     {if isset($draft)}
-                                        <option value="{$category.category}">{$category.category}</option>
+                                        <option value="{$category.id}">{$category.category}</option>
                                     {/if}
                                     <option value="Other"> - Other - </option>
                                     {foreach $categories as $category}
-                                        <option value="{$category.name}">{$category.name}</option>
+                                        <option value="{$category.id}">{$category.name}</option>
                                     {/foreach}
                                 </select>
                             </div>
                         </div>
                     </div>
                     <!-- Tags -->
-                    <div class="col-md-5">
+                    <div class="col-md-6">
                         <div class="panel-body">
                             <div class="x_title">
                                 <h4>Tags</h4>
@@ -165,7 +165,7 @@
                                     {if isset($tags[0])}
                                         <option value="{$tags[0]}">{$tags[0]}</option>
                                     {/if}
-                                    <option value="default"> &nbsp - TAG - </option>
+                                    <option value="default"> TAG - 1 </option>
                                 </select>
                             </div>
                             <div class="select-menu-flat tags-menu">
@@ -173,7 +173,7 @@
                                     {if isset($tags[1])}
                                         <option value="{$tags[1]}">{$tags[1]}</option>
                                     {/if}
-                                    <option value="default"> &nbsp - TAG - </option>
+                                    <option value="default"> TAG - 2 </option>
                                 </select>
                             </div>
                             <div class="select-menu-flat tags-menu">
@@ -181,7 +181,7 @@
                                     {if isset($tags[2])}
                                         <option value="{$tags[2]}">{$tags[2]}</option>
                                     {/if}
-                                    <option value="default"> &nbsp - TAG - </option>
+                                    <option value="default"> TAG - 3 </option>
                                 </select>
                             </div>
                         </div>

@@ -48,13 +48,11 @@ switch($_POST['operation']){
         insertRecord(TAB_USR_ART, $data_usr_art);
 
         // Insert part_of (relation between article and category)
-        $category = $_POST['category'];
-        if($category != "Other"){
-            $data_2 = array();
-            $data_2['article'] = $id;
-            $data_2['category'] = $category;
-            insert_articlesCategory($data_2, false, false);
-        }
+        $data_2 = array();
+        $data_2['article'] = $id;
+        $data_2['category'] = $_POST['category'];
+        insert_articlesCategory($data_2, false, false);
+
 
         // Insert has (relation between article and tag)
         $flag = true;

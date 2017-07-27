@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 22:22:52
+/* Smarty version 3.1.30, created on 2017-07-24 10:24:13
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/search.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5971111c7c0674_44254848',
+  'unifunc' => 'content_5975aeadbb81f3_70977461',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5971111c7c0674_44254848 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5975aeadbb81f3_70977461 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main Content: Search article -->

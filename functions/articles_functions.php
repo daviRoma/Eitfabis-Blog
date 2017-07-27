@@ -47,9 +47,9 @@ function retrieve_recent($page_number, $page_limit){
 // Retrieves information on an article's category
 function retrieve_category($article){
     $id = $article['id'];
-    $query = selectRecord(TAB_ART_CAT, "article = '$id'");
+    $query = selectJoin(TAB_ART_CAT, TAB_CATEGORIES, "category = id", "article = $id");
     if(count($query) > 0)
-        $category = $query['category'];
+        $category = $query[0]['name'];
 
     return $category;
 }
@@ -58,7 +58,7 @@ function retrieve_category($article){
 // Retrieves article's tags
 function retrieve_tag_list($id){
     $tags = array();
-    $DBtags = selectJoin(TAB_ART_TAG, TAB_TAGS, "tag = id", "article = '$id'");
+    $DBtags = selectJoin(TAB_ART_TAG, TAB_TAGS, "tag = id", "article = $id");
 
     if(count($DBtags) > 0){
         $i = 0;
@@ -76,11 +76,11 @@ function retrieve_tag_list($id){
 // Retrieve information of a selected article
 function retrieve_article($id){
     $result = selectRecord(TAB_ARTICLES, "id = '$id'");
-    $category = selectRecord(TAB_ART_CAT, "article = '$id'");
+    $category = selectJoin(TAB_ART_CAT, TAB_CATEGORIES, "category = id", "article = $id");
     $new_date = date_format_uni($result['date']);
 
     $result['date'] = $new_date;
-    $result['category'] = $category['category'];
+    $result['category'] = $category[0]['name'];
     $result['tags'] = retrieve_tag_list($id);
 
     return $result;

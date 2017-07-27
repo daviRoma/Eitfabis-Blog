@@ -20,9 +20,22 @@
                             </div>
                         </td>
                         {foreach $row as $value}
-                            <td id="{$value@key}" class=" " name="{$value@key}" {if $value@key == id} style="width:7%; margin-right:5px;"{/if}>
-                                <input id="{$value@key}" class="table_td-input" name="table_input-field" value="{$value}" readonly="readonly"/>
-                            </td>
+                            {if $value@key == category}
+                                <td id="{$value@key}" class=" " name="{$value@key}">
+                                    <div class="select-category-menu-modal">
+                                        <select id="set_category" name="setCategory">
+                                            {foreach $value as $name}
+                                                <option value="{$name}">{$name}</option>
+                                            {/foreach}
+                                        </select>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                </td>
+                            {else}
+                                <td id="{$value@key}" class=" " name="{$value@key}" {if $value@key == id} style="width:7%; margin-right:5px;"{/if}>
+                                    <input id="{$value@key}" class="table_td-input" name="table_input-field" value="{$value}" readonly="readonly"/>
+                                </td>
+                            {/if}
                         {/foreach}
                         <td class="table-operation" name="table_td-operation">
                             <a name="delete_button" {if !isset($operation_1)} class="op-not-enable" {/if} href="#" onclick="select_operation(event, {$row.id})">

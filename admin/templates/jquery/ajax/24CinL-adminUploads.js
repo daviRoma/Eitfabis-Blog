@@ -159,31 +159,6 @@ function avatar_upload(file){
 }
 
 
-// Delete selected category
-function delete_category(event){
-    var category = $(event.target).parent().parent().children("span").text();
-    var url = "controllers/category_service.php";
-
-    if(confirm("Delete '" + category + "'. Are you sure?")){
-        $.ajax(url, {
-            method : "POST",
-            data : {
-                "deleteCategory" : category
-            },
-            dataType : "html",
-            success: function(response){
-                alert("The operation has been succesfull." + " '"+category+"' cagtegory has been deleted.");
-                location.reload();
-            },
-            error: function(xhr) {
-                alert("ERROR: " + xhr.responseText + xhr.status);
-            }
-        });
-    }else
-        return false;
-}
-
-
 // Delete uploaded file in dropzone
 function delete_dropfile(){
     var url = "controllers/script/delete_dropFile-script.php";

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 22:28:47
+/* Smarty version 3.1.30, created on 2017-07-27 17:16:18
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/tags.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5971127fb3a6e6_94260832',
+  'unifunc' => 'content_597a03c27664f5_43244009',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '95595904648b827660c4f51b49d3e6ac395b8001' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/tags.tpl',
-      1 => 1498601703,
+      1 => 1501168576,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5971127fb3a6e6_94260832 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597a03c27664f5_43244009 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Tags management -->
 <div class="row">
@@ -54,7 +54,7 @@ $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->t
 if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
 ?>
-                                    <option value="<?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
+                                    <option value="<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
 "><?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
 </option>
                                 <?php

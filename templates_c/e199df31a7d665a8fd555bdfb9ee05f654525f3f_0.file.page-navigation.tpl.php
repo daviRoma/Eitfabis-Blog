@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-19 11:14:38
+/* Smarty version 3.1.30, created on 2017-07-24 10:14:18
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/page-navigation.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_596f22fe7a70d6_55235348',
+  'unifunc' => 'content_5975ac5a1bd514_67503875',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_596f22fe7a70d6_55235348 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5975ac5a1bd514_67503875 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Footer: Browse the articles list-->

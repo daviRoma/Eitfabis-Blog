@@ -71,9 +71,11 @@ function retrieve_by_all($title, $category, $tag){
 function retrieve_by_title_category($title, $category){
     $error = "";
     $result = array();
+    $DBcategory_name = selectRecord(TAB_CATEGORIES, "name = '$category'");
+    $category_id = $DBcategory_name['id'];
 
     // checks the articles membership to the category
-    $DBarticles = selectJoin(TAB_ARTICLES, TAB_ART_CAT, "id = article", "category = '$category' ORDER BY date");
+    $DBarticles = selectJoin(TAB_ARTICLES, TAB_ART_CAT, "id = article", "category = '$category_id' ORDER BY date");
 
     if(count($DBarticles) > 0){
         foreach($DBarticles as $article){
@@ -186,7 +188,7 @@ function retrieve_by_category($category){
 
     $error = "";
     $result = array();
-    $DBarticles = selectQuery(TAB_ART_CAT, "category = '$category'", "article DESC");
+    $DBarticles = selectJoin(TAB_ART_CAT, TAB_CATEGORIES, "category = id", "name = '$category' ORDER BY article DESC");
 
     if(count($DBarticles) > 0){
         foreach($DBarticles as $article)

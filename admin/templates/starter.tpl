@@ -274,6 +274,7 @@
     <script src="templates/jquery/ajax/24CinL-adminReportAjax.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminNewsletter.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminArticle.js"></script>
+    <script src="templates/jquery/ajax/24CinL-adminCategories.js"></script>
 
 </body>
 </html>

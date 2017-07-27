@@ -69,14 +69,26 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                {foreach $categories as $category}
-                    <div class="box-category">
-                        <span>{$category.name}</span>
-                        <div class="pull-right">
-                            <button id="delete_category" class="btn btn-sm btn-default" type="submit" onClick="delete_category(event)"><i class="fa fa-trash"></i> Delete</button>
-                        </div>
-                    </div>
-                {/foreach}
+                <table class="table">
+                    <tbody>
+                        {foreach $categories as $category}
+                            <tr>
+                                <td class="box-category">
+                                    <input id="category_name" class="box-category-name" value="{$category.name}" maxlength="32" readonly></input>
+                                </td>
+                                <td class="box-category">
+                                    <input id="category_description" class="box-category-description" maxlength="128" value="{$category.description}" readonly/>
+                                </td>
+                                <td class="box-category">
+                                    <div class="pull-right" style="margin-top:5px;">
+                                        <button id="edit_category" class="btn btn-sm btn-success" onClick="edit_category({$category.id})"><i class="fa fa-pencil"></i> Edit</button>
+                                        <button id="delete_category" class="btn btn-sm btn-default" onClick="delete_category({$category.id})"><i class="fa fa-trash"></i> Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        {/foreach}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

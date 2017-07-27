@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-22 09:55:07
+/* Smarty version 3.1.30, created on 2017-07-27 12:14:02
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/modalWindowEdit.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597304db5320c9_75503714',
+  'unifunc' => 'content_5979bceabeb6c0_77236150',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a6e0fa2011055d9280c2b0d1b088170a23070ec2' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/modalWindowEdit.tpl',
-      1 => 1496002337,
+      1 => 1501149571,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597304db5320c9_75503714 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5979bceabeb6c0_77236150 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Modal window for edit tables row -->
 <div id="editModal" class="modal">
@@ -60,13 +60,39 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['value']->key => $_smarty_tpl->tpl_vars['value']->value) {
 $__foreach_value_1_saved = $_smarty_tpl->tpl_vars['value'];
 ?>
-                            <td id="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
+                            <?php if ($_smarty_tpl->tpl_vars['value']->key == 'category') {?>
+                                <td id="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
+" class=" " name="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
+">
+                                    <div class="select-category-menu-modal">
+                                        <select id="set_category" name="setCategory">
+                                            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['value']->value, 'name');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['name']->value) {
+?>
+                                                <option value="<?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+"><?php echo $_smarty_tpl->tpl_vars['name']->value;?>
+</option>
+                                            <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
+?>
+
+                                        </select>
+                                        <i class="fa fa-chevron-down"></i>
+                                    </div>
+                                </td>
+                            <?php } else { ?>
+                                <td id="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
 " class=" " name="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
 " <?php if ($_smarty_tpl->tpl_vars['value']->key == 'id') {?> style="width:7%; margin-right:5px;"<?php }?>>
-                                <input id="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
+                                    <input id="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
 " class="table_td-input" name="table_input-field" value="<?php echo $_smarty_tpl->tpl_vars['value']->value;?>
 " readonly="readonly"/>
-                            </td>
+                                </td>
+                            <?php }?>
                         <?php
 $_smarty_tpl->tpl_vars['value'] = $__foreach_value_1_saved;
 }
