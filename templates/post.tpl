@@ -23,4 +23,8 @@
             {/foreach}
         </div>
     </div>
+    </br>
+    <div id="comment_container" class="row">
+        {include $list_of_comment}
+    </div>
 </article>

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 12:14:02
+/* Smarty version 3.1.30, created on 2017-07-28 15:22:42
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/modalWindowEdit.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5979bceabeb6c0_77236150',
+  'unifunc' => 'content_597b3aa21455f9_31156130',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a6e0fa2011055d9280c2b0d1b088170a23070ec2' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/modalWindowEdit.tpl',
-      1 => 1501149571,
+      1 => 1501248147,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5979bceabeb6c0_77236150 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597b3aa21455f9_31156130 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Modal window for edit tables row -->
 <div id="editModal" class="modal">
@@ -81,7 +81,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
                                         </select>
-                                        <i class="fa fa-chevron-down"></i>
+                                        <i id="select_category_chevron" class="fa fa-chevron-down"></i>
                                     </div>
                                 </td>
                             <?php } else { ?>

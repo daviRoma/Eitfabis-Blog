@@ -13,7 +13,7 @@ $smarty->assign('position', 'Article');
 
 // Page update
 $smarty->assign('page', POST_PAGE);
-
+$smarty->assign('list_of_comment', LIST_OF_COMMENTS);
 
 // article content
 $article = retrieve_article($_GET['id']);
@@ -32,7 +32,6 @@ $smarty->assign('content', $article['content']);
 // set article footer
 $smarty->assign('category', $article['category']);
 $smarty->assign('tags', $article['tags']);
-
 
 $smarty->display(STARTER);
 

@@ -14,6 +14,7 @@ define('TAB_ART_TAG', 'article_tag');
 define('TAB_ART_UPL', 'article_upload');
 define('TAB_BLOGINFO', 'blogInfo');
 define('TAB_CATEGORIES', 'categories');
+define('TAB_COMMENTS', 'comments');
 define('TAB_GROUPS', 'groups');
 define('TAB_GR_SERV', 'group_service');
 define('TAB_NEWSLETTERS', 'newsletters');

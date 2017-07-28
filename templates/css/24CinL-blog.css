@@ -75,8 +75,8 @@
 }
 
 .article-footer-divider{
-    padding:5px;
-    margin-top: 8%;
+    padding: 5px;
+    margin-top: 5%;
     margin-bottom: 5px;
 }
 
@@ -474,6 +474,33 @@
 .modal-footer strong{
     font-size: 12px;
     text-decoration: underline;
+}
+
+
+/* ******************************* Comments ******************************* */
+
+.comment-container{
+    margin-top: 10%;
+}
+
+.comment-header{
+    font-family: Verdana;
+    font-size: 18px;
+    color: #343434;
+    width: 103%;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #dedede;
+}
+
+.comment-field-group{
+    padding-left: 10px;
+    border-left: 2px solid #dedede;
+}
+
+.comment-divider{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 

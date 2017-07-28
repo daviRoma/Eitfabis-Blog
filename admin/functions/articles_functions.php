@@ -162,7 +162,8 @@ function set_article($data, $oldId){
 
 // Restore articles relationship of a modified article
 function set_articles_relationship($old_article_id, $new_article_id, $new_data, $new_category){
-    $author = selectRecord(TAB_USR_ART, "article = $old_article_id")['userId'];
+    $user = $new_data['author'];
+    $author = selectRecord(TAB_USERS, "username = '$user'")['id'];
     $uploads = selectQuery(TAB_ART_UPL, "article = $old_article_id");
     $tags = selectQuery(TAB_ART_TAG, "article = $old_article_id");
 
@@ -278,27 +279,7 @@ function check_articleRow($data, $oldId){
             }
         }
     }
-
-    foreach($users as $user){
-        if($user['username'] == $data['author']){
-            $flag_1 = true;
-            break;
-        }
-    }
-
-    foreach($categories as $category){
-        if($category['name'] == $data['category']){
-            $flag_2 = true;
-            break;
-        }
-    }
-
-    if($flag_1 && $flag_2){
-        return $data;
-    }else{
-        $error = "Invalid author or category.";
-        return $error;
-    }
+    return $data;
 }
 
 

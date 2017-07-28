@@ -9,11 +9,11 @@
     {/if}
 
     <div id="show_form" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <a class="show-form" href="#" onClick="display_search_form(event);">
-                <span> New search </span>
-                <i class="fa fa-arrow-down" id="temp"></i>
-                <input id="form_display_status" type="hidden" name="form_display_status" value="down" />
-            </a>
+        <a class="show-form" href="#" onClick="display_search_form(event);">
+            <span> New search </span>
+            <i class="fa fa-arrow-down" id="temp"></i>
+            <input id="form_display_status" type="hidden" name="form_display_status" value="down" />
+        </a>
     </div>
 
     <div id="search_body" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

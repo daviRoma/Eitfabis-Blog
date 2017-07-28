@@ -1,4 +1,3 @@
-
 <!-- Main Content: Form to contact the staff -->
 <div class="row" id="contact_content">
 

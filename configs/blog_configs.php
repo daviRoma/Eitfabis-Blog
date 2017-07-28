@@ -21,5 +21,6 @@ define('LIST_OF_TAGS', $_SERVER['DOCUMENT_ROOT'] . '/templates/tag-section.tpl')
 define('LIST_OF_USERS', $_SERVER['DOCUMENT_ROOT'] . '/templates/user-section.tpl');
 define('NOTICE_MESSAGE', $_SERVER['DOCUMENT_ROOT'] . '/templates/notice-message.tpl');
 define('MODAL_WINDOW', $_SERVER['DOCUMENT_ROOT'] . '/templates/modalWindow.tpl');
+define('LIST_OF_COMMENTS', $_SERVER['DOCUMENT_ROOT'] . '/templates/comment.tpl');
 
  ?>

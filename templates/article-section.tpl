@@ -10,10 +10,10 @@
         </h3>
     </a>
     <span class="post-meta">Posted by <a href="about_us.php">{$article.author}</a> on {$article.date} - in</span>
-
     <span class="in-line">
         <a class="category-field-set" href="category-tag.php?section=category&name={$article.category}"> <b> {$article.category} </b> </a>
     </span>
+    <a href="article.php?title={$article.title}&id={$article.id}" class="pull-right"><i class="fa fa-comments-o"></i> (0) </a>
     </br>
     <div class="tag-divider in-line">
         {if isset($article.tags)}

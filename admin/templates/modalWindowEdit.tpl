@@ -28,7 +28,7 @@
                                                 <option value="{$name}">{$name}</option>
                                             {/foreach}
                                         </select>
-                                        <i class="fa fa-chevron-down"></i>
+                                        <i id="select_category_chevron" class="fa fa-chevron-down"></i>
                                     </div>
                                 </td>
                             {else}

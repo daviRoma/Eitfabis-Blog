@@ -162,6 +162,10 @@
     cursor: pointer;
 }
 
+#select_category_chevron:hover{
+    cursor: pointer;
+}
+
 .file-upload-field{
     margin-left: 15px;
 }

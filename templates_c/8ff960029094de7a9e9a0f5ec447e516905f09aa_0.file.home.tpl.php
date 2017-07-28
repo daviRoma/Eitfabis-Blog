@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-24 10:14:18
+/* Smarty version 3.1.30, created on 2017-07-28 17:08:39
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/home.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975ac5a13ffa1_40910559',
+  'unifunc' => 'content_597b5377c88793_35087891',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ff960029094de7a9e9a0f5ec447e516905f09aa' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/templates/home.tpl',
-      1 => 1492794236,
+      1 => 1501254517,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5975ac5a13ffa1_40910559 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597b5377c88793_35087891 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main content: Home page that contains the articles list -->
@@ -36,7 +36,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
             <?php $_smarty_tpl->_subTemplateRender($_smarty_tpl->tpl_vars['list_of_articles']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
 
-            <hr>
+            <hr style="margin-bottom:50px;">
         <?php
 }
 }

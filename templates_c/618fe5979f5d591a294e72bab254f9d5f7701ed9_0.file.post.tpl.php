@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-24 10:18:25
+/* Smarty version 3.1.30, created on 2017-07-28 15:56:31
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/post.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975ad51415d71_59370443',
+  'unifunc' => 'content_597b428f587846_60745571',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '618fe5979f5d591a294e72bab254f9d5f7701ed9' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/templates/post.tpl',
-      1 => 1499947208,
+      1 => 1501250158,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5975ad51415d71_59370443 (Smarty_Internal_Template $_smarty_tpl) {
+function content_597b428f587846_60745571 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Article Content -->
@@ -60,6 +60,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
         </div>
+    </div>
+    </br>
+    <div id="comment_container" class="row">
+        <?php $_smarty_tpl->_subTemplateRender($_smarty_tpl->tpl_vars['list_of_comment']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
+?>
+
     </div>
 </article>
 <?php }

@@ -4,7 +4,7 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         {foreach $articles as $article}
             {include $list_of_articles}
-            <hr>
+            <hr style="margin-bottom:50px;">
         {/foreach}
 
         {include $page_navigation}

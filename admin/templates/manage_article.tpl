@@ -26,7 +26,6 @@
                 </div>
                 <div class="col-md-12">
                     <hr class="subscribers-footer-line">
-                    <button id="undo" class="btn btn-sm btn-default" type="button" onClick="restore_row(event)" disabled><i class="fa fa-undo"></i> Undo</button>
                     <button id="delete_selected" class="btn btn-sm btn-default" type="button" onClick="delete_selected(event)"><i class="fa fa-trash"></i> Delete</button>
                     <button id="view_comments" class="btn btn-sm btn-primary" type="button" onClick="" disabled><i class="fa fa-comments-o"></i> View Comments</button>
                     <button id="save" class="btn btn-sm btn-success pull-right" type="button" onClick="save_changes(event)"><i class="fa fa-save"></i> Save</button>
