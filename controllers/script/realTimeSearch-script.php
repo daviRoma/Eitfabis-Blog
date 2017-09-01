@@ -37,8 +37,8 @@ if($_POST['section'] == "section=tag"){
 		$smarty->assign('current_page', 1);
 		$smarty->assign('page_limit', 1);
         $smarty->assign('option', 'section=tag&');
-        $smarty->assign('backPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
-        $smarty->assign('nextPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+        $smarty->assign('backPage_style', 0);
+        $smarty->assign('nextPage_style', 0);
     }else{
         $current_page = get_current_page();
         $page_limit = get_tag_page();
@@ -54,14 +54,14 @@ if($_POST['section'] == "section=tag"){
 
         // set navigation button visibility
         if($current_page == 1)
-            $smarty->assign('backPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+            $smarty->assign('backPage_style', 0);
         else
-            $smarty->assign('backPage_style', 'style="display:block;"');
+            $smarty->assign('backPage_style', 1);
 
         if($current_page == $page_limit)
-            $smarty->assign('nextPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+            $smarty->assign('nextPage_style', 0);
         else
-            $smarty->assign('nextPage_style', 'style="display:block;"');
+            $smarty->assign('nextPage_style', 1);
 
         $smarty->assign('option', 'section=tag&');
     }

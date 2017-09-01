@@ -13,25 +13,26 @@ $smarty->assign('position', 'Article');
 
 // Page update
 $smarty->assign('page', POST_PAGE);
-$smarty->assign('list_of_comment', LIST_OF_COMMENTS);
 
 // article content
 $article = retrieve_article($_GET['id']);
-$pictures = retrieve_article_pictures($_GET['id']);
 
 // background picture
 $smarty->assign('background', $article['background']);
 
 // set article content
-$smarty->assign('subtitle', $article['subtitle']);
+$smarty->assign('id', $article['id']);
 $smarty->assign('title', $article['title']);
+$smarty->assign('subtitle', $article['subtitle']);
 $smarty->assign('author', $article['author']);
 $smarty->assign('date', $article['date']);
 $smarty->assign('content', $article['content']);
+$smarty->assign('num_comments', $article['comments']);
 
 // set article footer
 $smarty->assign('category', $article['category']);
 $smarty->assign('tags', $article['tags']);
+
 
 $smarty->display(STARTER);
 

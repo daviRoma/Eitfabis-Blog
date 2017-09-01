@@ -82,8 +82,8 @@ switch ($_POST['position']) {
             }
         }
         if($_POST['operation'] == "add"){
-            $emptyUser = get_emptyUserGroup();
             $head = get_userTableHeader();
+            $emptyUser = get_emptyUserGroup();
             $smarty->assign('table_head', $head);
             $smarty->assign('row', $emptyUser);
             $smarty->assign('operation', "add");

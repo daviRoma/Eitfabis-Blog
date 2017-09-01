@@ -49,9 +49,8 @@ if(isset($_FILES["avatar_file"]["type"])){
 }
 
 // Update DB column about new avatar
-$data = array();
-$data['img_address'] = "upload/user/" . $fileName;
-updateRecord(TAB_PERSONALINFO, $data, "user = $userId");
+$new_path = "upload/user/" . $fileName;
+update_avatar($userId, $new_path);
 
 $_SESSION['userPicture'] = $filePath;   // update avatar
 

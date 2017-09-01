@@ -8,20 +8,17 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 function get_usersTable(){
     $result = array();
     $users = selectQuery(TAB_USERS, "", "id DESC");
-    $user_groups = selectQuery(TAB_USR_ROLE, "", "userId DESC");
+    $user_groups =
     $i = 0;
-    foreach($users as $user) {
-        foreach ($user_groups as $us_group) {
-            if($user['id'] == $us_group['userId']){
-                $result[$i]['id'] = $user['id'];
-                $result[$i]['username'] = $user['username'];
-                $result[$i]['password'] = $user['password'];
-                $result[$i]['email'] = $user['email'];
-                $result[$i]['group'] = $us_group['groupId'];
-                $i++;
-                break;
-            }
-        }
+
+    foreach($users as $user){
+        $id = $user['id'];
+        $result[$i]['id'] = $id;
+        $result[$i]['username'] = $user['username'];
+        $result[$i]['password'] = "**********";
+        $result[$i]['email'] = $user['email'];
+        $result[$i]['group'] = selectJoin(TAB_USR_ROLE, TAB_GROUPS, "groupId = id", "userId = $id")[0]['role'];
+        $i++;
     }
     return $result;
 }
@@ -31,12 +28,21 @@ function get_usersTable(){
 function get_userGroup($id){
     $result = array();
     $user = selectRecord(TAB_USERS, "id = $id");
-    $user_role = selectRecord(TAB_USR_ROLE, "userId = $id");
+
     $result['id'] = $user['id'];
     $result['username'] = $user['username'];
-    $result['password'] = $user['password'];
+    $result['password'] = "";
     $result['email'] = $user['email'];
-    $result['group'] = $user_role['groupId'];
+
+    $role = selectJoin(TAB_USR_ROLE, TAB_GROUPS, "groupId = id", "userId = $id")[0]['role'];
+    $groups = selectQuery(TAB_GROUPS, "role <> '$role'", "role ASC");
+
+    foreach($groups as $group){
+        $gr_elem[] = $group['role'];
+    }
+    array_unshift($gr_elem, $role);
+    $result['group'] = $gr_elem;
+
     return $result;
 }
 
@@ -48,7 +54,11 @@ function get_emptyUserGroup(){
     $result['username'] = "username";
     $result['password'] = "pwd";
     $result['email'] = "mail@example.com";
-    $result['group'] = 4;   // base user
+    $groups = selectQuery(TAB_GROUPS, "", "role ASC");
+
+    foreach($groups as $group){
+        $result['group'][] = $group['role'];
+    }
     return $result;
 }
 
@@ -61,11 +71,14 @@ function set_userGroup($data, $oldId){
     $data_user['username'] = $data['username'];
     $data_user['password'] = $data['password'];
     $data_user['email'] = $data['email'];
+
+    $group = $data['group'];
+    $data['group'] = selectRecord(TAB_GROUPS, "role = '$group'")['id'];
     $data_group['userId'] = $data['id'];
     $data_group['groupId'] = $data['group'];
-    deleteRecord(TAB_USR_ROLE, "userId = $oldId");
+
+    updateRecord(TAB_USR_ROLE, $data_group, "userId = $oldId");
     updateRecord(TAB_USERS, $data_user, "id = $oldId");
-    insertRecord(TAB_USR_ROLE, $data_group);
     $data_info = array();
     if($data['group'] == 1){
         $data_info = array();
@@ -148,11 +161,14 @@ function insert_userGroup($data){
     $user['password'] = md5($data['password']);
     $user['email'] = $data['email'];
     insertRecord(TAB_USERS, $user);
+
     // Insert user-role
+    $group = $data['group'];
+    $data['group'] = selectRecord(TAB_GROUPS, "role = '$group'")['id'];
     $user_group['userId'] = $data['id'];
     $user_group['groupId'] = $data['group'];
     insertRecord(TAB_USR_ROLE, $user_group);
-    if($data['group'] == 1){
+    if($group['id'] == 1){
         $data_info = array();
         $data_info['employment'] = "-";
         $data_info['img_address'] = "upload/user/user-default.png";
@@ -207,24 +223,46 @@ function is_admin($userId){
 
 
 // Check the correctness of the data that we want to insered
-function check_userGroup($data){
+function check_userGroup($data, $op){
     $error = "";
-    if($data['id'] == 0){
-        $error = "Id cannot be 0!";
-        return $error;
-    }
     $id = $data['id'];
 
-    if($data['group'] < 1 || $data['group'] > 4){
-        $error = "Invalid Group!";
-        return $error;
+    if($op){
+        if($id == 0){
+            $error = "Id cannot be 0!";
+            return $error;
+        }
+
+        if(strlen($data['username']) < 6 || strlen($data['username']) > 24 || strlen($data['password']) < 8 || strlen($data['password']) > 24){
+            $error = "Username and password must be at least 8 characters length and up to 24.";
+            return $error;
+        }
+
+        $username = $data['username'];
+        $DB_check = selectQuery(TAB_USERS, "id = $id OR username = '$username' OR email = '$email'", "");
+        if(count($DB_check) > 0){
+            $error = "User already exist!";
+            return $error;
+        }
+
+    }else{
+        if(strlen($data['username']) < 6 || strlen($data['username']) > 24){
+            $error = "Username must be at least 6 characters length and up to 24.";
+            return $error;
+        }
+
+        if($data['password'] == ""){    // Password not modified
+            $data['password'] = selectRecord(TAB_USERS, "id = $id")['password'];
+        }else{
+            if(strlen($data['password']) < 8 || strlen($data['password']) > 24){
+                $error = "Password must be at least 8 characters length and up to 24.";
+                return $error;
+            }
+        }
     }
-    if(strlen($data['username']) < 6 || strlen($data['username']) > 24 || strlen($data['password']) < 8 || strlen($data['password']) > 24){
-        $error = "Username and password must be at least 8 characters length and up to 24.";
-        return $error;
-    }
-    if(!field_validation($data['username'])){
-        $error = "Username can not contain special characters or blank spaces";
+
+    if(!(field_validation($data['username']) && field_validation($data['password'])) ){   // check the special characters
+        $error = "Username and password can not contain special characters or blank spaces";
         return $error;
     }
 
@@ -234,13 +272,7 @@ function check_userGroup($data){
         $error = "Email format is invalid.";
         return $error;
     }
-    $username = $data['username'];
-    $password = md5($data['password']);
-    $DB_check = selectQuery(TAB_USERS, "id = $id OR username = '$username' OR password = '$password' OR email = '$email'", "");
-    if(count($DB_check) > 0){
-        $error = "User already exist!";
-        return $error;
-    }
+
     return $data;
 }
 
@@ -249,7 +281,7 @@ function check_userGroup($data){
 function push_usrRowObject($data){
     $id = $data['id'];
     $username = $data['username'];
-    $password = $data['password'];
+    $password = "**********";
     $email = $data['email'];
     $groupId = $data['group'];
 

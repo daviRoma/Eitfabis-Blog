@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-24 10:14:18
+/* Smarty version 3.1.30, created on 2017-08-04 15:28:20
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/starter.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975ac5a11d255_91779950',
+  'unifunc' => 'content_59847674279d71_96183901',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '04fc47345b070d972014d7af813c9896c258a4da' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/templates/starter.tpl',
-      1 => 1499947391,
+      1 => 1501603484,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5975ac5a11d255_91779950 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59847674279d71_96183901 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE html>
 <!--
@@ -165,7 +165,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
+                            <a href="#" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -173,7 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -181,7 +181,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -189,7 +189,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
@@ -233,7 +233,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- 24CinL ajax functions -->
     <?php echo '<script'; ?>
- src="templates/jquery/24CinL-ajax.js"><?php echo '</script'; ?>
+ src="templates/jquery/24CinL-ajaxArticles.js"><?php echo '</script'; ?>
+>
+    <?php echo '<script'; ?>
+ src="templates/jquery/24CinL-ajaxComments.js"><?php echo '</script'; ?>
 >
     <!-- 24CinL javascript -->
     <?php echo '<script'; ?>

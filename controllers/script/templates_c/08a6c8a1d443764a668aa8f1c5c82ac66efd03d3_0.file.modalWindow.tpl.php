@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-22 10:37:56
+/* Smarty version 3.1.30, created on 2017-08-20 16:16:07
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/modalWindow.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59730ee46b8049_80491059',
+  'unifunc' => 'content_599999a737bbf9_21981792',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59730ee46b8049_80491059 (Smarty_Internal_Template $_smarty_tpl) {
+function content_599999a737bbf9_21981792 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Modal window for gallery images -->

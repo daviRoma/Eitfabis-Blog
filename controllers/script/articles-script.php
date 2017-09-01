@@ -72,14 +72,14 @@ switch($_GET['position']){
 
 // Set navigation button visibility
 if($requested_page == 1)
-    $smarty->assign('previousPage_style', 'style="display:none;"');
+    $smarty->assign('previousPage_style', 0);
 else
-    $smarty->assign('previousPage_style', 'style="display:block;"');
+    $smarty->assign('previousPage_style', 1);
 
 if($requested_page == $page_limit)
-    $smarty->assign('nextPage_style', 'style="display:none;"');
+    $smarty->assign('nextPage_style', 0);
 else
-    $smarty->assign('nextPage_style', 'style="display:block;"');
+    $smarty->assign('nextPage_style', 1);
 
 
 // Page set

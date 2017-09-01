@@ -61,6 +61,7 @@
                         </form>
                     </li>
                 </ul>
+                <input id="current_section" type="hidden" value="{$current_section}"/>
             </div>
         {/if}
 

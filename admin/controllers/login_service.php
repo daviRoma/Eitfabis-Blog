@@ -16,19 +16,17 @@ if(isset($_POST['login']) ){
 
 	if(emptycheck($required)) {
 		$_SESSION['error'] = 'Required fields: ' . emptycheck($required);
-    	redirect("../login.php");
+    	redirect("../login.php", true);
     }
 
 	//user check
 	$username = stripslashes($_POST['username']);
 	$password = stripslashes(md5($_POST['password']));
 
-
 	$query = array();
 	$query = selectRecord(TAB_USERS, "username = '$username' AND password = '$password'");
 	$id = $query['id'];
 	$group = selectRecord(TAB_USR_ROLE, "userId = '$id'");
-
 
 	if(count($query) > 0) {
 		$_SESSION['userId'] = $id;

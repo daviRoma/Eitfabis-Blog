@@ -36,14 +36,14 @@ if(isset($_GET['method'])){
 			$list = split_in_page($list, $current_page);
 
 			if($current_page == 1)
-				$smarty->assign('previousPage_style', 'style="display:none;"');
+				$smarty->assign('previousPage_style', 0);
 			else
-				$smarty->assign('previousPage_style', 'style="display:block;"');
+				$smarty->assign('previousPage_style', 1);
 
 			if($current_page == $page_limit)
-				$smarty->assign('nextPage_style', 'style="display:none;"');
+				$smarty->assign('nextPage_style', 0);
 			else
-				$smarty->assign('nextPage_style', 'style="display:block;"');
+				$smarty->assign('nextPage_style', 1);
 
 			// Additional settings for page navigation with javaScript
 			$smarty->assign('subPosition', $_GET['method']);
@@ -58,8 +58,8 @@ if(isset($_GET['method'])){
 			$smarty->assign('back', 'Back');
 
 		}else{
-			$smarty->assign('previousPage_style', 'style="display:none;"');
-			$smarty->assign('nextPage_style', 'style="display:none;"');
+			$smarty->assign('previousPage_style', 0);
+			$smarty->assign('nextPage_style', 0);
 		}
 
 		// success message

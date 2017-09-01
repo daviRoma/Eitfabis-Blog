@@ -2,6 +2,9 @@
 <!-- Article Content -->
 <article>
     <div class="row">
+        <div class="hide-elem">
+            <input id="article_id" type="hidden" value="{$id}"/>
+        </div>
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
             {$content}
@@ -21,10 +24,12 @@
                     <span> {$tag} </span>
                 </a>
             {/foreach}
+            <span class="comment-link pull-right">
+                <a id="comment_link" href="#" onClick="show_comments(event)"> Show comments <i class="fa fa-comments-o"></i> (<span id="count_comments">{$num_comments}</span>) </a>
+                <input id="number_of_comments" type="hidden" value="{$num_comments}"/>
+            </span>
         </div>
     </div>
     </br>
-    <div id="comment_container" class="row">
-        {include $list_of_comment}
-    </div>
+
 </article>

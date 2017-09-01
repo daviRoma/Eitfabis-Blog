@@ -13,13 +13,13 @@ function get_recent_comments($article_id, $page_number, $page_limit){
     if($page_number <= $page_limit){
 
         if($page_number == 1){
-            $DBcomments = selectQuery(TAB_COMMENTS, "article = $article_id", "LIMIT 0, 4");
+            $DBcomments = selectQuery(TAB_COMMENTS, "article = $article_id", "date DESC LIMIT 0, 6");
         }else{
-            $page_number = ($page_number - 1) * 4;
-            $condition = $page_number . ", 4";
-            $DBcomments = selectQuery(TAB_COMMENTS, "article = $article_id", "LIMIT $condition");
+            $page_number = ($page_number - 1) * 6;
+            $condition = $page_number . ", 6";
+            $DBcomments = selectQuery(TAB_COMMENTS, "article = $article_id", "date DESC LIMIT $condition");
         }
-    }else {
+    }else{
         $error = "Page not found";
         return $error;
     }
@@ -37,4 +37,42 @@ function get_recent_comments($article_id, $page_number, $page_limit){
     }
     return $result;
 }
+
+
+// Get the maximum number of comments about one article
+function get_total_comments($article_id){
+    $total_comments = countRecord(TAB_COMMENTS, "article = $article_id");
+    return $total_comments;
+}
+
+
+// Divide the total rows by 4 and return a value that represents the page
+function get_maximum_comments($article_id){
+    $total_comments = get_total_comments($article_id);
+    $page = $total_comments / 6;
+
+    if($total_comments % 6 == 0)
+        return $page;
+    else
+        return substr($page+1, 0, 1);
+    return $total_comments;
+}
+
+
+// Check if the article has comments
+function has_comments($article_id){
+    $total_comments = get_total_comments($article_id);
+    if($total_comments > 0)
+        return true;
+    else
+        return false;
+}
+
+
+// Add new comment
+function add_comment($data){
+    $add = insertRecord(TAB_COMMENTS, $data);
+    return $add;
+}
+
 ?>

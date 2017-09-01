@@ -28,7 +28,13 @@
                     </div>
                 </td>
                 {foreach $row as $value}
-                    <td id="{$value@key}" class=" " name="{$value@key}" {if $value@key == id} style="width:7%; margin-right:5px;"{/if} {if $value@key == backup || $value@key == gallery} style="width:7%; padding-left:27px;"{/if} {if $value@key == folder} style="width:7%; padding-left:10px;"{/if} {if $value@key == description} style="width:60%; padding-left:5px; padding-right:20px;"{/if}>
+                    <td id="{$value@key}" class=" " name="{$value@key}" {if $value@key == id} style="width:7%; margin-right:5px;"{/if}
+                                                                        {if $value@key == backup || $value@key == gallery} style="width:7%; padding-left:27px;"{/if}
+                                                                        {if $value@key == folder} style="width:7%; padding-left:10px;"{/if}
+                                                                        {if $value@key == description} style="width:60%; padding-left:5px; padding-right:20px;"{/if}
+                                                                        {if $value@key == author} style="width:15%;"{/if}
+                                                                        {if $value@key == password} style="width:15%;"{/if}
+                                                                        {if $value@key == email} style="width:27%;"{/if}>
                         <input id="{$value@key}" class="table_td-input" name="table_input-field" value="{$value}" readonly="readonly"/>
                     </td>
                 {/foreach}

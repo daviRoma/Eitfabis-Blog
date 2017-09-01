@@ -15,7 +15,7 @@ if(isset($_POST['profileSubmit'])){
     $flag = false;
 
     // Check empty fields
-	if(empty($_POST['setCountry']) || empty($_POST['setEmployment']) || empty($_POST['setEmail'])){
+	if(empty($_POST['setUsername']) || empty($_POST['setCountry']) || empty($_POST['setEmployment']) || empty($_POST['setEmail'])){
         $error = "All fields are mandatory!";
         redirect("../profile.php?error=$error", true);
     }
@@ -26,6 +26,7 @@ if(isset($_POST['profileSubmit'])){
     }
 
     // Run DB operations
+    $username = $_POST['setUsername'];
     $country = ucfirst($_POST['setCountry']);
     $employment = ucfirst($_POST['setEmployment']);
     $email = $_POST['setEmail'];
@@ -39,21 +40,27 @@ if(isset($_POST['profileSubmit'])){
     $id = $_SESSION['userId'];
     $user = get_user($id);
 
-
     // Insert personal info
     $data_1 = array();
     $data_1['country'] = $country;
     $data_1['employment'] = $employment;
     $data_1['brief_description'] = $brief_description;
     $data_1['link'] = $links;
-    updateRecord(TAB_PERSONALINFO, $data_1, "user = $id");
-
+    update_profile($id, $data_1);
 
     // Insert user email (if it was changed)
-    if($user['email'] != $email){
+    if($user['email'] != $email || $user['username'] != $username){
         $data_2 = array();
-        $data_2['email'] = $email;
-        updateRecord(TAB_USERS, $data_2, "id = $id");
+        if($user['username'] != $username){
+            $data_2['username'] = $username;
+            $condition = "author = '". $user['username']."'";
+            updateRecord(TAB_ARTICLES, array("author" => $username), $condition);
+        }
+        if($user['email'] != $email){
+            $data_2['email'] = $email;
+        }
+        update_user($id, $data_2);
+        $_SESSION['username'] = $username;
     }
 
     redirect("../profile.php", true);

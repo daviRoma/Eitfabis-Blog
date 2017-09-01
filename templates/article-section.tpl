@@ -13,7 +13,7 @@
     <span class="in-line">
         <a class="category-field-set" href="category-tag.php?section=category&name={$article.category}"> <b> {$article.category} </b> </a>
     </span>
-    <a href="article.php?title={$article.title}&id={$article.id}" class="pull-right"><i class="fa fa-comments-o"></i> (0) </a>
+    <span id="article_comment_link" class="comment-count-field pull-right"><i class="fa fa-comments-o"></i> ({$article.comments}) </span>
     </br>
     <div class="tag-divider in-line">
         {if isset($article.tags)}

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 16:43:55
+/* Smarty version 3.1.30, created on 2017-09-01 19:02:46
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/categories.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5979fc2b20d1d7_16043304',
+  'unifunc' => 'content_59a992b65e6d87_16439791',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c865f3de6de778b071fad1d7aa41a276866e1b15' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/categories.tpl',
-      1 => 1501166586,
+      1 => 1504285200,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5979fc2b20d1d7_16043304 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59a992b65e6d87_16439791 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Categories management -->
 <div class="row">
@@ -90,12 +90,12 @@ function content_5979fc2b20d1d7_16043304 (Smarty_Internal_Template $_smarty_tpl)
 
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage<small>List of categories</small> </h2>
+                <h2>Manage categories<small> List of categories</small> </h2>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
                 <table class="table">
-                    <tbody>
+                    <tbody id="table_categoryList">
                         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'category');
 if ($_from !== null) {
@@ -103,19 +103,23 @@ foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
 ?>
                             <tr>
                                 <td class="box-category">
-                                    <input id="category_name" class="box-category-name" value="<?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
-" maxlength="32" readonly></input>
+                                    <input id="category_name" name="catName" class="box-category-name" value="<?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
+" maxlength="32" readonly style="margin-left:-15px;"></input>
                                 </td>
                                 <td class="box-category">
-                                    <input id="category_description" class="box-category-description" maxlength="128" value="<?php echo $_smarty_tpl->tpl_vars['category']->value['description'];?>
+                                    <input id="category_description" name="catDesc" class="box-category-description" maxlength="128" value="<?php echo $_smarty_tpl->tpl_vars['category']->value['description'];?>
 " readonly/>
                                 </td>
                                 <td class="box-category">
                                     <div class="pull-right" style="margin-top:5px;">
-                                        <button id="edit_category" class="btn btn-sm btn-success" onClick="edit_category(<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
+                                        <button id="update_cat_bg" class="btn btn-sm btn-primary" title="Background" onClick="update_cat_bg(<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
+)" style="padding:0px 3px 0px 3px;"><i class="fa fa-picture-o fa-2x"></i></button>
+                                        <button id="edit_category" class="btn btn-sm btn-success" title="Edit" onClick="edit_category(<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
 )"><i class="fa fa-pencil"></i> Edit</button>
-                                        <button id="delete_category" class="btn btn-sm btn-default" onClick="delete_category(<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
+                                        <button id="delete_category" class="btn btn-sm btn-default" title="Delete" onClick="delete_category(<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
 )"><i class="fa fa-trash"></i> Delete</button>
+                                        <input id="cat_id" type="hidden" name="catId" value="<?php echo $_smarty_tpl->tpl_vars['category']->value['id'];?>
+"/>
                                     </div>
                                 </td>
                             </tr>
@@ -127,6 +131,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 
                     </tbody>
                 </table>
+                <input id="cat_bg_file" type="file" name="catBgFile" value="" style="display:none;"/>
             </div>
         </div>
     </div>

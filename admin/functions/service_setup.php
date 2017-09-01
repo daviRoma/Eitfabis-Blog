@@ -33,14 +33,10 @@ function check_service($page, $group, $level){
 
 
 // Go to the starter page of the current logged user
-function go_to_start($group){
-    switch($group){
-        case 1: redirect("../index.php", true); break;
-        case 2: redirect("../reports.php", true); break;
-        case 3: redirect("../blog.php", true); break;
-        case 4: redirect("../standard.php", true); break;
-        default: break;
-    }
+function go_to_start($group_id){
+    $start = selectRecord(TAB_GROUPS, "id = $group_id")['start'];
+    $service = selectRecord(TAB_SERVICES, "label = '$start'")['name'];
+    redirect("../" . $service, true); break;
 }
 
 

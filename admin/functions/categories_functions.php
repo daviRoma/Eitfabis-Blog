@@ -41,4 +41,9 @@ function insert_category($data){
     insertRecord(TAB_CATEGORIES, $data);
 }
 
+// Update category
+function update_category($id, $data){
+    updateRecord(TAB_CATEGORIES, $new_data, "id = $id");
+}
+
 ?>

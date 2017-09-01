@@ -65,30 +65,33 @@
 
         <div class="x_panel">
             <div class="x_title">
-                <h2>Manage<small>List of categories</small> </h2>
+                <h2>Manage categories<small> List of categories</small> </h2>
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
                 <table class="table">
-                    <tbody>
+                    <tbody id="table_categoryList">
                         {foreach $categories as $category}
                             <tr>
                                 <td class="box-category">
-                                    <input id="category_name" class="box-category-name" value="{$category.name}" maxlength="32" readonly></input>
+                                    <input id="category_name" name="catName" class="box-category-name" value="{$category.name}" maxlength="32" readonly style="margin-left:-15px;"></input>
                                 </td>
                                 <td class="box-category">
-                                    <input id="category_description" class="box-category-description" maxlength="128" value="{$category.description}" readonly/>
+                                    <input id="category_description" name="catDesc" class="box-category-description" maxlength="128" value="{$category.description}" readonly/>
                                 </td>
                                 <td class="box-category">
                                     <div class="pull-right" style="margin-top:5px;">
-                                        <button id="edit_category" class="btn btn-sm btn-success" onClick="edit_category({$category.id})"><i class="fa fa-pencil"></i> Edit</button>
-                                        <button id="delete_category" class="btn btn-sm btn-default" onClick="delete_category({$category.id})"><i class="fa fa-trash"></i> Delete</button>
+                                        <button id="update_cat_bg" class="btn btn-sm btn-primary" title="Background" onClick="update_cat_bg({$category.id})" style="padding:0px 3px 0px 3px;"><i class="fa fa-picture-o fa-2x"></i></button>
+                                        <button id="edit_category" class="btn btn-sm btn-success" title="Edit" onClick="edit_category({$category.id})"><i class="fa fa-pencil"></i> Edit</button>
+                                        <button id="delete_category" class="btn btn-sm btn-default" title="Delete" onClick="delete_category({$category.id})"><i class="fa fa-trash"></i> Delete</button>
+                                        <input id="cat_id" type="hidden" name="catId" value="{$category.id}"/>
                                     </div>
                                 </td>
                             </tr>
                         {/foreach}
                     </tbody>
                 </table>
+                <input id="cat_bg_file" type="file" name="catBgFile" value="" style="display:none;"/>
             </div>
         </div>
     </div>

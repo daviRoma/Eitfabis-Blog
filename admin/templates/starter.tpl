@@ -107,6 +107,9 @@
                                 <li>
                                     <a href="newsletter.php"> <i class="fa fa-envelope"></i> Newsletter </a>
                                 </li>
+                                <li>
+                                    <a href="subscribers.php"> <i class="fa fa-users"></i> Subscribers </a>
+                                </li>
                             </ul>
                         </div>
 
@@ -114,10 +117,10 @@
                             <h3>Advanced</h3>
                             <ul class="nav side-menu">
                                 <li>
-                                    <a href="subscribers.php"> <i class="fa fa-users"></i> Subscribers </a>
+                                    <a href="allUsers.php"> <i class="fa fa-user"></i> Users </a>
                                 </li>
                                 <li>
-                                    <a href="allUsers.php"> <i class="fa fa-user"></i> Users </a>
+                                    <a href="group_service.php"> <i class="fa fa-list-alt" aria-hidden="true"></i> Groups & Services </a>
                                 </li>
                                 <li>
                                     <a href="blog.php"> <i class="fa fa-desktop"></i> Blog </a>
@@ -270,11 +273,13 @@
     <!-- Team custom script -->
     <script src="templates/js/24CinL-admin.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminDataTables.js"></script>
+    <script src="templates/jquery/ajax/24CinL-adminComments.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminUploads.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminReportAjax.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminNewsletter.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminArticle.js"></script>
     <script src="templates/jquery/ajax/24CinL-adminCategories.js"></script>
+    <script src="templates/jquery/ajax/24CinL-adminGroupService.js"></script>
 
 </body>
 </html>

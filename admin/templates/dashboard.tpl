@@ -34,7 +34,7 @@
                     </br>
                     <div class="row">
                         <div id="background_container" class="col-md-12" title="Upload image">
-                            <img id="bg_image" class="img-responsive" src="../upload/blog/background/admin-bg/article-default-bg-4.jpg">
+                            <img id="bg_image" class="img-responsive" src="../upload/blog/background/admin-bg/article-default-bg-3.jpg">
                             <img id="bg_fake" src="" style="display:none;">
                         </div>
                         <input id="bg_file" type="file" name="bg_file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="display: none;"/>

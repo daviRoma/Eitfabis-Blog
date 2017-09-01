@@ -23,14 +23,14 @@ if(!isset($_GET['error'])){
 			$list = split_in_page($list, $current_page);
 
 			if($current_page == 1)
-				$smarty->assign('previousPage_style', 'style="display:none;"');
+				$smarty->assign('previousPage_style', 0);
 			else
-				$smarty->assign('previousPage_style', 'style="display:block;"');
+				$smarty->assign('previousPage_style', 1);
 
 			if($current_page == $page_limit)
-				$smarty->assign('nextPage_style', 'style="display:none;"');
+				$smarty->assign('nextPage_style', 0);
 			else
-				$smarty->assign('nextPage_style', 'style="display:block;"');
+				$smarty->assign('nextPage_style', 1);
 
 			// Set next page index
 			$smarty->assign('page_set', $current_page);
@@ -40,8 +40,8 @@ if(!isset($_GET['error'])){
 			$smarty->assign('back', 'Back');
 
 		}else{
-			$smarty->assign('previousPage_style', 'style="display:none;"');
-			$smarty->assign('nextPage_style', 'style="display:none;"');
+			$smarty->assign('previousPage_style', 0);
+			$smarty->assign('nextPage_style', 0);
 		}
 
 		$smarty->assign('subPosition', $_POST['method']);

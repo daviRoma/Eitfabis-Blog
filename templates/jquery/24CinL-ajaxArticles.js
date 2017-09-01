@@ -16,7 +16,7 @@ $(function(){
 // Go to articles list, obtained by category or tag.
 function go_to_articles(elem, e){
     e.preventDefault();
-    var check = window.location.href.toString().split("?")[1].split("=")[1];
+    var check = $("#current_section").val();
 
     if(check == "category")
         articles_by_category(elem.title);
@@ -131,7 +131,7 @@ function show_categories(e){
                     $('#catEtag_container').slideDown(1000);
                 });
             });
-
+            $("#current_section").val("category");
             var currentUrl = window.location.href.toString().split("?")[0];
             window.history.pushState("", "24CinL | Blog", currentUrl + "?section=" + requested_section);
         },
@@ -201,6 +201,7 @@ function show_tags(e, r_page){
                     $('#catEtag_container').slideDown(1000);
                 });
             });
+            $("#current_section").val("tag");
             var currentUrl = window.location.href.toString().split("?")[0];
             if(r_page == 1)
                 window.history.pushState("", "24CinL | Blog", currentUrl + "?section=" + requested_section);

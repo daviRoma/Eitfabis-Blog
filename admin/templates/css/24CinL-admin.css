@@ -131,41 +131,6 @@
     cursor: pointer;
 }
 
-.select-category-menu-modal {
-    color: #000;
-    font-size: 13px;
-    padding: 0;
-    margin: 0 0 0 5px;
-    width: 160px;
-    border-radius: 0px;
-    overflow: hidden;
-}
-
-.select-category-menu-modal select {
-    padding: 5px 8px;
-    width: 87%;
-    border: none;
-    box-shadow: none;
-    background-color: transparent;
-    background-image: none;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-}
-
-.select-category-menu-modal select:focus{
-    outline: none;
-    cursor: pointer;
-}
-
-.select-category-menu-modal select:hover{
-    cursor: pointer;
-}
-
-#select_category_chevron:hover{
-    cursor: pointer;
-}
-
 .file-upload-field{
     margin-left: 15px;
 }
@@ -203,6 +168,7 @@
     border-bottom: 1px solid #dedede;
     padding-bottom: 3px;
     padding-right: 5px;
+    padding-left: 3px;
 }
 
 .overlay-img{
@@ -576,6 +542,7 @@ hr.small{
     width: 100%;
     resize: none;
     border: 1px solid #dedede;
+    margin-bottom: 20px;
 }
 
 .user-profile-field-about-read{
@@ -583,12 +550,137 @@ hr.small{
     border-bottom: 1px solid #dedede;
     text-align: left;
     padding-bottom: 7px;
+    margin-bottom: 20px;
 }
 
+.change-pwd-container{
+    padding-left: 23px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    height: auto;
+}
+
+.change-pwd-container input{
+    margin-bottom: 5px;
+}
+
+.change-pwd-container button{
+    margin-top: 10px;
+    margin-left: 40%;
+}
+
+.change-pwd-link{
+    color: #000;
+    padding-left: 2px;
+}
+
+.change-pwd-link:hover{
+    color: #e60000;
+    cursor: pointer;
+}
 
 /* ******************************* GENERAL ********************************* */
 h2{
     padding-bottom: 5px;
+}
+
+.select-menu-all {
+    color: #000;
+    font-size: 13px;
+    padding: 0;
+    margin: 0 0 0 10px;
+    border-bottom: 1px solid #dedede;
+    width: 133px;
+    border-radius: 0px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.select-menu-all select {
+    padding: 2px 0 0 0;
+    margin: 0;
+    width: 99%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-menu-all select:focus{
+    outline: none;
+    cursor: pointer;
+}
+
+.select-menu-all select:hover{
+    cursor: pointer;
+}
+
+.select-menu-modal {
+    color: #000;
+    font-size: 13px;
+    padding: 2px 0;
+    margin: 0;
+    width: 160px;
+    border-radius: 0px;
+    overflow: hidden;
+}
+
+.select-menu-modal select {
+    padding: 0;
+    width: 87%;
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+
+.select-menu-modal select:focus{
+    outline: none;
+    cursor: pointer;
+}
+
+.select-menu-modal select:hover{
+    cursor: pointer;
+}
+
+#select_chevron_down:hover{
+    cursor: pointer;
+}
+
+.hide-elem{
+    display: none;
+}
+
+.active-elem{
+    display: block;
+}
+
+.no-comments-present{
+    font-family: verdana;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    padding: 15px 10px 10px 10px;
+    margin: 25px 10px;
+    width: 98%;
+    color: #527a7a;
+    background-color: #efefef;
+}
+
+.table-basic-button{
+    font-size: 15px;
+    margin-left: 18%;
+}
+
+.table-basic-button:hover{
+    cursor: pointer;
+    color:#cc5200;
 }
 
 .btn-upload-delete i{
@@ -754,5 +846,13 @@ h2{
     margin-top: 7%;
     margin-bottom: 5px;
     border-width: 2px;
+    border-color: #e6e9ed;
+}
+
+.footer-divider{
+    margin-top: 3%;
+    margin-bottom: 1%;
+    padding-bottom: 0;
+    border-width: 1px;
     border-color: #e6e9ed;
 }

@@ -11,11 +11,15 @@ switch($_GET['section']){
 
 	case 'category':
 		$categories = retrieve_categories();
+
+		$smarty->assign('current_section', 'category');
 		$smarty->assign('categories', $categories);
 		$smarty->assign('list_of_categories', LIST_OF_CATEGORIES);
 		break;
 
 	case 'tag':
+		$smarty->assign('current_section', 'tag');
+
 		$current_page = get_current_page();
 		$page_limit = get_tag_page();
 		$tags = retrieve_tags($current_page);
@@ -29,14 +33,14 @@ switch($_GET['section']){
 
 		// Set navigation button visibility
 		if($current_page == 1)
-			$smarty->assign('backTags_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+			$smarty->assign('backPage_style', 0);
 		else
-			$smarty->assign('backTags_style', 'style="display:block;"');
+			$smarty->assign('backPage_style', 1);
 
 		if($current_page == $page_limit)
-			$smarty->assign('nextTags_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+			$smarty->assign('nextPage_style', 0);
 		else
-			$smarty->assign('nextTags_style', 'style="display:block;"');
+			$smarty->assign('nextPage_style', 1);
 
 		$smarty->assign('option', 'section=tag&');
 		$smarty->assign('list_of_tags', LIST_OF_TAGS);

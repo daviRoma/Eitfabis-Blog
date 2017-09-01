@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-24 10:18:52
+/* Smarty version 3.1.30, created on 2017-08-20 16:15:57
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/categories&tag.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975ad6c49a634_71275140',
+  'unifunc' => 'content_5999999db380e9_84971462',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fcb5492eab1eac14d23c43504d5563f73c6e123d' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/templates/categories&tag.tpl',
-      1 => 1499788581,
+      1 => 1501798674,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5975ad6c49a634_71275140 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5999999db380e9_84971462 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main Content: List of categories or tags -->
@@ -102,6 +102,8 @@ echo $_smarty_tpl->tpl_vars['tagLink_style']->value;
                         </form>
                     </li>
                 </ul>
+                <input id="current_section" type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['current_section']->value;?>
+"/>
             </div>
         <?php }?>
 

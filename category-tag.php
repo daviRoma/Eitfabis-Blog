@@ -25,6 +25,7 @@ $smarty->assign('page', CATEGORIES_TAGS_PAGE);
 switch($_GET['section']){
 
 	case 'category':
+		$smarty->assign('current_section', 'category');
 		if(!isset($_GET['name'])){
 			$categories = retrieve_categories();
 			$smarty->assign('categories', $categories);
@@ -51,14 +52,14 @@ switch($_GET['section']){
 
 				// set navigation button visibility
 				if($current_page == 1)
-					$smarty->assign('previousPage_style', 'style="display:none;"');
+					$smarty->assign('previousPage_style', 0);
 				else
-					$smarty->assign('previousPage_style', 'style="display:block;"');
+					$smarty->assign('previousPage_style', 1);
 
 				if($current_page == $page_limit)
-					$smarty->assign('nextPage_style', 'style="display:none;"');
+					$smarty->assign('nextPage_style', 0);
 				else
-					$smarty->assign('nextPage_style', 'style="display:block;"');
+					$smarty->assign('nextPage_style', 1);
 
 				// Navigation button name
 				$smarty->assign('next', 'Next');
@@ -74,6 +75,7 @@ switch($_GET['section']){
 		break;
 
 	case 'tag':
+		$smarty->assign('current_section', 'tag');
 		if(!isset($_GET['name'])){
 			$current_page = get_current_page();
 			$page_limit = get_tag_page();
@@ -84,22 +86,22 @@ switch($_GET['section']){
 			if($page_limit > 0){
 				// set navigation button visibility
 				if($current_page == 1)
-					$smarty->assign('backPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+					$smarty->assign('backPage_style', 0);
 				else
-					$smarty->assign('backPage_style', 'style="display:block;"');
+					$smarty->assign('backPage_style', 1);
 
 				if($current_page == $page_limit)
-					$smarty->assign('nextPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+					$smarty->assign('nextPage_style', 0);
 				else
-					$smarty->assign('nextPage_style', 'style="display:block;"');
+					$smarty->assign('nextPage_style', 1);
 
 				// Page set
 				$smarty->assign('page_set', $current_page);
 				$smarty->assign('current_page', $current_page);
 				$smarty->assign('page_limit', $page_limit);
 			}else{
-				$smarty->assign('backPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
-				$smarty->assign('nextPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+				$smarty->assign('backPage_style', 0);
+				$smarty->assign('nextPage_style', 0);
 				// Page set
 				$smarty->assign('page_set', 1);
 				$smarty->assign('current_page', 1);
@@ -131,14 +133,14 @@ switch($_GET['section']){
 
 				// set navigation button visibility
 				if($current_page == 1)
-					$smarty->assign('previousPage_style', 'style="display:none;"');
+					$smarty->assign('previousPage_style', 0);
 				else
-					$smarty->assign('previousPage_style', 'style="display:block;"');
+					$smarty->assign('previousPage_style', 1);
 
 				if($current_page == $page_limit)
-					$smarty->assign('nextPage_style', 'style="display:none;"');
+					$smarty->assign('nextPage_style', 0);
 				else
-					$smarty->assign('nextPage_style', 'style="display:block;"');
+					$smarty->assign('nextPage_style', 1);
 
 				// Navigation button name
 				$smarty->assign('next', 'Next');

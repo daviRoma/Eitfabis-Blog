@@ -16,7 +16,6 @@ $(function(){
         $("#upload_img_file").click();
     });
 
-
 });
 
 

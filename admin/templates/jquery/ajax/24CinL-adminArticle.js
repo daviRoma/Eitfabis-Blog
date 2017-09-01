@@ -6,6 +6,7 @@ var img_counter = 0;
 var backup_counter = 0;
 var set_empty_file = '<input id="set_img_file_0" name="set_img_file_0" class="set-img-file" maxlength="48" value=""/>';
 var img_path = "";
+var default_bg_image = "";
 
 
 // Ready function
@@ -66,6 +67,8 @@ $(function(){
     if($("#descr").html() != ""){
         $("#editor-one").append($("#descr").html());
     }
+
+    default_bg_image = $("#bg_image").attr("src");
 });
 
 
@@ -385,7 +388,7 @@ function reset_all_fields(){
     $("#set_article_title").val("");
     $("#set_article_subtitle").val("");
     // reset background
-    $("#bg_image").attr("src", "../img/Blog/background/admin-bg/article-default-bg.jpg");
+    $("#bg_image").attr("src", default_bg_image);
     $("#bg_image").val("");
     $("#bg_image").file = "";
     $("#bg_fake").attr("src", "");

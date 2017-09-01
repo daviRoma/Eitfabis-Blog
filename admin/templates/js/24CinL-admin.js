@@ -3,6 +3,7 @@
 
 var url = window.location.href.toString().split("?");
 var url_temp = url[1];
+var dropdown_temp = 0;
 
 // Ready function
 $(function(){
@@ -73,9 +74,9 @@ $(function(){
     $("#edit_profile").click(function(){
         var link_count = 0;
 
-        $("#country, #employment, #email").removeClass("user-profile-field-read");
-        $("#country, #employment, #email").removeAttr("readonly");
-        $("#country, #employment, #email").addClass("user-profile-field-write");
+        $("#username, #country, #employment, #email").removeClass("user-profile-field-read");
+        $("#username, #country, #employment, #email").removeAttr("readonly");
+        $("#username, #country, #employment, #email").addClass("user-profile-field-write");
         $("li[name=link]").each(function(){
             $(this).children("a").remove();
             $(this).children("input").attr("type", "text");
@@ -133,6 +134,28 @@ $(function(){
             $("#liA2").parent("ul").css({"display":"block"});
         }
     }
+
+    // Change password
+    $("#change_pwd-link").click(function() {
+        if(dropdown_temp){
+            $("#change_pwd-container").slideUp(600, function () {
+                $("#pwd_cur_value").hide();
+                $("#pwd_new_value").hide();
+                $("#pwd_submit").hide();
+                $(this).hide();
+            });
+            dropdown_temp = 0;
+        }else{
+            $("#change_pwd-container").hide();
+            $("#pwd_cur_value").show();
+            $("#pwd_new_value").show();
+            $("#pwd_submit").show();
+            $("#change_pwd-container").slideDown(600, function () {
+                $(this).show();
+            });
+            dropdown_temp = 1;
+        }
+    });
 });
 
 
@@ -162,4 +185,27 @@ function add_newCategory(e){
         e.preventDefault();
         return false;
     }
+}
+
+// Change admin password
+function change_password(){
+    var url = "controllers/script/other-script.php";
+    var old_pwd = $("#pwd_cur_value").val();
+    var new_pwd = $("#pwd_new_value").val();
+
+    $.ajax(url, {
+        method : "POST",
+        data : {
+            "key" : "changePwd",
+            "old_pwd" : old_pwd,
+            "new_pwd" : new_pwd
+        },
+        dataType : "text",
+        success: function(response){
+            backup_counter--;
+        },
+        error: function(xhr) {
+            alert("ERROR: " + xhr.responseText + xhr.status);
+        }
+    });
 }

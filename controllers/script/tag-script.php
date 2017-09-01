@@ -1,5 +1,7 @@
 <?php
 
+/*	Get article by Tag	*/
+
 require_once '../../configs/blog_configs.php';
 require_once BLOG_ROOT . '/configs/smarty_setup.php';
 require_once BLOG_ROOT . '/functions/category&tag_functions.php';
@@ -34,14 +36,14 @@ if($page_limit > 0){
 
 	// Set navigation button visibility
 	if($current_page == 1)
-		$smarty->assign('previousPage_style', 'style="display:none;"');
+		$smarty->assign('previousPage_style', 0);
 	else
-		$smarty->assign('previousPage_style', 'style="display:block;"');
+		$smarty->assign('previousPage_style', 1);
 
 	if($current_page == $page_limit)
-		$smarty->assign('nextPage_style', 'style="display:none;"');
+		$smarty->assign('nextPage_style', 0);
 	else
-		$smarty->assign('nextPage_style', 'style="display:block;"');
+		$smarty->assign('nextPage_style', 1);
 
 	// Navigation button name
 	$smarty->assign('next', 'Next');

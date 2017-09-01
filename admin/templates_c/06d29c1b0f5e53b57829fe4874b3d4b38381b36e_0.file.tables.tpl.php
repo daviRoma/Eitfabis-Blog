@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 17:26:20
+/* Smarty version 3.1.30, created on 2017-08-04 15:36:41
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/tables.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597a061c89cc03_13767754',
+  'unifunc' => 'content_5984786938cfe8_03435475',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597a061c89cc03_13767754 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5984786938cfe8_03435475 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <table class="table table-striped jambo_table bulk_action">

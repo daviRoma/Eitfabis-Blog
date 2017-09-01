@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-20 22:21:34
+/* Smarty version 3.1.30, created on 2017-08-30 14:59:25
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/home.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597110ce50cc85_18805941',
+  'unifunc' => 'content_59a6b6adbaa725_67702772',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '8ff960029094de7a9e9a0f5ec447e516905f09aa' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/templates/home.tpl',
-      1 => 1492794236,
+      1 => 1501797477,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,12 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597110ce50cc85_18805941 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59a6b6adbaa725_67702772 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main content: Home page that contains the articles list -->
-<div class="row" id="articles" <?php if (isset($_smarty_tpl->tpl_vars['home_style']->value)) {
-echo $_smarty_tpl->tpl_vars['home_style']->value;
-}?>>
+<div class="row" id="articles" <?php if (isset($_smarty_tpl->tpl_vars['home_style']->value)) {?> <?php echo $_smarty_tpl->tpl_vars['home_style']->value;?>
+ <?php }?>>
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['articles']->value, 'article');
@@ -36,7 +35,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['article']->value) {
             <?php $_smarty_tpl->_subTemplateRender($_smarty_tpl->tpl_vars['list_of_articles']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
 ?>
 
-            <hr>
+            <hr style="margin-bottom:50px;">
         <?php
 }
 }

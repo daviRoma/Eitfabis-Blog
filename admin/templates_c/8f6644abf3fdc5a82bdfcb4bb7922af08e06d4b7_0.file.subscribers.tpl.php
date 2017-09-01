@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 17:26:54
+/* Smarty version 3.1.30, created on 2017-08-04 19:01:44
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/subscribers.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597a063e8c0763_88372890',
+  'unifunc' => 'content_5984a8781ca684_19619489',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597a063e8c0763_88372890 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5984a8781ca684_19619489 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Subscribers List settings -->

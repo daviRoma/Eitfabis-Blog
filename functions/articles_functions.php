@@ -1,7 +1,7 @@
 <?php
 
-require_once BLOG_ROOT . '/functions/db_functions.php';
-require_once BLOG_ROOT . '/functions/utility_functions.php';
+require_once BLOG_ROOT . '/functions/comments_functions.php';
+
 
 
 /* **************************  ARTICLES LIST  ***************************** */
@@ -36,6 +36,7 @@ function retrieve_recent($page_number, $page_limit){
         $list_element['date'] = date_format_uni($article['date']);
         $list_element['category'] = retrieve_category($article);
         $list_element['tags'] = retrieve_tag_list($article['id']);
+        $list_element['comments'] = get_total_comments($article['id']);
 
         $result[] = $list_element;
     }
@@ -82,6 +83,7 @@ function retrieve_article($id){
     $result['date'] = $new_date;
     $result['category'] = $category[0]['name'];
     $result['tags'] = retrieve_tag_list($id);
+    $result['comments'] = get_total_comments($id);
 
     return $result;
 }
@@ -158,6 +160,7 @@ function assign_articles($articles){
         $list_element['author'] = $article['author'];
         $list_element['date'] = $article['date'];
         $list_element['category'] = $article['category'];
+        $list_element['comments'] = $article['comments'];
 
         $list[] = $list_element;
     }

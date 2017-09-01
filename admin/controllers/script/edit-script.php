@@ -91,7 +91,7 @@ switch ($_POST['position']) {
         $set_row = restructure_usrGroup($_POST['row'], false);
 
         if($_POST['operation'] == "edit"){
-            $data = check_userGroup($set_row);
+            $data = check_userGroup($set_row, 0); // 0 for edit
             if(is_string($data)){
                 echo "Error: " . $data;
             }else{
@@ -101,7 +101,7 @@ switch ($_POST['position']) {
             }
         }
         if($_POST['operation'] == "add"){
-            $data = check_userGroup($set_row);
+            $data = check_userGroup($set_row, 1);   // 1 for add
             if(is_string($data)){
                 echo $data;
                 exit;

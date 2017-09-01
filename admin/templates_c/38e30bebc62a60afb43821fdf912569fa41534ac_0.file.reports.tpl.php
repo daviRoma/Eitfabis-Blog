@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 15:07:48
+/* Smarty version 3.1.30, created on 2017-08-04 18:45:49
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/reports.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5979e5a464cf93_94797693',
+  'unifunc' => 'content_5984a4bd8b65f8_34672285',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5979e5a464cf93_94797693 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5984a4bd8b65f8_34672285 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- page content -->
 <div class="row" id="inbox_container">

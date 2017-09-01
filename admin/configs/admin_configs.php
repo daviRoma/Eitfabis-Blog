@@ -16,6 +16,7 @@ define('FILES_MANAGER', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/files_mana
 define('MANAGEARTICLE', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/manage_article.tpl');
 define('REPORTS', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/reports.tpl');
 define('USERS_MANAGEMENT', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/allUsers.tpl');
+define('GR_SERV_MANAGEMENT', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/group_service.tpl');
 define('PROFILE', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/profile.tpl');
 define('UPLOADS', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/upload.tpl');
 define('STANDARD', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/standard_temp.tpl');
@@ -23,7 +24,8 @@ define('STANDARD', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/standard_temp.t
 
 
 // Background Pages
-define('TABLES', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/tables.tpl');
+define('TABLES', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/tables_dynamic.tpl');
+define('TABLES_BASIC', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/tables_basic.tpl');
 define('INBOX', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/inbox.tpl');
 define('EDIT_MODAL', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/modalWindowEdit.tpl');
 define('PREVIEW_MODAL', $_SERVER['DOCUMENT_ROOT'] . '/admin/templates/modalPreview.tpl');

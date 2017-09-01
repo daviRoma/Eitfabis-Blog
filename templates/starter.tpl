@@ -130,7 +130,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <ul class="list-inline text-center">
                         <li>
-                            <a href="#">
+                            <a href="#" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
@@ -138,7 +138,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
@@ -146,7 +146,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-github fa-stack-1x fa-inverse"></i>
@@ -154,7 +154,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="#" target="_blank">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x"></i>
                                     <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
@@ -186,7 +186,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="templates/js/clean-blog.min.js"></script>
 
     <!-- 24CinL ajax functions -->
-    <script src="templates/jquery/24CinL-ajax.js"></script>
+    <script src="templates/jquery/24CinL-ajaxArticles.js"></script>
+    <script src="templates/jquery/24CinL-ajaxComments.js"></script>
     <!-- 24CinL javascript -->
     <script src="templates/js/24CinL-blog.js"></script>
 

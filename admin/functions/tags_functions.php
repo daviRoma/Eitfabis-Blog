@@ -113,12 +113,9 @@ function get_tagTableHeader(){
 function check_tagFields($data){
     if(empty($data['id']) || empty($data['label']) || empty($data["description"]))
         return "Empty field not allowed";
-    if($data['id'] == 0)
-        return "Id 0 not allowed.";
-    if(get_tagById($data['id']))
-        return "Id already exist!";
+
     if(get_tagByLabel($data['label']))
-        return "Tag label already exist!";
+        return "Label already exists!";
 
     return $data;
 }

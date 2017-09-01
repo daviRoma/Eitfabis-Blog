@@ -1,5 +1,4 @@
-
-<!-- Blog's page setting -->
+<!-- Users page setting -->
 <div class="row">
     <div class="col-md-12">
         <div class="x_panel">
@@ -76,19 +75,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <span style="padding-left:5px; padding-bottom:5px;">
-                        <u>NOTE 1</u>: The undo button allows you to turn back and restore the original rows.</br>
-                    </span>
-                    <span style="padding-left:5px; padding-bottom:5px;">
-                        <u>NOTE 2</u>: Group 1 -> Administrator </br>
-                        <span style="margin-left:6%; padding-bottom:5px;">
-                            Group 2 -> Report Manager </br>
-                        </span>
-                        <span style="margin-left:6%; padding-bottom:5px;">
-                            Group 3 -> Blog Manager </br>
-                        </span>
-                        <span style="margin-left:6%; padding-bottom:5px;">
-                            Group 4 -> Base User </br>
-                        </span>
+                        <u>NOTE</u>: The undo button allows you to turn back and restore the original rows.</br>
                     </span>
                 </div>
                 <div class="col-md-12">

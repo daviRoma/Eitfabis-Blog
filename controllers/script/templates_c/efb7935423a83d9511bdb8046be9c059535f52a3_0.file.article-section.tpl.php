@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-23 23:21:18
+/* Smarty version 3.1.30, created on 2017-08-30 14:59:25
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/article-section.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975134e3a76c4_84318723',
+  'unifunc' => 'content_59a6b6adbe1c38_15173020',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'efb7935423a83d9511bdb8046be9c059535f52a3' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/templates/article-section.tpl',
-      1 => 1500842319,
+      1 => 1501794104,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5975134e3a76c4_84318723 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59a6b6adbe1c38_15173020 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Article piece -->
@@ -40,12 +40,13 @@ function content_5975134e3a76c4_84318723 (Smarty_Internal_Template $_smarty_tpl)
     <span class="post-meta">Posted by <a href="about_us.php"><?php echo $_smarty_tpl->tpl_vars['article']->value['author'];?>
 </a> on <?php echo $_smarty_tpl->tpl_vars['article']->value['date'];?>
  - in</span>
-
     <span class="in-line">
         <a class="category-field-set" href="category-tag.php?section=category&name=<?php echo $_smarty_tpl->tpl_vars['article']->value['category'];?>
 "> <b> <?php echo $_smarty_tpl->tpl_vars['article']->value['category'];?>
  </b> </a>
     </span>
+    <span id="article_comment_link" class="comment-count-field pull-right"><i class="fa fa-comments-o"></i> (<?php echo $_smarty_tpl->tpl_vars['article']->value['comments'];?>
+) </span>
     </br>
     <div class="tag-divider in-line">
         <?php if (isset($_smarty_tpl->tpl_vars['article']->value['tags'])) {?>

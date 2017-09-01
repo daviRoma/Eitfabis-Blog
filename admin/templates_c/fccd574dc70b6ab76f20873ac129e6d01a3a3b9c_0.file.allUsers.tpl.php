@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-24 10:39:10
+/* Smarty version 3.1.30, created on 2017-08-20 14:24:05
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975b22e36f903_41160561',
+  'unifunc' => 'content_59997f659f07a6_76743012',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fccd574dc70b6ab76f20873ac129e6d01a3a3b9c' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/allUsers.tpl',
-      1 => 1500730305,
+      1 => 1502208725,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5975b22e36f903_41160561 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59997f659f07a6_76743012 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
-
-<!-- Blog's page setting -->
+<!-- Users page setting -->
 <div class="row">
     <div class="col-md-12">
         <div class="x_panel">
@@ -103,19 +102,7 @@ function content_5975b22e36f903_41160561 (Smarty_Internal_Template $_smarty_tpl)
             <div class="row">
                 <div class="col-md-12">
                     <span style="padding-left:5px; padding-bottom:5px;">
-                        <u>NOTE 1</u>: The undo button allows you to turn back and restore the original rows.</br>
-                    </span>
-                    <span style="padding-left:5px; padding-bottom:5px;">
-                        <u>NOTE 2</u>: Group 1 -> Administrator </br>
-                        <span style="margin-left:6%; padding-bottom:5px;">
-                            Group 2 -> Report Manager </br>
-                        </span>
-                        <span style="margin-left:6%; padding-bottom:5px;">
-                            Group 3 -> Blog Manager </br>
-                        </span>
-                        <span style="margin-left:6%; padding-bottom:5px;">
-                            Group 4 -> Base User </br>
-                        </span>
+                        <u>NOTE</u>: The undo button allows you to turn back and restore the original rows.</br>
                     </span>
                 </div>
                 <div class="col-md-12">

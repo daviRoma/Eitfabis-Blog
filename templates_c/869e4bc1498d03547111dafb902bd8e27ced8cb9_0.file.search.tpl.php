@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-24 10:24:13
+/* Smarty version 3.1.30, created on 2017-08-20 16:16:02
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/search.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5975aeadbb81f3_70977461',
+  'unifunc' => 'content_599999a2c98a12_60094287',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '869e4bc1498d03547111dafb902bd8e27ced8cb9' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/templates/search.tpl',
-      1 => 1492980114,
+      1 => 1501252632,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5975aeadbb81f3_70977461 (Smarty_Internal_Template $_smarty_tpl) {
+function content_599999a2c98a12_60094287 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Main Content: Search article -->
@@ -35,11 +35,11 @@ function content_5975aeadbb81f3_70977461 (Smarty_Internal_Template $_smarty_tpl)
     <?php }?>
 
     <div id="show_form" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <a class="show-form" href="#" onClick="display_search_form(event);">
-                <span> New search </span>
-                <i class="fa fa-arrow-down" id="temp"></i>
-                <input id="form_display_status" type="hidden" name="form_display_status" value="down" />
-            </a>
+        <a class="show-form" href="#" onClick="display_search_form(event);">
+            <span> New search </span>
+            <i class="fa fa-arrow-down" id="temp"></i>
+            <input id="form_display_status" type="hidden" name="form_display_status" value="down" />
+        </a>
     </div>
 
     <div id="search_body" class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

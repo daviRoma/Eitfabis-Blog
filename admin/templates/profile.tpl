@@ -20,7 +20,9 @@
                             </div>
                             <input id="avatar_file" type="file" name="avatar_file" style="display: none;"/>
                         </div>
-                        <h3>{$username}</h3>
+                        <h3>
+                            <input id="username" name="setUsername" class="user-profile-field-read" value="{$username}" maxlength="32" style="width:220px;" readonly required/>
+                        </h3>
 
                         <ul id="info_list" class="list-unstyled user_data">
                             <li>
@@ -66,7 +68,17 @@
                         </ul>
 
                         </br>
-                        <hr>
+                        <!-- Change password -->
+                        <span id="change_pwd-link" class="change-pwd-link">
+                            <i class="fa fa-user-secret"></i> &nbsp Change password
+                        </span>
+                        <div id="change_pwd-container" class="change-pwd-container">
+                            <input id="pwd_cur_value" name="curr_pwd" class="user-profile-field-write" type="password" value="" placeholder="current password" style="display:none;"/>
+                            <input id="pwd_new_value" name="new_pwd" class="user-profile-field-write" type="password" value="" placeholder="new password" style="display:none;"/>
+                            <button id="pwd_submit" name="pwdSubmit" class="btn btn-primary btn-sm" style="height:25px;width:75px;padding:0px;display:none;"><i class="fa fa-check"></i>&nbsp Confirm</button>
+                        </div>
+
+                        <hr style="margin-top:5px;">
                         <!-- Edit and Submit -->
                         <a id="edit_profile" class="btn btn-warning"><i class="fa fa-edit m-right-xs"></i>&nbsp Edit</a>
                         <button id="send_user_info" name="profileSubmit" class="btn btn-success pull-right" type="submit" disabled><i class="fa fa-save m-right-xs"></i>&nbsp Save</button>

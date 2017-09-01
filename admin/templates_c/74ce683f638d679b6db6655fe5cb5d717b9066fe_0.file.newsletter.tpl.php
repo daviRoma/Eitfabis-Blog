@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 17:26:58
+/* Smarty version 3.1.30, created on 2017-08-04 18:45:54
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/newsletter.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597a0642003a62_12249686',
+  'unifunc' => 'content_5984a4c22a4194_12029632',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597a0642003a62_12249686 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5984a4c22a4194_12029632 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Write newsletter -->

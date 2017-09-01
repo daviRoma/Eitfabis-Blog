@@ -59,4 +59,25 @@ function get_userArticles($username){
     return $result;
 }
 
+// Update profile information
+function update_profile($user_id, $data){
+    updateRecord(TAB_PERSONALINFO, $data, "user = $user_id");
+}
+
+// Update user data
+function update_user($user_id, $data){
+    updateRecord(TAB_USERS, $data, "id = $user_id");
+}
+
+// Update user-avatar path
+function update_avatar($user_id, $path){
+    updateRecord(TAB_PERSONALINFO, array("img_address" => $path), "user = $user_id");
+}
+
+// Change the admin password
+function update_pwd($id, $new_pwd){
+    $pwd = array("password" => md5($new_pwd));
+    updateRecord(TAB_USERS, $pwd, "id = $id");
+}
+
 ?>

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-26 23:53:15
+/* Smarty version 3.1.30, created on 2017-08-20 16:15:57
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/category-section.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59790f4b6a8430_86472434',
+  'unifunc' => 'content_5999999db5e287_16620296',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59790f4b6a8430_86472434 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5999999db5e287_16620296 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Category piece -->

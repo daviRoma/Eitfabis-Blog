@@ -163,6 +163,10 @@ function add_one(){
         i++;
     });
 
+    if(position == "Users"){
+        toAdd[i] = $("#select_value").val();
+    }
+
     $.ajax(url, {
         method : "POST",
         data : {
@@ -193,9 +197,9 @@ function edit_one(){
         toEdit[i] = $(this).val();
         i++;
     });
-    
-    if(position == "Article Management"){
-        toEdit[i] = $("#set_category").val();
+
+    if(position == "Article Management" || position == "Users"){
+        toEdit[i] = $("#select_value").val();
     }
 
     $.ajax(url, {
@@ -737,7 +741,7 @@ function selected_allCheckbox(elem){
 
 // Remove selectd and checked class or attribute from all rows
 function remove_checked(){
-    $("#table_head").removeClass("selectd");
+    $("#table_head").removeClass("selected");
     $("div[name=select_allCheckbox]").removeClass("checked");
     $("#table_head").each(function () {
         $("th[class=column-title]").css({"display" : "table-cell"});
@@ -781,7 +785,6 @@ function editModal(row){
                 $('<div class="overlay"></div>').prependTo('body').fadeIn(600);
                 $(response).appendTo('.overlay').fadeIn(700).show();
                 var $this = $("tbody[name=modalTable-body]").children("tr");
-                $this.children("td").children("input[name=table_input-field]").removeAttr("readonly");
                 $this.children("td[name=table_td-checkbox]").css({"display" : "none"});
                 $this.children("td[name=table_td-operation]").css({"display" : "none"});
             }
@@ -841,10 +844,17 @@ function exitModal(){
 
 // Enable and disable Delete (all) button
 function count_selected(){
-    if(totSelected > 0)
+    if(totSelected > 0){
         $("#delete_selected").removeAttr("disabled");
-    else
+        if(totSelected == 1){
+            $("#show_comments").removeAttr("disabled");
+        }else{
+            $("#show_comments").attr("disabled", "disabled");
+        }
+    }else{
         $("#delete_selected").attr("disabled", "disabled");
+        $("#show_comments").attr("disabled", "disabled");
+    }
 }
 
 

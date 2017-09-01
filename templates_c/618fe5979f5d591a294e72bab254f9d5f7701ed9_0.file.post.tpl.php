@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-28 15:56:31
+/* Smarty version 3.1.30, created on 2017-08-05 12:12:01
   from "/Users/Davide/Desktop/Eitfabis-Blog/templates/post.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597b428f587846_60745571',
+  'unifunc' => 'content_598599f1a75d65_13787291',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '618fe5979f5d591a294e72bab254f9d5f7701ed9' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/templates/post.tpl',
-      1 => 1501250158,
+      1 => 1501793769,
       2 => 'file',
     ),
   ),
@@ -20,12 +20,16 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597b428f587846_60745571 (Smarty_Internal_Template $_smarty_tpl) {
+function content_598599f1a75d65_13787291 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Article Content -->
 <article>
     <div class="row">
+        <div class="hide-elem">
+            <input id="article_id" type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+"/>
+        </div>
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
             <?php echo $_smarty_tpl->tpl_vars['content']->value;?>
@@ -59,14 +63,16 @@ foreach ($_from as $_smarty_tpl->tpl_vars['tag']->value) {
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 ?>
 
+            <span class="comment-link pull-right">
+                <a id="comment_link" href="#" onClick="show_comments(event)"> Show comments <i class="fa fa-comments-o"></i> (<span id="count_comments"><?php echo $_smarty_tpl->tpl_vars['num_comments']->value;?>
+</span>) </a>
+                <input id="number_of_comments" type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['num_comments']->value;?>
+"/>
+            </span>
         </div>
     </div>
     </br>
-    <div id="comment_container" class="row">
-        <?php $_smarty_tpl->_subTemplateRender($_smarty_tpl->tpl_vars['list_of_comment']->value, $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, true);
-?>
 
-    </div>
 </article>
 <?php }
 }

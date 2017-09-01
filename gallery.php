@@ -31,28 +31,27 @@ $smarty->assign('pictures', $gallery_items);
 if($page_limit > 0){
     // set navigation button visibility
     if($current_page == 1)
-        $smarty->assign('backPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+        $smarty->assign('backPage_style', 0);
     else
-        $smarty->assign('backPage_style', 'style="display:block;"');
+        $smarty->assign('backPage_style', 1);
 
     if($current_page == $page_limit)
-        $smarty->assign('nextPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+        $smarty->assign('nextPage_style', 0);
     else
-        $smarty->assign('nextPage_style', 'style="display:block;"');
+        $smarty->assign('nextPage_style', 1);
 
     // Page set
     $smarty->assign('page_set', $current_page);
     $smarty->assign('current_page', $current_page);
     $smarty->assign('page_limit', $page_limit);
 }else{
-    $smarty->assign('backPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
-    $smarty->assign('nextPage_style', 'style="pointer-events:none; cursor:default; opacity:0.3;"');
+    $smarty->assign('backPage_style', 0);
+    $smarty->assign('nextPage_style', 0);
     // Page set
     $smarty->assign('page_set', 1);
     $smarty->assign('current_page', 1);
     $smarty->assign('page_limit', 1);
 }
-
 
 $smarty->assign('page_navigation', PAGE_NAVIGATION);
 $smarty->display(STARTER);

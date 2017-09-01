@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 18:07:24
+/* Smarty version 3.1.30, created on 2017-09-01 17:11:52
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/profile.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597a0fbc84aae7_22398589',
+  'unifunc' => 'content_59a978b89f8e15_90550939',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '696cc0082ccce27ac90ae31922182ceac3e94a5a' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/profile.tpl',
-      1 => 1499958888,
+      1 => 1504278711,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597a0fbc84aae7_22398589 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59a978b89f8e15_90550939 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Admin profile page -->
 <div class="row">
@@ -46,8 +46,10 @@ function content_597a0fbc84aae7_22398589 (Smarty_Internal_Template $_smarty_tpl)
                             </div>
                             <input id="avatar_file" type="file" name="avatar_file" style="display: none;"/>
                         </div>
-                        <h3><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-</h3>
+                        <h3>
+                            <input id="username" name="setUsername" class="user-profile-field-read" value="<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+" maxlength="32" style="width:220px;" readonly required/>
+                        </h3>
 
                         <ul id="info_list" class="list-unstyled user_data">
                             <li>
@@ -108,7 +110,17 @@ function content_597a0fbc84aae7_22398589 (Smarty_Internal_Template $_smarty_tpl)
                         </ul>
 
                         </br>
-                        <hr>
+                        <!-- Change password -->
+                        <span id="change_pwd-link" class="change-pwd-link">
+                            <i class="fa fa-user-secret"></i> &nbsp Change password
+                        </span>
+                        <div id="change_pwd-container" class="change-pwd-container">
+                            <input id="pwd_cur_value" name="curr_pwd" class="user-profile-field-write" type="password" value="" placeholder="current password" style="display:none;"/>
+                            <input id="pwd_new_value" name="new_pwd" class="user-profile-field-write" type="password" value="" placeholder="new password" style="display:none;"/>
+                            <button id="pwd_submit" name="pwdSubmit" class="btn btn-primary btn-sm" style="height:25px;width:75px;padding:0px;display:none;"><i class="fa fa-check"></i>&nbsp Confirm</button>
+                        </div>
+
+                        <hr style="margin-top:5px;">
                         <!-- Edit and Submit -->
                         <a id="edit_profile" class="btn btn-warning"><i class="fa fa-edit m-right-xs"></i>&nbsp Edit</a>
                         <button id="send_user_info" name="profileSubmit" class="btn btn-success pull-right" type="submit" disabled><i class="fa fa-save m-right-xs"></i>&nbsp Save</button>

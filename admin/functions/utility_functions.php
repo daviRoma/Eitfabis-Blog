@@ -52,6 +52,18 @@ function date_format_uni($date){
 }
 
 
+// Convert all given date in a unique format date for the dataTables
+function date_format_table($date){
+    $day = substr($date, 8, 2);
+ 	$month = substr($date, 5, 2);
+	$year = substr($date, 0, 4);
+    $hour_minute = substr($date, 11, 5);
+
+    $date_convert = $day . "/" . $month . "/" . $year . " " . $hour_minute;
+    return $date_convert;
+}
+
+
 // Return the current url
 function get_current_url() {
 	$url  = 'http' . ($_SERVER['HTTPS'] == 'on' ? 's' : '') . '://'

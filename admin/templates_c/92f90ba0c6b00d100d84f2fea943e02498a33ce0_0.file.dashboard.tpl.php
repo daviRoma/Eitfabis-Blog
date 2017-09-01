@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-07-27 17:32:26
+/* Smarty version 3.1.30, created on 2017-08-04 15:32:13
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_597a078a258be2_26107507',
+  'unifunc' => 'content_5984775d68d626_23776191',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '92f90ba0c6b00d100d84f2fea943e02498a33ce0' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/dashboard.tpl',
-      1 => 1501169544,
+      1 => 1501853532,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_597a078a258be2_26107507 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5984775d68d626_23776191 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Blog's page setting -->
@@ -63,7 +63,7 @@ echo $_smarty_tpl->tpl_vars['draft']->value['subtitle'];
                     </br>
                     <div class="row">
                         <div id="background_container" class="col-md-12" title="Upload image">
-                            <img id="bg_image" class="img-responsive" src="../upload/blog/background/admin-bg/article-default-bg-4.jpg">
+                            <img id="bg_image" class="img-responsive" src="../upload/blog/background/admin-bg/article-default-bg-3.jpg">
                             <img id="bg_fake" src="" style="display:none;">
                         </div>
                         <input id="bg_file" type="file" name="bg_file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="display: none;"/>
