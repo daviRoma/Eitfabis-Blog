@@ -9,7 +9,7 @@ require_once _ROOT . '/admin/functions/categories_functions.php';
 if($_POST['operation'] == 'edit'){
     $id = $_POST['category_id'];
     $new_data = array("name" => $_POST['new_name'], "description" => $_POST['new_description']);
-    $update_category($id, $data);
+    update_category($id, $new_data);
 }
 
 // Delete category
@@ -31,7 +31,7 @@ if($_POST['operation'] == 'upload_img'){
                 $error = "Return Code: " . $_FILES["category_bg_file"]["error"];
                 redirect("../categories.php?error=$error", true);
             }else{
-                $fileName = strtolower($category['name'] . "_" .time());
+                $fileName = strtolower($category['name'] . "_" .time() . "." . $file_extension);
 
                 if(file_exists(_ROOT . "/upload/blog/category/" . $fileName)){
                     $error = $fileName . "Already exist!";
@@ -41,8 +41,8 @@ if($_POST['operation'] == 'upload_img'){
                     $sourcePath = $_FILES['category_bg_file']['tmp_name'];   // Storing source path of the file in a variable
                     $targetPath = _ROOT . $filePath;                    // Target path where file is to be stored
                     move_uploaded_file($sourcePath, $targetPath);       // Moving Uploaded file
-                    unlink(_ROOT . "/upload/blog/category/" . $category['background']);
-                    update_category($category['id'], array("background" => $filePath));
+                    unlink(_ROOT . "/" . $category['background']);
+                    update_category($category['id'], array("background" => "upload/blog/category/" . $fileName));
                 }
             }
         }else{

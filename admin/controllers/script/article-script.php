@@ -53,7 +53,6 @@ switch($_POST['operation']){
         $data_2['category'] = $_POST['category'];
         insert_articlesCategory($data_2, false, false);
 
-
         // Insert has (relation between article and tag)
         $flag = true;
         $tags = $_POST['tags'];

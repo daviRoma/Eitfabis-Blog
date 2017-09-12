@@ -22,12 +22,12 @@ function get_category_by_id($id){
 }
 
 // Delete one or more categories
-function delete_category($category_id){
-    $path = get_category_by_id($category_id)['background'];
+function delete_category($id){
+    $path = get_category_by_id($id)['background'];
 
     deleteRecord(TAB_ART_CAT, "category = $id");
     deleteRecord(TAB_TAG_CAT, "category = $id");
-    deleteRecord(TAB_CATEGORIES, "name = '$category'");
+    deleteRecord(TAB_CATEGORIES, "id = $id");
     delete_categoryBg($path);
 }
 
@@ -43,7 +43,7 @@ function insert_category($data){
 
 // Update category
 function update_category($id, $data){
-    updateRecord(TAB_CATEGORIES, $new_data, "id = $id");
+    updateRecord(TAB_CATEGORIES, $data, "id = $id");
 }
 
 ?>

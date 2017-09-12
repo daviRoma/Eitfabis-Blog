@@ -73,8 +73,8 @@
                     <tbody id="table_categoryList">
                         {foreach $categories as $category}
                             <tr>
-                                <td class="box-category">
-                                    <input id="category_name" name="catName" class="box-category-name" value="{$category.name}" maxlength="32" readonly style="margin-left:-15px;"></input>
+                                <td class="box-category" style="padding-left:15px;">
+                                    <input id="category_name" name="catName" class="box-category-name" value="{$category.name}" maxlength="32" readonly style="margin-left:-15px; width:160px;"></input>
                                 </td>
                                 <td class="box-category">
                                     <input id="category_description" name="catDesc" class="box-category-description" maxlength="128" value="{$category.description}" readonly/>

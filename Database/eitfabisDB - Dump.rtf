@@ -1,0 +1,896 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww15280\viewh13060\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 -- phpMyAdmin SQL Dump\
+-- version 4.4.9\
+-- http://www.phpmyadmin.net\
+--\
+-- Host: localhost:8889\
+-- Generation Time: Sep 07, 2017 at 06:17 PM\
+-- Server version: 5.5.42\
+-- PHP Version: 5.6.10\
+\
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";\
+SET time_zone = "+00:00";\
+\
+--\
+-- Database: `eitfabis`\
+--\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `articles`\
+--\
+\
+CREATE TABLE `articles` (\
+  `id` int(11) NOT NULL,\
+  `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,\
+  `subtitle` text COLLATE utf8_unicode_ci,\
+  `content` longtext COLLATE utf8_unicode_ci NOT NULL,\
+  `background` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\
+  `draft` tinyint(1) NOT NULL,\
+  `author` varchar(24) COLLATE utf8_unicode_ci NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `articles`\
+--\
+\
+INSERT INTO `articles` (`id`, `title`, `subtitle`, `content`, `background`, `date`, `draft`, `author`) VALUES\
+(1, 'Napoli, Sarri vola basso: Favoriti per lo scudetto? Cavolate', 'Il tecnico: "Mertens far\'c3\'a0 la punta. Ounas ha grande potenziale"', '<font size="3"><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">Dopo il pari col Chievo,&nbsp;</span><span style="font-weight: 700; color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">Maurizio Sarri</span><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">&nbsp;ha fatto un primo punto della situazione sul&nbsp;</span><span style="font-weight: 700; color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">Napoli</span><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">, rifiutando il ruolo di favorito per lo scudetto. "Siamo arrivati terzi e ci sono due club come Milan e Inter che stanno facendo un mercato importantissimo - ha spiegato -.&nbsp;</span><span style="font-weight: 700; color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">Credo sia una cavolata pensare che siamo i favoriti</span><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">". "</span><span style="font-weight: 700; color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">Il ruolo di Mertens? Fara\'c3\'a0 la punta&nbsp;</span><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">- ha aggiunto -.&nbsp;</span><span style="font-weight: 700; color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">Ounas \'c3\'a8 giovane, ma ha grande potenziale</span><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">".</span></font><div><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;"><font size="3"><br></font></span></div><div><font size="3"><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">"Aver disputato un grande girone di ritorno nello scorso campionato non offre alcuna garanzia per il prossimo - ha proseguito il tecnico azzurro, parlando degli obiettivi del Napoli in campionato. Mi baso sui numeri e le statistiche". "Non abbiamo fatto un mercato che ha stravolto la squadra, se tutto va bene siamo gli stessi dell''anno scorso ed abbiamo due squadre davanti", ha aggiunto. Ad ogni modo, Sarri non ha richieste per il mercato: "Il Napoli non \'c3\'a8 mio, ma di De Laurentiis, \'c3\'a8 lui a fare le scelte societarie e io mi adeguo. Non ho richieste particolari, mi daranno una rosa a disposizione e io allener\'c3\'b2 quella rosa".&nbsp;</span><br style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;"><br style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;"><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">Del resto il tecnico del Napoli ritiene che ci siano ancora da lavorare con questo gruppo: "Sfruttare di pi\'c3\'b9 le palle ferme ed evitare di subire gol stupidi. Su questi aspetti possiamo migliorare. La squadra non ha lo stesso margine di miglioramento di due anni fa, ora si lavora sui particolari".&nbsp;</span><br style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;"><br style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;"><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">Poi qualche battuta sui singoli. "Mertens? E'' difficile dire ad un ragazzo che ha fatto 36 goal in otto mesi che non \'c3\'a8 un centravanti e farlo tornare a fare l\'e2\'80\'99esterno - ha spiegato, parlando del ruolo del belga -. Di sicuro lo far\'c3\'a0 qualche volta, \'c3\'a8 un ragazzo disponibile, certo non gradirebbe tornare a farlo con continuit\'c3\'a0. E avrebbe ragione, avendo dimostrato di essere pi\'c3\'b9 forte da centravanti che da esterno".&nbsp;</span><br style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;"><br style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;"><span style="color: rgb(34, 34, 34); font-family: Arial, Helvetica, sans-serif;">Ounas ha fatto bene finora, ma Sarri vuole restare con i piedi per terra: "E''un giocatore giovane e dal grande potenziale. Ma sarebbe sbagliato caricarlo di responsabilit\'c3\'a0". Da Maksimovic e Milik, invece, l''allenatore azzurro si aspetta molto di pi\'c3\'b9 della passata stagione. "L''operazione Maksimovic \'c3\'a8 relativamente costosa viste le cifre, inutile continuare a dirlo, \'c3\'a8 un\'e2\'80\'99operazione normale nel mercato attuale - ha precisato -. Lo scorso anno non ha reso per tanti motivi, tattici e fisici. Aveva un problema al piede, speriamo sia tutto risolto. Era reduce dalla difesa a tre a Torino. Di sicuro ci attendiamo un rendimento superiore. anche per Milik. Sono due giocatori che ci potranno dare qualcosa in pi\'c3\'b9". Infine lo spinoso capitolo Reina: "Mi fido di lui al 101%, ha grandi valori molari e attaccamento a questo gruppo, non esiste il problema scadenza".&nbsp;</span></font></div>', 'upload/post/background/post-bg-1500841881_maxresdefault.jpg', '2017-09-01 15:32:36', 0, 'Admin'),\
+(2, 'Appiccano fuoco, presi piromani a Viterbo e Messina', 'Emergenza incendi anche nel Trapanese, dove le fiamme hanno devastato la zona meridionale della Riserva naturale dello Zingaro', '<span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">Quattro ragazzi sono stati sorpresi dai carabinieri mentre davano fuoco a un bosco di pini e cerri lungo la strada provinciale litoranea a Montalto di Castro, in provincia di Viterbo. "E'' stata una bravata", si \'c3\'a8 giustificato il gruppo di piromani, composto da un 21enne e tre 16enni romani. L''emergenza incendi si estende anche alla Sicilia, dove un 28enne \'c3\'a8 stato arrestato perch\'c3\'a9 sorpreso ad appiccare un incendio ad alcune sterpaglie nel Messinese.</span><div><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><br></span></div><div><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">I quattro giovani piromani sono stati fermati mentre stavano provocando il terzo rogo, dopo averne appiccato altri due a poca distanza. I vigili del fuoco sono riusciti a domare subito le fiamme, le quali hanno per\'c3\'b2 danneggiato 250 metri quadri di macchia mediterranea interessando anche alberi di alto fusto.&nbsp;</span><span style="margin: 0px; padding: 0px; font-weight: 700; color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">Il maggiorenne \'c3\'a8 stato arrestato mentre i tre 16enni sono stati deferiti alla Procura di Roma</span><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">, tutti per il reato di incendio doloso. Le indagini dei carabinieri continuano per accertare l''eventuale presenza in zona dei quattro amici, in concomitanza degli incendi che si sono verificati nei giorni scorsi.</span><br style="margin: 0px; padding: 0px; color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><br style="margin: 0px; padding: 0px; color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><span style="margin: 0px; padding: 0px; font-weight: 700; color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">Il piromane di Messina</span><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">&nbsp;invece era in azione sulla strada di Asi, una zona collinare. I carabinieri stavano perlustrando la zona, dopo i diversi roghi sui Peloritani nei giorni scorsi, e hanno visto un bagliore. Dopo aver allertato i vigili del fuoco, si sono nascosti dietro un cespuglio e hanno sorpreso il 28enne mentre si allontanava. Ora si trova in camera di sicurezza a Milazzo, in attesa del processo che si svolger\'c3\'a0 luned\'c3\'ac.</span><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><br></span></div><div><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><br></span></div><div><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><br></span></div><img id="tag_image_0" name="tag_image_0" class="img-responsive article-img-preview" src="../upload/post/pictures/post-1500843768_incendi.jpg" style="text-align:center;"><div><br></div><div><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">La Sicilia ha dovuto per\'c3\'b2 affrontare anche&nbsp;</span><span style="margin: 0px; padding: 0px; font-weight: 700; color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">l''incendio nella Riserva dello Zingaro</span><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">, nel Trapanese, dove le fiamme hanno perdurato per 24 ore dopo l''incendio scoppiato nel pomeriggio di sabato. Il rogo \'c3\'a8 stato domato grazie all''azione di forestali, vigili del fuoco e tre canadair. La parte sud della riserva \'c3\'a8 in cenere e non si possono ancora valutare i danni del resto del''area. La riserva, che si estende dal mare verso la collina, aveva gi\'c3\'a0 subito un incendio devastante nel 2012.</span><br style="margin: 0px; padding: 0px; color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><br style="margin: 0px; padding: 0px; color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">Il sindaco di Castellammare del Golfo, Nicol\'c3\'b2 Coppola, ha spiegato che nella notte sono stati evacuati per prudenza anche alcuni alberghi e villette, mentre gruppi di volontari hanno operato nel tentativo di creare barriere naturali alle fiamme, diserbando alcune aree.</span><br></div>', 'upload/post/background/post-bg-1500843849_c_2_fotogallery_3081091_2_image.jpg', '2017-09-01 15:32:36', 0, 'Admin'),\
+(3, 'Trump cambia idea, via libera a nuove sanzioni contro la Russia', 'Il presidente americano volta le spalle all''amico Putin', '<span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">La Casa Bianca cambia idea e indica il suo sostegno ad un irrigidimento delle sanzioni verso la Russia, come previsto da un disegno di legge su cui \'c3\'a8 stato raggiunto un accordo bipartisan. Lo conferma la portavoce della Casa Bianca, Sarah Sanders. Parlando alla Abc News, Sanders ha precisato che gli aggiustamenti apportati al testo hanno fatto s\'c3\'ac che il presidente Donald Trump superasse le proprie perplessit\'c3\'a0.</span><div><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><br></span></div><div><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">Nelle scorse ore i leader repubblicani e democratici al Congresso avevano reso noto di aver raggiunto un accordo su un pacchetto di nuove sanzioni verso Mosca da adottare come punizione per le presunte interferenze nelle elezioni americane del 2016 e per le aggressioni militari in Ucraina e Siria, con il rischio di innescare una tensione con l''amministrazione Trump determinata alla cautela. Soprattutto in attesa degli sviluppi sul Russiagate che potrebbero mettere in imbarazzo il presidente Trump.&nbsp;</span><br style="margin: 0px; padding: 0px; color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><br style="margin: 0px; padding: 0px; color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;"><span style="color: rgb(31, 31, 31); font-family: Roboto, sans-serif; font-size: 17px;">Per questo l''apertura espressa dalla portavoce della Casa Bianca costituisce un rapido e inatteso cambiamento di scenario: "L''amministrazione \'c3\'a8 d''accordo con l''essere duri verso la Russia, particolarmente nell''adozione di sanzioni - ha detto Sarah Huckabee Sunders - il testo originario era scritto male, ma siamo stati capaci di lavorare con Camera e Senato per apportare i cambiamenti necessari".</span></div>', 'upload/post/background/post-bg-1500844724_trump.jpg', '2017-09-01 15:32:36', 0, 'Admin'),\
+(4, 'Breaking Bad 6 si far\'c3\'a0: anticipazioni e data d''inizio riprese della sesta stagione', 'No, questa volta non si tratta di un fake: Breaking Bad 6 si far\'c3\'a0. Annunciata la sesta stagione con le relative anticipazioni e la data d''inizio per quanto riguarda le riprese della serie.', '<p style="margin-bottom: 1em; color: rgb(51, 51, 51); font-family: ProximaNova, Helvetica, Arial, sans-serif; font-size: 16.799999237060547px; text-align: justify;">Ad annunciarlo \'c3\'a8 stato direttamente&nbsp;<strong>Vince Gilligan</strong>, il creatore di&nbsp;<strong>Breaking Bad</strong>&nbsp;appunto. A fare da tramite tra&nbsp;<strong>Gilligan</strong>&nbsp;e i numerosi fan della serie sono stati i microfoni della&nbsp;<strong>CNN</strong>&nbsp;che ha raccolto cos\'c3\'ac l''inaspettata dichiarazione. Una sorpresa per tutti ma decisamente una lieta notizia per coloro che al termine della quinta stagione sono rimasti con un filo di speranza in fondo al cuore ma che, mese dopo mese, si stavano mettendo l''anima in pace. E invece \'c3\'a8 cos\'c3\'ac,&nbsp;<strong>Breaking Bad</strong>&nbsp;torner\'c3\'a0 con una nuova stagione. Nessuno \'c3\'a8 impazzito, bisogna semplicemente ringraziare un''illuminazione giunta nella mente di&nbsp;<strong>Bryan Cranston</strong>, interprete di&nbsp;<strong>Walter White</strong>. Proprio lui infatti, circa 5 mesi fa, avrebbe fatto un sogno nel quale lo stesso&nbsp;<strong>Walter</strong>&nbsp;si svegliava in ospedale circondato dalla&nbsp;<strong>Dea</strong>, scopriva di possedere numerosi fan e di dover portare a termine ulteriori lavori, al di fuori del contesto scolastico.</p><p style="margin-bottom: 1em; color: rgb(51, 51, 51); font-family: ProximaNova, Helvetica, Arial, sans-serif; font-size: 16.799999237060547px; text-align: justify;">Questo ha raccontato&nbsp;<strong>Gilligan</strong>&nbsp;ai microfoni della&nbsp;<strong>CNN</strong>&nbsp;per quanto riguarda&nbsp;<strong>Breaking Bad 6</strong>, per poi continuare dichiarando: \'e2\'80\'9cla sesta stagione sar\'c3\'a0 epica, siamo stati zitti per mesi ma ora possiamo dire che i fan della serie saranno soddisfatti da&nbsp;<strong>Breaking Bad 6</strong>\'e2\'80\uc0\u157 . Lo stesso&nbsp;<strong>Gilligan</strong>&nbsp;ha voluto poi precisare che la scelta di dar vita ad una nuova stagione, non \'c3\'a8 assolutamente dipesa dalla voglia di raccogliere ulteriore denaro a spesa di un finale di stagione che in realt\'c3\'a0 era molto piaciuto. Semplicemente sentiva dentro s\'c3\'a9 di non aver davvero concluso il suo rapporto con i personaggi della serie, al di fuori di&nbsp;<strong>Better Call Saul</strong>, lo spin-off di&nbsp;<strong>Breaking Bad</strong>.</p><p style="margin-bottom: 1em; color: rgb(51, 51, 51); font-family: ProximaNova, Helvetica, Arial, sans-serif; font-size: 16.799999237060547px;">Breaking Bad 6 si far\'c3\'a0, conferma Paul Horner. Inizio riprese per Agosto 2015</p><p style="margin-bottom: 1em; color: rgb(51, 51, 51); font-family: ProximaNova, Helvetica, Arial, sans-serif; font-size: 16.799999237060547px; text-align: justify;">A confermare la notizia poi, giungono anche le parole di&nbsp;<strong>Paul Horner</strong>, uno degli sceneggiatori di&nbsp;<strong>Breaking Bad</strong>: \'e2\'80\'9cEro pronto ad esplodere!\'e2\'80\u157 , dichiarazione che sottolinea quanto la scelta di proseguire con la scrittura della sesta stagione di&nbsp;<strong>Breaking Bad</strong>&nbsp;fosse decisa gi\'c3\'a0 da mesi ma che era diventata scelta comune quella di attendere prima di rilasciare dichiarazioni al grande pubblico. Concludiamo informando tutti i fan di<strong>&nbsp;Breaking Bad</strong>&nbsp;che le riprese partiranno ad&nbsp;<strong>Agosto 2015</strong>.</p>', 'upload/post/background/post-bg-1500845278_breaking-bad-copertina.jpg', '2017-09-01 15:32:36', 0, 'Admin'),\
+(5, 'I dieci video pi\'c3\'b9 visti sul web in Italia, il trash trionfa', 'Parodie e comicit\'c3\'a0 greve dominano la top ten. Il panorama dei siti per scoprire i video virali del momento', '<span style="color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif; font-size: 16px;">trash sembra trionfare nel gusti degli italiani quando si tratta di guardare un video su internet e renderlo virale. Per farsene un''idea ecco la top ten dei dieci video italiani pi\'c3\'b9 visti in dieci anni di You Tube:</span><div><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><br></strong></div><div><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent; font-weight: normal;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">1\'c2\'b0 posto</strong></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent; font-weight: normal;">Due milioni di visualizzazioni per questo ragazzo (rimasto anonimo) che ha girato un video pieno di bestemmie, mentre si trovava in autostrada con la sua auto. Era molto felice perch\'c3\'a9 aveva vinto 30\'e2\'82\'ac alle macchinette.</p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent; font-weight: normal;"><br></p></strong></div><div><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;">2\'c2\'b0 posto</strong><span style="color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif; font-size: 16px;"><br></span></div><div><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><br></strong></div><div><span style="color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif; font-size: 16px;">Un esempio perfetto di trash, le "Scorregge sulla gente. al parco" di un giovane&nbsp;</span><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;">Frank Matano</strong><span style="color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif; font-size: 16px;">, prima che diventasse attore di cinema e giurato di X Factor: visto 11 milioni di volte.</span><span style="color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif; font-size: 16px;"><br></span></div><div><span style="color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif; font-size: 16px;"><br></span></div><div><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">3\'c2\'b0 posto</strong></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><span style="background-color: transparent;">Una parodia del Gangnam Style di Psy, il re incontrastato di You Tube. La realizza</span><span style="background-color: transparent;">&nbsp;</span><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">Michael Righini</strong><span style="background-color: transparent;">&nbsp;e ottiene circa 10 milioni di visualizzazioni.</span></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">4\'c2\'b0 posto</strong></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;">Fuori dal podio, la star sudamericana&nbsp;<strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">Violetta</strong>&nbsp;che con un video da 3 minuti monopolizza l''attenzione di tutti gli under 13 del globo (10 milioni di visualizzazioni).</p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">5\'c2\'b0 posto</strong></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;">Una famosa marca di saponette e cosmetici ridefinisce l''idea di bellezza e rassicura le donne. Musica giusta, immagini curate, messaggio che conquista: ecco il video virale perfetto.</p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">6\'c2\'b0 posto</strong></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;">E'' lo YouTuber con pi\'c3\'b9 iscritti in Italia e non pu\'c3\'b2 stupire trovarlo in questa top ten.&nbsp;<strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">Favij</strong>&nbsp;ha ottenuto quasi 7 milioni di visualizzazioni con questa compilation di "Momenti epici nei videogames"</p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">7\'c2\'b0 posto</strong></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;">Dopo il tormentone del libro \'c3\'a8 arrivato anche il film di&nbsp;<strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">50 sfumature di grigio</strong>. E prima del film, il trailer che si piazza in settima posizione con poco meno di 7 milioni di visualizzazioni.</p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">8\'c2\'b0 posto</strong></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;">All''ottava posizione, con 6 milioni e mezzo di visualizzazioni, una canzone tratta dalla colona sonora del film Disney&nbsp;<strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">Frozen</strong>. La conferma che il pubblico di giovanissimi \'c3\'a8 parte importante degli utenti del web.</p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">9\'c2\'b0 posto</strong></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;">I&nbsp;<strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">The Jackal</strong>, altre star del web e di YouTube Italia, conquistano la nona posizione con&nbsp; un video divenrtente e ben confezionato: "Gli effetti di Gomorra la Serie sulla gente".</p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;"><strong style="margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background-color: transparent;">10\'c2\'b0 posto</strong></p><p style="margin-top: 20px; margin-bottom: 0px; padding: 0px; border: 0px; outline: 0px; font-size: 16px; vertical-align: baseline; background-color: transparent; color: rgb(17, 17, 17); font-family: Arial, ''Helvetica Neue'', Helvetica, sans-serif;">Cinque milioni di visualizzazioni per "Shish is the world" video che trasforma in un irresistbile pezzo musicale l''inglese un po'' "incerto" del premier Matteo Renzi.</p></div>', 'upload/post/background/post-bg-1500849178_maxresdefault.jpg', '2017-09-01 15:32:36', 0, 'Admin');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `article_category`\
+--\
+\
+CREATE TABLE `article_category` (\
+  `article` int(11) NOT NULL,\
+  `category` int(11) NOT NULL\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `article_category`\
+--\
+\
+INSERT INTO `article_category` (`article`, `category`) VALUES\
+(2, 2),\
+(3, 2),\
+(4, 6),\
+(1, 11),\
+(5, 12);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `article_tag`\
+--\
+\
+CREATE TABLE `article_tag` (\
+  `article` int(11) NOT NULL,\
+  `tag` int(11) NOT NULL\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `article_tag`\
+--\
+\
+INSERT INTO `article_tag` (`article`, `tag`) VALUES\
+(5, 2),\
+(5, 3),\
+(1, 6),\
+(4, 38),\
+(1, 44),\
+(3, 45),\
+(4, 46),\
+(4, 47),\
+(5, 48);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `article_upload`\
+--\
+\
+CREATE TABLE `article_upload` (\
+  `article` int(11) NOT NULL,\
+  `upload` int(11) NOT NULL\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `article_upload`\
+--\
+\
+INSERT INTO `article_upload` (`article`, `upload`) VALUES\
+(2, 1);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `blogInfo`\
+--\
+\
+CREATE TABLE `blogInfo` (\
+  `id` int(11) NOT NULL,\
+  `page` varchar(24) COLLATE utf8_unicode_ci NOT NULL,\
+  `title` varchar(24) COLLATE utf8_unicode_ci NOT NULL,\
+  `subtitle` varchar(128) COLLATE utf8_unicode_ci NOT NULL,\
+  `background` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `backup` tinyint(1) NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `blogInfo`\
+--\
+\
+INSERT INTO `blogInfo` (`id`, `page`, `title`, `subtitle`, `background`, `backup`) VALUES\
+(1, 'Home', '24CinL Blog', 'Envelope in the face and biscuit in scrip!', 'upload/blog/background/home-bg-1.jpg', 0),\
+(2, 'Search', 'Search', 'Find the article you prefer', 'upload/blog/background/search-bg-2.jpg', 0),\
+(3, 'Gallery', 'Blog Gallery', 'Look at all the pictures on our blog', 'upload/blog/background/gallery-bg.jpg', 0),\
+(4, 'Contact', 'Contact Us', 'Have questions? We have answers (maybe).', 'upload/blog/background/contact-bg.jpg', 0),\
+(5, 'Category & Tag', 'Category & Tag', 'Check out the section you want', 'upload/blog/background/category-bg-5.jpg', 0),\
+(6, 'About Us', 'About Us', 'You know. You all know exactly who I am. Say my name.', 'upload/blog/background/about-bg-2.jpg', 0);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `categories`\
+--\
+\
+CREATE TABLE `categories` (\
+  `id` int(11) NOT NULL,\
+  `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,\
+  `description` varchar(128) COLLATE utf8_unicode_ci NOT NULL,\
+  `background` varchar(255) COLLATE utf8_unicode_ci NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `categories`\
+--\
+\
+INSERT INTO `categories` (`id`, `name`, `description`, `background`) VALUES\
+(1, 'Alcohol & Drugs', 'News stories about alcohol and drug use.', 'upload/blog/category/drogaealcohol.jpg'),\
+(2, 'Breaking News', 'Most relevant news about politics, business, world, ..', 'upload/blog/category/news.jpg'),\
+(3, 'Computer', 'Device that accepts information (digital data) and manipulates it for some result.', 'upload/blog/category/computer.jpg'),\
+(4, 'Console', 'A console is an electronic, digital or computer device that display a video game that one or more people can play.', 'upload/blog/category/console.jpg'),\
+(5, 'Elettronics', 'Devices running on an electronic circuit.', 'upload/blog/category/electronics.jpg'),\
+(6, 'Films & TV Series', 'All about films and TV series.', 'upload/blog/category/filmeserietv.jpg'),\
+(7, 'Motors', 'Cars, motorcycles to others. Any article about the motors you find here.', 'upload/blog/category/motori.jpg'),\
+(8, 'Music', 'The articles that match your music genre can be found here.', 'upload/blog/category/music.jpg'),\
+(9, 'Programming', 'Software, code and development..', 'upload/blog/category/programming.jpg'),\
+(10, 'Social', 'In this digital era you are not connected?!', 'upload/blog/category/social.png'),\
+(11, 'Sport', 'Soccer, basket, football... If you love sports read here!', 'upload/blog/category/sport.jpg'),\
+(12, 'Trash Web', 'Artistic or entertaining expressions considered to be of low cultural profile.', 'upload/blog/category/trashweb.jpg'),\
+(13, 'Universit\'c3\'a0', 'In this section you will find all the news about the university environment.', 'upload/blog/category/universit\'c3\'a0.jpg'),\
+(14, 'Videogames', 'Love videogames? Find your favorite', 'upload/blog/category/videogames.jpg'),\
+(15, 'Web', 'All internet news', 'upload/blog/category/web.png');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `comments`\
+--\
+\
+CREATE TABLE `comments` (\
+  `id` int(11) NOT NULL,\
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `content` text COLLATE utf8_unicode_ci NOT NULL,\
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\
+  `article` int(11) NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `comments`\
+--\
+\
+INSERT INTO `comments` (`id`, `name`, `content`, `date`, `article`) VALUES\
+(4, 'test 1 ', 'adams adams adams adams adams adams adams adams', '2017-08-07 13:33:01', 5),\
+(5, 'test 2', 'asdasd', '2017-08-05 10:39:13', 5);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `groups`\
+--\
+\
+CREATE TABLE `groups` (\
+  `id` int(11) NOT NULL,\
+  `role` varchar(24) COLLATE utf8_unicode_ci NOT NULL,\
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `start` varchar(128) COLLATE utf8_unicode_ci NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `groups`\
+--\
+\
+INSERT INTO `groups` (`id`, `role`, `description`, `start`) VALUES\
+(1, 'Administrator', 'The blog administrator has access to all services. ', 'Admin dashboard'),\
+(2, 'Report Manager', 'The report manager Has the main task of managing messages from blog visitors.', 'Reports'),\
+(3, 'Blog Manager', 'The blog manager manages the sections of the blog.', 'Blog management'),\
+(4, 'Base User', 'The base user cannot do anything.', 'Info page');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `group_service`\
+--\
+\
+CREATE TABLE `group_service` (\
+  `groupId` int(11) NOT NULL,\
+  `service` int(11) NOT NULL\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `group_service`\
+--\
+\
+INSERT INTO `group_service` (`groupId`, `service`) VALUES\
+(1, 1),\
+(1, 2),\
+(1, 3),\
+(1, 4),\
+(1, 5),\
+(1, 6),\
+(1, 7),\
+(2, 7),\
+(1, 8),\
+(2, 8),\
+(3, 8),\
+(1, 9),\
+(2, 9),\
+(3, 9),\
+(1, 10),\
+(1, 11),\
+(3, 11),\
+(1, 12),\
+(2, 12),\
+(3, 12),\
+(1, 13),\
+(1, 14),\
+(3, 14),\
+(1, 15),\
+(1, 16),\
+(1, 17),\
+(1, 18),\
+(1, 19),\
+(1, 20),\
+(2, 20),\
+(3, 20),\
+(4, 21),\
+(1, 22),\
+(1, 23),\
+(1, 25),\
+(2, 25);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `newsletters`\
+--\
+\
+CREATE TABLE `newsletters` (\
+  `id` int(11) NOT NULL,\
+  `title` varchar(128) COLLATE utf8_unicode_ci NOT NULL,\
+  `content` text COLLATE utf8_unicode_ci NOT NULL,\
+  `type` varchar(24) COLLATE utf8_unicode_ci NOT NULL,\
+  `frequency` varchar(24) COLLATE utf8_unicode_ci NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `newsletters`\
+--\
+\
+INSERT INTO `newsletters` (`id`, `title`, `content`, `type`, `frequency`) VALUES\
+(4, 'Prova', 'aaa..', 'Normal', 'Week');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `personal_info`\
+--\
+\
+CREATE TABLE `personal_info` (\
+  `id` int(11) NOT NULL,\
+  `country` varchar(48) COLLATE utf8_unicode_ci DEFAULT NULL,\
+  `employment` varchar(48) COLLATE utf8_unicode_ci NOT NULL,\
+  `brief_description` text COLLATE utf8_unicode_ci,\
+  `link` text COLLATE utf8_unicode_ci,\
+  `img_address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,\
+  `user` int(11) NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `personal_info`\
+--\
+\
+INSERT INTO `personal_info` (`id`, `country`, `employment`, `brief_description`, `link`, `img_address`, `user`) VALUES\
+(1, 'L''Aquila, Italy', 'Web Developer', 'I am not in danger, Skyler. I am the danger! A guy open his door and gets shot, do you think that of me? I am the one who knocks!', 'https://github.com[]https://dropbox.com[]', 'upload/user/user-bg-1499443425_nzxs6xzh.jpg', 1),\
+(2, 'Montesilvano, Italy', 'Developer', '', 'https://github.com/BrixP[]', 'upload/user/user-bg-1500732743_onwmdslx.jpg', 3),\
+(4, 'Paese dei balocchi', 'Carpenter', '', '', 'upload/user/user-bg-1500879110_geppetto.jpg', 6);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `reports`\
+--\
+\
+CREATE TABLE `reports` (\
+  `id` int(11) NOT NULL,\
+  `name` varchar(32) COLLATE utf8_unicode_ci NOT NULL,\
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `message` text COLLATE utf8_unicode_ci NOT NULL,\
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,\
+  `flag` tinyint(1) NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `reports`\
+--\
+\
+INSERT INTO `reports` (`id`, `name`, `email`, `message`, `date`, `flag`) VALUES\
+(1, 'Simone', 'simone@prova.com', 'Complimenti ragazzi, avete fatto un ottimo lavoro.... Ci vediamo a settembre.', '2017-07-24 07:22:45', 0);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `services`\
+--\
+\
+CREATE TABLE `services` (\
+  `id` int(11) NOT NULL,\
+  `label` varchar(128) COLLATE utf8_unicode_ci NOT NULL,\
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `available` tinyint(1) NOT NULL,\
+  `page` tinyint(1) NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `services`\
+--\
+\
+INSERT INTO `services` (`id`, `label`, `name`, `available`, `page`) VALUES\
+(1, 'Admin dashboard', 'index.php', 1, 1),\
+(2, 'Articles management', 'articles.php?section=manage', 1, 1),\
+(3, 'Draft management', 'articles.php?section=draft', 1, 1),\
+(4, 'Categories management', 'categories.php', 1, 1),\
+(5, 'Tags management', 'tags.php', 1, 1),\
+(6, 'Files management', 'files_manager.php', 1, 1),\
+(7, 'Reports', 'reports.php', 1, 1),\
+(8, 'Newsletters', 'newsletter.php', 1, 1),\
+(9, 'Blog subscribers', 'subscribers.php', 1, 1),\
+(10, 'Users management', 'allUsers.php', 1, 1),\
+(11, 'Blog management', 'blog.php', 1, 1),\
+(12, 'Uploads', 'uploads.php', 1, 1),\
+(13, 'Profile management', 'profile.php', 1, 1),\
+(14, 'Blog operation', 'addBlogPage_service.php', 1, 0),\
+(15, 'Users operation', 'addUserEmail_service.php', 1, 0),\
+(16, 'Insert article', 'article_service.php', 1, 0),\
+(17, 'Insert category', 'category_service.php', 1, 0),\
+(18, 'Profile settings', 'profile_service.php', 1, 0),\
+(19, 'Insert tag', 'tag_service.php', 1, 0),\
+(20, 'Run upload', 'upload_service.php', 1, 0),\
+(21, 'Info page', 'standard.php', 1, 1),\
+(22, 'Group-Service management', 'group_service.php', 1, 1),\
+(23, 'Group-Service operation', 'addServiceGroup_service.php', 1, 0),\
+(25, 'test', 'test.php', 1, 1);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `subscribers`\
+--\
+\
+CREATE TABLE `subscribers` (\
+  `id` int(11) NOT NULL,\
+  `email` varchar(64) COLLATE utf8_unicode_ci NOT NULL,\
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP\
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `subscribers`\
+--\
+\
+INSERT INTO `subscribers` (`id`, `email`, `date`) VALUES\
+(1, 'brontolo@nano.org', '2017-07-23 13:53:13'),\
+(2, 'cucciolo@nano.org', '2017-07-23 13:53:01'),\
+(3, 'dotto@nano.org', '2017-07-23 13:53:01'),\
+(4, 'eolo@nano.org', '2017-07-23 13:53:01'),\
+(5, 'gongolo@nano.org', '2017-07-23 13:53:01'),\
+(6, 'mammolo@nano.org', '2017-07-23 13:53:01'),\
+(7, 'pisolo@nano.com', '2017-07-23 13:53:01');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `tags`\
+--\
+\
+CREATE TABLE `tags` (\
+  `id` int(11) NOT NULL,\
+  `label` varchar(24) COLLATE utf8_unicode_ci NOT NULL,\
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `tags`\
+--\
+\
+INSERT INTO `tags` (`id`, `label`, `description`) VALUES\
+(1, 'Euro', 'European Union money.'),\
+(2, 'Gambling Machines', 'Type of electronic gambling'),\
+(3, 'You Tube', 'Web platform that allows to sharing and viewing video in the network.'),\
+(4, 'MotoGp', 'First motorcycling championship.'),\
+(5, 'Qatar', 'Country on the Arabian Peninsula with Doha Capital.'),\
+(6, 'Soccer', 'Team sports practiced in 11 vs 11.'),\
+(7, 'Messi', 'Famous soccer player.'),\
+(8, 'Taxes', 'Type of tribute (sum of money) due from private citizens to the state.'),\
+(9, 'Game of Thrones', 'Fantasy TV series more seen in the world and very successful.'),\
+(10, 'Season #7', 'Title 7 of a television season.'),\
+(11, 'Terroristic attack', 'Act of violence against the safety of persons or things.'),\
+(12, 'Cina', 'Sovereign state located in eastern Asia and the most populated in the world.'),\
+(13, 'Juventus FC', 'Italian football company based in the city of Turin.'),\
+(14, 'AC Milan', 'Italian football club based in the city of Milan.'),\
+(15, 'Champions League', 'Europe''s most prestigious tournament for the best club teams.'),\
+(16, 'Pollution', 'Alteration of the environment, natural or anthropic, of varying origin, chemical or physical.'),\
+(17, 'Pescara', 'Comune italiano di 120.151 abitanti, capoluogo dell''omonima provincia in Abruzzo.'),\
+(18, 'Borussia Dortmund', 'German football club of the city of Dortmund.'),\
+(19, 'Java', 'High-level, object-oriented and static typing programming language.'),\
+(20, 'C++', 'C ++ is an object-oriented programming language, with static typing.'),\
+(21, 'C', 'In computer science, C is an imperative programming language of procedural nature.'),\
+(22, 'Php', 'Php is an interpreted scripting language, conceived for dynamic web page programming.'),\
+(23, 'HTML', 'Acronym of HyperText Markup Language.'),\
+(24, 'CSS', 'The language used to define the formatting of HTML, XHTML, and XML documents.'),\
+(25, 'JavaScript', 'Object/Event-oriented scripting language.'),\
+(26, 'Python', 'High-level, object-oriented programming language.'),\
+(27, 'jQuery', 'JavaScript library for web applications.'),\
+(28, 'Assembly', 'Among the programming languages, it is the closest to the actual machine language.'),\
+(29, 'OOP', 'Programming paradigm that allows you to define software objects that can interact with each other.'),\
+(30, 'V. Rossi 46', 'Italian motorcycle racer among the most titled in the world.'),\
+(31, 'PlayStation 4', 'Video game consoles created by Sony Computer Entertainment.'),\
+(32, 'Xbox One', 'Video Game Consoles produced by Microsoft.'),\
+(33, 'Facebook', 'Social networking service launched on February 4, 2004.'),\
+(34, 'Twitter', 'Social Network, created in March 2006 by the Obvious Corporation of San Francisco.'),\
+(35, 'Basket', 'Team Sports where two teams (5 vs 5) faces, to score in the opponents basket.'),\
+(36, 'Super Mario', 'Nintendo''s video game series.'),\
+(37, 'Call Of Duty', 'Popular series of first-person shooter type video games.'),\
+(38, 'Breaking Bad', 'American neo-western crime drama television series created and produced by Vince Gilligan.'),\
+(39, 'HIMYM', 'American sitcom that originally aired on CBS.'),\
+(40, '13 Reason Why', 'American drama-mystery web television series based on the 2007 novel and adapted by Brian Yorkey for Netflix.'),\
+(41, 'Interstellar', 'British-American epic science fiction film directed, co-written, and co-produced by Christopher Nolan.'),\
+(42, 'XML', 'Markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable.'),\
+(43, 'Pyromaniac', ' Impulse control disorder in which individuals repeatedly starts fires.'),\
+(44, 'S.S.C. Napoli', 'Italian football club that plays in Serie A. Its home stadium is the Stadio San Paolo in Naples, Italy.'),\
+(45, 'Donald Trump', 'Is the 45th and current President of the United States.'),\
+(46, 'Bryan Cranston', 'Bryan Lee Cranston is an American actor, voice actor, screenwriter, director and producer.'),\
+(47, 'Aaron Paul', 'Is an American actor. He is best known for portraying Jesse Pinkman in the AMC series Breaking Bad, for which he won several awards.'),\
+(48, 'Martin Garrix', 'Is a Dutch DJ, record producer and musician. ');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `tag_category`\
+--\
+\
+CREATE TABLE `tag_category` (\
+  `tag` int(11) NOT NULL,\
+  `category` int(11) NOT NULL\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `tag_category`\
+--\
+\
+INSERT INTO `tag_category` (`tag`, `category`) VALUES\
+(43, 2),\
+(45, 2),\
+(31, 4),\
+(32, 4),\
+(38, 6),\
+(39, 6),\
+(40, 6),\
+(41, 6),\
+(46, 6),\
+(47, 6),\
+(4, 7),\
+(30, 7),\
+(20, 9),\
+(21, 9),\
+(22, 9),\
+(23, 9),\
+(24, 9),\
+(25, 9),\
+(26, 9),\
+(27, 9),\
+(28, 9),\
+(29, 9),\
+(42, 9),\
+(33, 10),\
+(34, 10),\
+(4, 11),\
+(6, 11),\
+(7, 11),\
+(13, 11),\
+(14, 11),\
+(15, 11),\
+(18, 11),\
+(30, 11),\
+(35, 11),\
+(44, 11),\
+(3, 12),\
+(36, 14),\
+(37, 14),\
+(3, 15);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `uploads`\
+--\
+\
+CREATE TABLE `uploads` (\
+  `id` int(11) NOT NULL,\
+  `file_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `folder` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `file_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `file_extension` varchar(8) COLLATE utf8_unicode_ci NOT NULL,\
+  `gallery` tinyint(1) NOT NULL,\
+  `name` varchar(128) COLLATE utf8_unicode_ci NOT NULL,\
+  `description` varchar(255) COLLATE utf8_unicode_ci NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `uploads`\
+--\
+\
+INSERT INTO `uploads` (`id`, `file_name`, `folder`, `file_address`, `file_extension`, `gallery`, `name`, `description`) VALUES\
+(1, 'post-1500843768_incendi.jpg', 'post', 'upload/post/pictures/', 'jpg', 1, 'Fire in Sicily', 'Giarre, a fire submerged area on unrefined rows and pits.'),\
+(2, 'admin_1500849490_maxresdefault-4.jpg', 'post', 'upload/post/pictures/', 'jpg', 1, 'Game of Thrones - 7', 'A fans cover for the upcoming season 7 of the most watched tv series in the world.');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `users`\
+--\
+\
+CREATE TABLE `users` (\
+  `id` int(11) NOT NULL,\
+  `username` varchar(24) COLLATE utf8_unicode_ci NOT NULL,\
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,\
+  `email` varchar(64) COLLATE utf8_unicode_ci NOT NULL\
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `users`\
+--\
+\
+INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES\
+(1, 'Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin@eitfabiStaff.org'),\
+(2, 'moseppe', '7664ab1680c712aa7fa2fed53e6d6160', 'moseppe@user.com'),\
+(3, 'Briangiuda', '573fdf37cf6027c3e7e4bdf87818a695', 'briangiuda@eitfabiStaff.org'),\
+(4, 'paperino', 'b54b45b19ca1f1ddc424e6b878a53f2d', 'paperino@reporter.org'),\
+(5, 'ziopaperone', '1c6cc81e09d199bd4e2f6c20214f8b94', 'ziopaperone@riccone.com'),\
+(6, 'geppetto', '9f0ddcdffbf375c067d1945b8d805d65', 'geppetto@eitfabiStaff.org');\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `user_article`\
+--\
+\
+CREATE TABLE `user_article` (\
+  `article` int(11) NOT NULL,\
+  `userId` int(11) NOT NULL\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `user_article`\
+--\
+\
+INSERT INTO `user_article` (`article`, `userId`) VALUES\
+(1, 1),\
+(2, 1),\
+(3, 1),\
+(4, 1),\
+(5, 1);\
+\
+-- --------------------------------------------------------\
+\
+--\
+-- Table structure for table `user_role`\
+--\
+\
+CREATE TABLE `user_role` (\
+  `userId` int(11) NOT NULL,\
+  `groupId` int(11) NOT NULL\
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;\
+\
+--\
+-- Dumping data for table `user_role`\
+--\
+\
+INSERT INTO `user_role` (`userId`, `groupId`) VALUES\
+(1, 1),\
+(3, 1),\
+(6, 1),\
+(4, 2),\
+(2, 4),\
+(5, 4);\
+\
+--\
+-- Indexes for dumped tables\
+--\
+\
+--\
+-- Indexes for table `articles`\
+--\
+ALTER TABLE `articles`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `article_category`\
+--\
+ALTER TABLE `article_category`\
+  ADD PRIMARY KEY (`article`,`category`),\
+  ADD KEY `category` (`category`);\
+\
+--\
+-- Indexes for table `article_tag`\
+--\
+ALTER TABLE `article_tag`\
+  ADD PRIMARY KEY (`article`,`tag`),\
+  ADD KEY `tag` (`tag`);\
+\
+--\
+-- Indexes for table `article_upload`\
+--\
+ALTER TABLE `article_upload`\
+  ADD PRIMARY KEY (`article`,`upload`),\
+  ADD KEY `upload` (`upload`);\
+\
+--\
+-- Indexes for table `blogInfo`\
+--\
+ALTER TABLE `blogInfo`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `categories`\
+--\
+ALTER TABLE `categories`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `comments`\
+--\
+ALTER TABLE `comments`\
+  ADD PRIMARY KEY (`id`),\
+  ADD KEY `article` (`article`);\
+\
+--\
+-- Indexes for table `groups`\
+--\
+ALTER TABLE `groups`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `group_service`\
+--\
+ALTER TABLE `group_service`\
+  ADD PRIMARY KEY (`groupId`,`service`),\
+  ADD KEY `service` (`service`);\
+\
+--\
+-- Indexes for table `newsletters`\
+--\
+ALTER TABLE `newsletters`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `personal_info`\
+--\
+ALTER TABLE `personal_info`\
+  ADD PRIMARY KEY (`id`),\
+  ADD KEY `user` (`user`);\
+\
+--\
+-- Indexes for table `reports`\
+--\
+ALTER TABLE `reports`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `services`\
+--\
+ALTER TABLE `services`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `subscribers`\
+--\
+ALTER TABLE `subscribers`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `tags`\
+--\
+ALTER TABLE `tags`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `tag_category`\
+--\
+ALTER TABLE `tag_category`\
+  ADD PRIMARY KEY (`tag`,`category`),\
+  ADD KEY `category` (`category`);\
+\
+--\
+-- Indexes for table `uploads`\
+--\
+ALTER TABLE `uploads`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `users`\
+--\
+ALTER TABLE `users`\
+  ADD PRIMARY KEY (`id`);\
+\
+--\
+-- Indexes for table `user_article`\
+--\
+ALTER TABLE `user_article`\
+  ADD PRIMARY KEY (`article`,`userId`),\
+  ADD KEY `userId` (`userId`);\
+\
+--\
+-- Indexes for table `user_role`\
+--\
+ALTER TABLE `user_role`\
+  ADD PRIMARY KEY (`userId`,`groupId`),\
+  ADD KEY `groupId` (`groupId`);\
+\
+--\
+-- AUTO_INCREMENT for dumped tables\
+--\
+\
+--\
+-- AUTO_INCREMENT for table `articles`\
+--\
+ALTER TABLE `articles`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;\
+--\
+-- AUTO_INCREMENT for table `blogInfo`\
+--\
+ALTER TABLE `blogInfo`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;\
+--\
+-- AUTO_INCREMENT for table `categories`\
+--\
+ALTER TABLE `categories`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;\
+--\
+-- AUTO_INCREMENT for table `comments`\
+--\
+ALTER TABLE `comments`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;\
+--\
+-- AUTO_INCREMENT for table `groups`\
+--\
+ALTER TABLE `groups`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;\
+--\
+-- AUTO_INCREMENT for table `newsletters`\
+--\
+ALTER TABLE `newsletters`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;\
+--\
+-- AUTO_INCREMENT for table `personal_info`\
+--\
+ALTER TABLE `personal_info`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;\
+--\
+-- AUTO_INCREMENT for table `reports`\
+--\
+ALTER TABLE `reports`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;\
+--\
+-- AUTO_INCREMENT for table `services`\
+--\
+ALTER TABLE `services`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=26;\
+--\
+-- AUTO_INCREMENT for table `subscribers`\
+--\
+ALTER TABLE `subscribers`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;\
+--\
+-- AUTO_INCREMENT for table `tags`\
+--\
+ALTER TABLE `tags`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=49;\
+--\
+-- AUTO_INCREMENT for table `uploads`\
+--\
+ALTER TABLE `uploads`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;\
+--\
+-- AUTO_INCREMENT for table `users`\
+--\
+ALTER TABLE `users`\
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;\
+--\
+-- Constraints for dumped tables\
+--\
+\
+--\
+-- Constraints for table `article_category`\
+--\
+ALTER TABLE `article_category`\
+  ADD CONSTRAINT `article_category_ibfk_1` FOREIGN KEY (`article`) REFERENCES `articles` (`id`),\
+  ADD CONSTRAINT `article_category_ibfk_2` FOREIGN KEY (`category`) REFERENCES `categories` (`id`);\
+\
+--\
+-- Constraints for table `article_tag`\
+--\
+ALTER TABLE `article_tag`\
+  ADD CONSTRAINT `article_tag_ibfk_1` FOREIGN KEY (`article`) REFERENCES `articles` (`id`),\
+  ADD CONSTRAINT `article_tag_ibfk_2` FOREIGN KEY (`tag`) REFERENCES `tags` (`id`);\
+\
+--\
+-- Constraints for table `article_upload`\
+--\
+ALTER TABLE `article_upload`\
+  ADD CONSTRAINT `article_upload_ibfk_1` FOREIGN KEY (`article`) REFERENCES `articles` (`id`),\
+  ADD CONSTRAINT `article_upload_ibfk_2` FOREIGN KEY (`upload`) REFERENCES `uploads` (`id`);\
+\
+--\
+-- Constraints for table `comments`\
+--\
+ALTER TABLE `comments`\
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`article`) REFERENCES `articles` (`id`);\
+\
+--\
+-- Constraints for table `group_service`\
+--\
+ALTER TABLE `group_service`\
+  ADD CONSTRAINT `group_service_ibfk_1` FOREIGN KEY (`groupId`) REFERENCES `groups` (`id`),\
+  ADD CONSTRAINT `group_service_ibfk_2` FOREIGN KEY (`service`) REFERENCES `services` (`id`);\
+\
+--\
+-- Constraints for table `personal_info`\
+--\
+ALTER TABLE `personal_info`\
+  ADD CONSTRAINT `personal_info_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`);\
+\
+--\
+-- Constraints for table `tag_category`\
+--\
+ALTER TABLE `tag_category`\
+  ADD CONSTRAINT `tag_category_ibfk_1` FOREIGN KEY (`tag`) REFERENCES `tags` (`id`),\
+  ADD CONSTRAINT `tag_category_ibfk_2` FOREIGN KEY (`category`) REFERENCES `categories` (`id`);\
+\
+--\
+-- Constraints for table `user_article`\
+--\
+ALTER TABLE `user_article`\
+  ADD CONSTRAINT `user_article_ibfk_1` FOREIGN KEY (`article`) REFERENCES `articles` (`id`),\
+  ADD CONSTRAINT `user_article_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`id`);\
+\
+--\
+-- Constraints for table `user_role`\
+--\
+ALTER TABLE `user_role`\
+  ADD CONSTRAINT `user_role_ibfk_1` FOREIGN KEY (`userId`) REFERENCES `users` (`id`),\
+  ADD CONSTRAINT `user_role_ibfk_2` FOREIGN KEY (`groupId`) REFERENCES `groups` (`id`);}

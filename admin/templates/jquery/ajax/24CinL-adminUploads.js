@@ -52,8 +52,8 @@ function previewBackground(e){
             $("#bg_fake").replaceWith(newImg);
             newImg.on('load', function() {
                 if(position == "Categories"){
-                    maxWidth = 1024;
-                    maxHeight = 768;
+                    maxWidth = 2048;
+                    maxHeight = 1080;
                     if(newImg.outerWidth() > maxWidth || newImg.outerHeight() > maxHeight){
                         alert("Image dimension not allowed. It will be at most "+ maxWidth +" x "+ maxHeight +".");
                         return false;
@@ -62,7 +62,7 @@ function previewBackground(e){
                         $("#bg_image").attr("src", src);
                     }
                 }else{
-                    maxWidth = 1280;
+                    maxWidth = 1080;
                     maxHeight = 720;
                     if(newImg.outerWidth() < maxWidth || newImg.outerHeight() < maxHeight){
                         alert("Image dimension not allowed. It will be at least "+ maxWidth +" x "+ maxHeight +".");

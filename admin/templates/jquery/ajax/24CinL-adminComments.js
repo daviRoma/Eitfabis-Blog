@@ -15,6 +15,7 @@ function show_comments(){
         var article_id;
 
         $("tr[name=data_row]").each(function() {
+            $(this).children("td[name=table_td-checkbox]").children("div").addClass("disabled");
             if($(this).hasClass("selected")){
                 article_id = $(this).children("td[name=id]").children("input").val();
             }
@@ -52,7 +53,10 @@ function show_comments(){
 // Check if we are already viewing comments
 function show_check(){
     var article_set = $("#membership_article").val();
-    if(article_set > 0) return false;
+    if(article_set > 0){
+        alert("Remove the other table first!");
+        return false;
+    }
     return true;
 }
 
@@ -77,6 +81,8 @@ function remove_table(){
         $("#delete_all, #back_table").hide();
 
         $("tr[name=data_row]").each(function() {
+            $(this).children("td[name=table_td-checkbox]").children("div").removeClass("disabled");
+
             if($(this).hasClass("selected")){
                 $(this).removeClass("selected");
                 $(this).children("td[name=table_td-checkbox]").children("div").removeClass("checked");

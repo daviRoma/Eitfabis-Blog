@@ -74,6 +74,14 @@ function save_edit_changes(elem){
 // Delete selected category
 function delete_category(elem){
     var url = "controllers/script/category-script.php";
+    var category = "";
+
+    $("#table_categoryList").children("tr").each(function() {
+        var cat_id = $(this).find("#cat_id").val();
+        if(cat_id == elem){
+            category = $(this).find("#category_name").val();
+        }
+    });
 
     if(confirm("Delete '" + category + "'. Are you sure?")){
         $.ajax(url, {
@@ -84,7 +92,7 @@ function delete_category(elem){
             },
             dataType : "text",
             success: function(response){
-                alert("The operation has been succesfull." + " '"+category+"' cagtegory has been deleted.");
+                alert("The operation has been succesfull." + " '"+category+"' category has been deleted.");
                 location.reload();
             },
             error: function(xhr) {
@@ -128,7 +136,7 @@ function catBg_upload(e){
 
             newImg.on('load', function() {
                 maxWidth = 2048;
-                maxHeight = 1536;
+                maxHeight = 1080;
                 if(newImg.outerWidth() > maxWidth || newImg.outerHeight() > maxHeight){
                     alert("Image dimension not allowed, too big.");
                     return false;
@@ -138,7 +146,7 @@ function catBg_upload(e){
                     var form_data = new FormData();
                     form_data.append('category_bg_file', imgFile);
                     form_data.append('operation', "upload_img");
-                    form_data.append('id', catId_temp);
+                    form_data.append('id', parseInt(catId_temp));
 
                     $.ajax(url, {
                         cache: false,
@@ -148,7 +156,7 @@ function catBg_upload(e){
                         method: "POST",
                         dataType: "text",  // what to expect back from the PHP script, if anything
                         success: function(response){
-                            alert(response);
+                            alert("Background was changed successfully!");
                         },
                         error: function(xhr) {
                             alert("ERROR: " + xhr.responseText + xhr.status);

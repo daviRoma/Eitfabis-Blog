@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-09-01 19:02:46
+/* Smarty version 3.1.30, created on 2017-09-07 17:52:13
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/categories.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59a992b65e6d87_16439791',
+  'unifunc' => 'content_59b16b2d39d916_69603375',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c865f3de6de778b071fad1d7aa41a276866e1b15' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/categories.tpl',
-      1 => 1504285200,
+      1 => 1504799532,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59a992b65e6d87_16439791 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59b16b2d39d916_69603375 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Categories management -->
 <div class="row">
@@ -102,9 +102,9 @@ if ($_from !== null) {
 foreach ($_from as $_smarty_tpl->tpl_vars['category']->value) {
 ?>
                             <tr>
-                                <td class="box-category">
+                                <td class="box-category" style="padding-left:15px;">
                                     <input id="category_name" name="catName" class="box-category-name" value="<?php echo $_smarty_tpl->tpl_vars['category']->value['name'];?>
-" maxlength="32" readonly style="margin-left:-15px;"></input>
+" maxlength="32" readonly style="margin-left:-15px; width:160px;"></input>
                                 </td>
                                 <td class="box-category">
                                     <input id="category_description" name="catDesc" class="box-category-description" maxlength="128" value="<?php echo $_smarty_tpl->tpl_vars['category']->value['description'];?>
