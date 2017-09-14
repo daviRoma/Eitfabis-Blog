@@ -18,7 +18,7 @@
                                     <h4>Background</h4>
                                 </div>
                                 <button id="background_category" class="btn btn-sm btn-default" type="button" ><i class="fa fa-picture-o"></i>&nbsp Select</button>
-                                <input id="set_category_bg" class="set-category-bg" maxlength="128" value="" required="Mandatory field"> </input>
+                                <input id="set_category_bg" class="set-category-bg" maxlength="128" value="" required="Mandatory field" readonly> </input>
                                 <input id="bg_file" name="bg_file" type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="display: none;"/>
                                 <img id="bg_fake" src="" style="display:none;">
                             </div>

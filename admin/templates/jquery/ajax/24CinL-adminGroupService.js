@@ -118,7 +118,7 @@ function go_to_service(){
 // Save group or service changes
 function confirm_gs_changes(){
     var url = "controllers/script/group_service-script.php";
-    
+
     switch(gr_or_serv_temp){
         case "group":
             var group = new Array();
@@ -193,16 +193,22 @@ function confirm_gs_changes(){
 
 // Delete one group or service
 function delete_gs(){
+    var url = "controllers/script/group_service-script.php";
     if(confirm("Delete this "+gr_or_serv_temp+"?")){
         $.ajax(url, {
             method : "POST",
             data : {
-                "operation" : 0,        // Edit
+                "operation" : 0,        // Delete
                 "grserv" : gr_or_serv_temp,
                 "id" : gs_temp_id
             },
             dataType : "html",
             success: function(response){
+                if(gr_or_serv_temp == 'service'){
+                    $("#select_service").find('option[value='+gs_temp_id+']').remove();
+                }else{
+                    $("#select_group").find('option[value='+gs_temp_id+']').remove();
+                }
                 remove_gs_list();
             },
             error: function(xhr) {

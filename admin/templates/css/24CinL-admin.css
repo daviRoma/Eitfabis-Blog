@@ -484,7 +484,7 @@ hr.small{
 .category-flat{
     width: 120px;
     font-family: Verdana;
-    background-color: #f2f2f2;
+    background-color: #d1e0e0;
 }
 
 /* ******************************* PROFILE ********************************* */
@@ -578,6 +578,7 @@ hr.small{
     color: #e60000;
     cursor: pointer;
 }
+
 
 /* ******************************* GENERAL ********************************* */
 h2{

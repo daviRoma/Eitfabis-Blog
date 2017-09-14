@@ -53,7 +53,7 @@ function previewBackground(e){
             newImg.on('load', function() {
                 if(position == "Categories"){
                     maxWidth = 2048;
-                    maxHeight = 1080;
+                    maxHeight = 1536;
                     if(newImg.outerWidth() > maxWidth || newImg.outerHeight() > maxHeight){
                         alert("Image dimension not allowed. It will be at most "+ maxWidth +" x "+ maxHeight +".");
                         return false;

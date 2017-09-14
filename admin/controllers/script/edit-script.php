@@ -125,16 +125,6 @@ switch ($_POST['position']) {
                 echo $rowObject;
             }
         }
-        if($_POST['operation'] == "add"){
-            $data = check_tagFields($set_row);
-            if(is_string($data)){
-                echo $data;
-                exit;
-            }else{
-                insert_tag($data);
-                echo "Success! New tag insered";
-            }
-        }
         break;
 
     default : break;

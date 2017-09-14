@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-09-07 17:52:13
+/* Smarty version 3.1.30, created on 2017-09-14 16:23:50
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/categories.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59b16b2d39d916_69603375',
+  'unifunc' => 'content_59ba90f68ce817_10514273',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'c865f3de6de778b071fad1d7aa41a276866e1b15' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/categories.tpl',
-      1 => 1504799532,
+      1 => 1505399028,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59b16b2d39d916_69603375 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59ba90f68ce817_10514273 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Categories management -->
 <div class="row">
@@ -43,7 +43,7 @@ function content_59b16b2d39d916_69603375 (Smarty_Internal_Template $_smarty_tpl)
                                     <h4>Background</h4>
                                 </div>
                                 <button id="background_category" class="btn btn-sm btn-default" type="button" ><i class="fa fa-picture-o"></i>&nbsp Select</button>
-                                <input id="set_category_bg" class="set-category-bg" maxlength="128" value="" required="Mandatory field"> </input>
+                                <input id="set_category_bg" class="set-category-bg" maxlength="128" value="" required="Mandatory field" readonly> </input>
                                 <input id="bg_file" name="bg_file" type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" style="display: none;"/>
                                 <img id="bg_fake" src="" style="display:none;">
                             </div>

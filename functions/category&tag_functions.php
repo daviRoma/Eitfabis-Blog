@@ -166,9 +166,9 @@ function get_total_page($name, $section){
 // Returns the total numbero of pages of tags
 function get_tag_page(){
     $elements = countRecord(TAB_TAGS, "", "");
-    $page = $elements / 32;
+    $page = $elements / 36;
 
-    if($elements % 32 == 0)
+    if($elements % 36 == 0)
         return $page;
     else
         return substr($page+1, 0, 1);

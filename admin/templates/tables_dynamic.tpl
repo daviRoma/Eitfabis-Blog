@@ -34,7 +34,8 @@
                                                                         {if $value@key == description} style="width:60%; padding-left:5px; padding-right:20px;"{/if}
                                                                         {if $value@key == author} style="width:15%;"{/if}
                                                                         {if $value@key == password} style="width:15%;"{/if}
-                                                                        {if $value@key == email} style="width:27%;"{/if}>
+                                                                        {if $value@key == email} style="width:27%;"{/if}
+                                                                        {if $value@key == name} style="width:18%;"{/if}>
                         <input id="{$value@key}" class="table_td-input" name="table_input-field" value="{$value}" readonly="readonly"/>
                     </td>
                 {/foreach}

@@ -11,7 +11,7 @@
             <div class="x_content">
                 <form id="addTag-form" enctype="multipart/form-data" action="controllers/tag_service.php" method="POST">
                     <div class="row">
-                        <div class="select-menu-flat">
+                        <div class="select-menu-flat" style="width:60px;">
                             <select id="tags_number">
                                 <option value="1">1 tag</option>
                                 <option value="2">2 tags</option>
@@ -21,9 +21,9 @@
                             </select>
                         </div>
 
-                        <div class="select-menu-flat category-flat">
+                        <div class="select-menu-flat category-flat" style="width:150px;">
                             <select id="categories" name="category">
-                                <option value="Category">Category</option>
+                                <option value="default">Category</option>
                                 {foreach $categories as $category}
                                     <option value="{$category.id}">{$category.name}</option>
                                 {/foreach}
@@ -58,7 +58,7 @@
                         <div class="col-md-12">
                             <hr class="x-content-footer-line">
                             <div class="panel-body">
-                                <button id="add-new-tag" name="addNewTags" class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-plus"></i> Add New</button>
+                                <button id="add-new-tag" name="addNewTags" class="btn btn-sm btn-success pull-right" type="submit" onClick="return add_newTag();"><i class="fa fa-plus"></i> Add New</button>
                             </div>
                         </div>
                     </div>
@@ -94,7 +94,6 @@
                     <hr class="subscribers-footer-line">
                     <button id="undo" class="btn btn-sm btn-default" type="button" onClick="restore_row(event)"><i class="fa fa-undo"></i> Undo</button>
                     <button id="delete_selected" class="btn btn-sm btn-default" type="button" onClick="delete_selected(event)"><i class="fa fa-trash"></i> Delete</button>
-                    <button id="add" class="btn btn-sm btn-success" type="button" onClick="addModal(event)"><i class="fa fa-plus"></i> Add</button>
                     <button id="save" class="btn btn-sm btn-success pull-right" type="button" onClick="save_changes(event)"><i class="fa fa-save"></i> Save</button>
                 </div>
             </div>

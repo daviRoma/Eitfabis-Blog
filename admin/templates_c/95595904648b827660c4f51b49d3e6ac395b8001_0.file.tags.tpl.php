@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-08 11:41:24
+/* Smarty version 3.1.30, created on 2017-09-14 23:28:39
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/tags.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_59898744a16ab8_70168336',
+  'unifunc' => 'content_59baf48757e881_62677452',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '95595904648b827660c4f51b49d3e6ac395b8001' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/tags.tpl',
-      1 => 1501168576,
+      1 => 1505424477,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_59898744a16ab8_70168336 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59baf48757e881_62677452 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!-- Tags management -->
 <div class="row">
@@ -36,7 +36,7 @@ function content_59898744a16ab8_70168336 (Smarty_Internal_Template $_smarty_tpl)
             <div class="x_content">
                 <form id="addTag-form" enctype="multipart/form-data" action="controllers/tag_service.php" method="POST">
                     <div class="row">
-                        <div class="select-menu-flat">
+                        <div class="select-menu-flat" style="width:60px;">
                             <select id="tags_number">
                                 <option value="1">1 tag</option>
                                 <option value="2">2 tags</option>
@@ -46,9 +46,9 @@ function content_59898744a16ab8_70168336 (Smarty_Internal_Template $_smarty_tpl)
                             </select>
                         </div>
 
-                        <div class="select-menu-flat category-flat">
+                        <div class="select-menu-flat category-flat" style="width:150px;">
                             <select id="categories" name="category">
-                                <option value="Category">Category</option>
+                                <option value="default">Category</option>
                                 <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['categories']->value, 'category');
 if ($_from !== null) {
@@ -94,7 +94,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                         <div class="col-md-12">
                             <hr class="x-content-footer-line">
                             <div class="panel-body">
-                                <button id="add-new-tag" name="addNewTags" class="btn btn-sm btn-success pull-right" type="submit"><i class="fa fa-plus"></i> Add New</button>
+                                <button id="add-new-tag" name="addNewTags" class="btn btn-sm btn-success pull-right" type="submit" onClick="return add_newTag();"><i class="fa fa-plus"></i> Add New</button>
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,6 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
                     <hr class="subscribers-footer-line">
                     <button id="undo" class="btn btn-sm btn-default" type="button" onClick="restore_row(event)"><i class="fa fa-undo"></i> Undo</button>
                     <button id="delete_selected" class="btn btn-sm btn-default" type="button" onClick="delete_selected(event)"><i class="fa fa-trash"></i> Delete</button>
-                    <button id="add" class="btn btn-sm btn-success" type="button" onClick="addModal(event)"><i class="fa fa-plus"></i> Add</button>
                     <button id="save" class="btn btn-sm btn-success pull-right" type="button" onClick="save_changes(event)"><i class="fa fa-save"></i> Save</button>
                 </div>
             </div>

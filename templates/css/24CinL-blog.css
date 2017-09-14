@@ -438,6 +438,7 @@
 .modal-body span{
     font-family: verdana;
     font-size: 13px;
+    margin-top: 2px;
     font-weight: bold;
     width: auto;
     height: auto;
@@ -461,7 +462,7 @@
     left: 0;
     border: none;
     padding-left: 17px;
-    margin: -20px auto;
+    margin: -24px auto;
     color: #ffffff;
 }
 

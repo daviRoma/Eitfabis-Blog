@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2017-08-08 15:19:39
+/* Smarty version 3.1.30, created on 2017-09-13 18:37:32
   from "/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/tables_dynamic.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_5989ba6b07fa35_73148463',
+  'unifunc' => 'content_59b95ecc233db8_80492702',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e3d9e697e5609cd999916bba051e2c2f64582570' => 
     array (
       0 => '/Users/Davide/Desktop/Eitfabis-Blog/admin/templates/tables_dynamic.tpl',
-      1 => 1502198377,
+      1 => 1505320651,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5989ba6b07fa35_73148463 (Smarty_Internal_Template $_smarty_tpl) {
+function content_59b95ecc233db8_80492702 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <table class="table table-striped jambo_table bulk_action">
@@ -80,7 +80,8 @@ $__foreach_value_2_saved = $_smarty_tpl->tpl_vars['value'];
                                                                         <?php if ($_smarty_tpl->tpl_vars['value']->key == 'description') {?> style="width:60%; padding-left:5px; padding-right:20px;"<?php }?>
                                                                         <?php if ($_smarty_tpl->tpl_vars['value']->key == 'author') {?> style="width:15%;"<?php }?>
                                                                         <?php if ($_smarty_tpl->tpl_vars['value']->key == 'password') {?> style="width:15%;"<?php }?>
-                                                                        <?php if ($_smarty_tpl->tpl_vars['value']->key == 'email') {?> style="width:27%;"<?php }?>>
+                                                                        <?php if ($_smarty_tpl->tpl_vars['value']->key == 'email') {?> style="width:27%;"<?php }?>
+                                                                        <?php if ($_smarty_tpl->tpl_vars['value']->key == 'name') {?> style="width:18%;"<?php }?>>
                         <input id="<?php echo $_smarty_tpl->tpl_vars['value']->key;?>
 " class="table_td-input" name="table_input-field" value="<?php echo $_smarty_tpl->tpl_vars['value']->value;?>
 " readonly="readonly"/>

@@ -6,13 +6,39 @@ require_once _ROOT . '/admin/functions/utility_functions.php';
 
 // Get all DB table elements
 function get_tagList(){
-     return selectQuery(TAB_TAGS, "", "id DESC");
+    $DBtags = selectQuery(TAB_TAGS, "", "id DESC");
+    $tags = array();
+    foreach($DBtags as $tag){
+        $id = $tag['id'];
+
+        $tag_elem = array();
+        $tag_elem['id'] = $id;
+        $tag_elem['label'] = $tag['label'];
+        $tag_elem['description'] = $tag['description'];
+        $categories = selectJoin(TAB_TAG_CAT, TAB_CATEGORIES, "category = id", "tag = $id");
+        if(count($categories) > 1){
+            $tag_elem['categories'] = "More";
+        }else{
+            $tag_elem['categories'] = $categories[0]['name'];
+        }
+        $tags[] = $tag_elem;
+    }
+    return $tags;
 }
 
 // Get a selected tags by id
 function get_tagById($id){
-    $query = selectRecord(TAB_TAGS, "id = $id");
-    return $query;
+    $DBtag = selectRecord(TAB_TAGS, "id = $id");
+    $tag = array();
+    $tag['id'] = $DBtag['id'];
+    $tag['label'] = $DBtag['label'];
+    $tag['description'] = $DBtag['description'];
+    $tag['categories'] = "";
+    $categories = selectJoin(TAB_TAG_CAT, TAB_CATEGORIES, "category = id", "tag = $id");
+    foreach($categories as $category) {
+        $tag['categories'] .= $category['name'] . ";";
+    }
+    return $tag;
 }
 
 // Get a selected tags by label
@@ -27,18 +53,22 @@ function get_tagsByCategory($category_id){
     return $query;
 }
 
-// Get an empty tag row
-function get_emptyTag(){
-    $result = array();
-    $result['id'] = 0;
-    $result['label'] = "example";
-    $result['description'] = "brief tag description";
-    return $result;
-}
-
 // Modify an existing tag
 function set_tag($data, $oldId){
-    $query = updateRecord(TAB_TAGS, $data, "id = $oldId");
+    $categories = explode(";", $data['categories']);
+    deleteRecord(TAB_TAG_CAT, "tag = $oldId");
+
+    $DBcategories = selectQuery(TAB_CATEGORIES, "", "name ASC");
+    foreach($categories as $category){
+        foreach($DBcategories as $DBcategory){
+            if(stristr($DBcategory['name'], $category)){
+                insertRecord(TAB_TAG_CAT, array("tag" => $data['id'], "category" => $DBcategory['id']));
+                break;
+            }
+        }
+    }
+
+    $query = updateRecord(TAB_TAGS, array("label" => $data['label'], "description" => $data['description']), "id = $oldId");
     return $query;
 }
 
@@ -91,11 +121,13 @@ function restructure_tag($list, $more){
             $result[$i]['id'] = $list[$i][0];
             $result[$i]['label'] = $list[$i][1];
             $result[$i]['description'] = $list[$i][2];
+            $result[$i]['categories'] = $list[$i][3];
         }
     }else{
         $result['id'] = $list[0];
         $result['label'] = $list[1];
         $result['description'] = $list[2];
+        $result['categories'] = $list[3];
     }
     return $result;
 }
@@ -106,16 +138,29 @@ function get_tagTableHeader(){
     $table_head[0] = "Id";
     $table_head[1] = "Label";
     $table_head[2] = "Description";
+    $table_head[3] = "Categories";
     return $table_head;
 }
 
 // Check tag fields to be insered
 function check_tagFields($data){
-    if(empty($data['id']) || empty($data['label']) || empty($data["description"]))
+    $flag = false;
+    if(empty($data['id']) || empty($data['label']) || empty($data["description"] || empty($data['categories'])))
         return "Empty field not allowed";
 
-    if(get_tagByLabel($data['label']))
-        return "Label already exists!";
+    $categories = explode(";", $data['categories']);
+    $DBcategories = selectQuery(TAB_CATEGORIES, "", "name ASC");
+    foreach($categories as $category){
+        $flag = false;
+        foreach($DBcategories as $DBcategory){
+            if(stristr($DBcategory['name'], $category)){
+                $flag = true;
+                break;
+            }
+        }
+    }
+    if(!$flag)
+        return "No match found for categories";
 
     return $data;
 }
@@ -125,6 +170,13 @@ function push_tagRowObject($data){
     $id = $data['id'];
     $label = $data['label'];
     $description = $data['description'];
+
+    $DBcategories = selectJoin(TAB_TAG_CAT, TAB_CATEGORIES, "category = id", "tag = $id");
+    if(count($DBcategories) > 1){
+        $categories = "More";
+    }else{
+        $categories = $DBcategories[0]['name'];
+    }
 
     $resultObject = '<tr class="even pointer" id="data_row" name="data_row" role="row">
                         <td class="a-center " name="table_td-checkbox">
@@ -137,11 +189,14 @@ function push_tagRowObject($data){
                         <td id="id" class=" " name="id" style="width:7%; margin-right:5px;">
                             <input id="id" class="table_td-input" name="table_input-field" value="'.$id.'" readonly="readonly"/>
                         </td>
-                        <td id="email" class=" " name="email">
-                            <input id="email" class="table_td-input" name="table_input-field" value="'.$label.'" readonly="readonly"/>
+                        <td id="label" class=" " name="label">
+                            <input id="label" class="table_td-input" name="table_input-field" value="'.$label.'" readonly="readonly"/>
                         </td>
-                        <td id="date" class=" " name="date">
-                            <input id="date" class="table_td-input" name="table_input-field" value="'.$description.'" readonly="readonly"/>
+                        <td id="description" class=" " name="description">
+                            <input id="description" class="table_td-input" name="table_input-field" value="'.$description.'" readonly="readonly"/>
+                        </td>
+                        <td id="categories" class=" " name="categories">
+                            <input id="categories" class="table_td-input" name="table_input-field" value="'.$categories.'" readonly="readonly"/>
                         </td>
                         <td class="table-operation" name="table_td-operation">
                             <a name="delete_button" href="#" onclick="select_operation(event, '.$id.')">

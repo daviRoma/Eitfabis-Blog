@@ -123,7 +123,6 @@ function add_comment(e){
                         $("#comments_current_page").val(1);
                         $("#number_of_comments").val(num_comments + 1);
                     }else{
-                        alert(response);
                         $("#no_comments").remove();
                         $("#c_container").append('<div id="comments_list"> </div>');
                         $("#comments_list").append(response).hide().fadeIn(800);

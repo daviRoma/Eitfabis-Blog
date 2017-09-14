@@ -24,7 +24,7 @@ if(isset($_GET['grserv'])){
 }
 
 if(isset($_POST['operation'])){
-    if($_POST['operation']){    // Edit
+    if($_POST['operation'] == 1){    // Edit
         if($_POST['grserv'] == 'group'){
             $id = $_POST['new_data'][0];
             $new_group = array("role" => $_POST['new_data'][1], "description" => $_POST['new_data'][2]);

@@ -209,3 +209,17 @@ function change_password(){
         }
     });
 }
+
+
+// Check fields for adding tag
+function add_newTag(){
+    var category = $("#categories").val();
+    var label = $("#set_tag_label").val();
+    var desc = $("#set_tag_description").val();
+
+    if(category == "default" || label =="" || desc == ""){
+        alert("All fields are mandatory!");
+        return false;
+    }
+    return true;
+}

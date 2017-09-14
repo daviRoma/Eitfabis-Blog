@@ -58,12 +58,14 @@ function set_upload($data, $oldId){
 function delete_upload($idList, $number){
     if($number == 1){
         $picture = selectRecord(TAB_UPLOADS, "id = $idList");
+        deleteRecord(TAB_ART_UPL, "upload = $idList");
         deleteRecord(TAB_UPLOADS, "id = $idList");
         unlink(_ROOT . "/" . $picture['file_address'] . $picture['file_name']);
     }else{
         for($i = 0; $i < count($idList); $i++){
             $id = $idList[$i];
             $picture = selectRecord(TAB_UPLOADS, "id = $id");
+            deleteRecord(TAB_ART_UPL, "upload = $id");
             deleteRecord(TAB_UPLOADS, "id = $id");
             unlink(_ROOT . "/" . $picture['file_address'] . $picture['file_name']);
         }
@@ -163,22 +165,22 @@ function push_uploadRowObject($data){
                         <td id="id" class=" " name="id" style="width:7%; margin-right:5px;">
                             <input id="id" class="table_td-input" name="table_input-field" value="'.$id.'" readonly="readonly"/>
                         </td>
-                        <td id="email" class=" " name="email">
+                        <td id="file_name" class=" " name="file_name">
                             <input id="email" class="table_td-input" name="table_input-field" value="'.$file_name.'" readonly="readonly"/>
                         </td>
-                        <td id="date" class=" " name="date">
+                        <td id="folder" class=" " name="folder" style="width:7%; padding-left:10px;">
                             <input id="date" class="table_td-input" name="table_input-field" value="'.$folder.'" readonly="readonly"/>
                         </td>
-                        <td id="date" class=" " name="date">
+                        <td id="address" class=" " name="address">
                             <input id="date" class="table_td-input" name="table_input-field" value="'.$address.'" readonly="readonly"/>
                         </td>
-                        <td id="date" class=" " name="date">
+                        <td id="gallery" class=" " name="gallery" style="width:7%; padding-left:27px;">
                             <input id="date" class="table_td-input" name="table_input-field" value="'.$gallery.'" readonly="readonly"/>
                         </td>
-                        <td id="date" class=" " name="date">
+                        <td id="name" class=" " name="name">
                             <input id="date" class="table_td-input" name="table_input-field" value="'.$name.'" readonly="readonly"/>
                         </td>
-                        <td id="date" class=" " name="date">
+                        <td id="description" class=" " name="description" style="width:60%; padding-left:5px; padding-right:20px;">
                             <input id="date" class="table_td-input" name="table_input-field" value="'.$description.'" readonly="readonly"/>
                         </td>
                         <td class="table-operation" name="table_td-operation">

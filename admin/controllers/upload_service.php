@@ -32,8 +32,8 @@ if(isset($_FILES["file"]["type"])){
                     $data['file_address'] = 'upload/other/';
                     $data['file_extension'] = $file_extension;
                     $data['gallery'] = 0;
-                    $data['name'] = "";
-                    $data['description'] = "";
+                    $data['name'] = "No name";
+                    $data['description'] = "No description";
                     insertRecord(TAB_UPLOADS, $data);
                 }
             }

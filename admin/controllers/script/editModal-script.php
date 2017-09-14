@@ -99,13 +99,6 @@ switch ($_POST['position']) {
             $smarty->assign('row', $tag);
             $smarty->assign('operation', "edit");
         }
-        if($_POST['operation'] == "add"){
-            $tag = get_emptyTag();
-            $head = get_tagTableHeader();
-            $smarty->assign('table_head', $head);
-            $smarty->assign('row', $tag);
-            $smarty->assign('operation', "add");
-        }
         break;
 
     default : break;

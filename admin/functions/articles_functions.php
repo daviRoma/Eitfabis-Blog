@@ -203,6 +203,7 @@ function delete_article($idList, $number){
         deleteRecord(TAB_USR_ART, "article = $idList");
         deleteRecord(TAB_ART_CAT, "article = $idList");
         deleteRecord(TAB_ART_TAG, "article = $idList");
+        deleteRecord(TAB_COMMENTS, "article = $idList");
         deleteRecord(TAB_ARTICLES, "id = $idList");
     }else{
         for($i = 0; $i < count($idList); $i++){
@@ -218,6 +219,7 @@ function delete_article($idList, $number){
             deleteRecord(TAB_USR_ART, "article = $id");
             deleteRecord(TAB_ART_CAT, "article = $id");
             deleteRecord(TAB_ART_TAG, "article = $id");
+            deleteRecord(TAB_COMMENTS, "article = $id");
             deleteRecord(TAB_ARTICLES, "id = $id");
         }
     }
